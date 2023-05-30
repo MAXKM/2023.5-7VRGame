@@ -22,6 +22,15 @@ public class NormalMonitorManager : MonoBehaviour
     //倒した数カウント
     private int monitorCount = 0;
 
+    //雑魚MonitorのMaterial
+    [SerializeField] Material[] color = new Material[8];
+
+    //雑魚のMeshRenderer
+    MeshRenderer meshRenderer;
+
+    //ゴールド敵出現確率
+    private int goldEnemyProbability = 1;
+
     //Awake関数でオブジェクトプールの初期化
     private void Awake()
     {
@@ -37,6 +46,9 @@ public class NormalMonitorManager : MonoBehaviour
         for(int i = 0;i < initialSize; i++)
         {
             GameObject obj = Instantiate(prefab,firstPos,Quaternion.identity);
+
+            meshRenderer = obj.GetComponent<MeshRenderer>();
+            meshRenderer.material = color[Random.Range(0, 7)];
 
             //最初のひとつだけ表示
             if (i == 0)
@@ -98,6 +110,22 @@ public class NormalMonitorManager : MonoBehaviour
 
         //オブジェクトの座標を初期化
         newObj.transform.position = firstPos;
+
+        //色を変更
+        meshRenderer = newObj.GetComponent<MeshRenderer>();
+
+        //確率でゴールド敵を出現
+        if (Random.Range(0,10) < goldEnemyProbability)
+        {
+            //7番目のマテリアルがゴールド
+            //マテリアルをゴールドに変更
+            meshRenderer.material = color[7]; 
+        }
+        else
+        {
+            //通常のモニターの色をランダムで変更
+            meshRenderer.material = color[Random.Range(0,7)];
+        }
 
         //オブジェクトを表示
         newObj.SetActive(true);
