@@ -19,6 +19,9 @@ public class NormalMonitorManager : MonoBehaviour
     //オブジェクトの出現座標
     Vector3 firstPos = new Vector3(0, 5, 0);
 
+    //倒した数カウント
+    private int monitorCount = 0;
+
     //Awake関数でオブジェクトプールの初期化
     private void Awake()
     {
@@ -50,6 +53,11 @@ public class NormalMonitorManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        Debug.Log(monitorCount);
+    }
+
     //オブジェクトをプールから取得
     private GameObject GetObjectFromPool()
     {
@@ -70,12 +78,21 @@ public class NormalMonitorManager : MonoBehaviour
     //いらなくなったオブジェクトをプールに戻す
     public void ReturnObjectToPool(GameObject obj)
     {
+        //敵を倒すたびにカウント
+        monitorCount++;
+
+        //非表示
         obj.SetActive(false);
     }
 
     //オブジェクトを新しく表示
     public void AppearanceObject()
     {
+        //19体倒すと出現しなくなる
+        if(monitorCount >= 19 - 1)
+        {
+            return;
+        }
         //オブジェクトプールから次に表示するオブジェクトを取得
         GameObject newObj = GetObjectFromPool();
 
