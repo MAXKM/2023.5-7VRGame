@@ -20,7 +20,7 @@ public class NormalMonitorManager : MonoBehaviour
     Vector3 firstPos = new Vector3(0, 5, 0);
 
     //“|‚µ‚½”ƒJƒEƒ“ƒg
-    private int monitorCount = 0;
+    public int monitorCount = 0;
 
     //G‹›Monitor‚ÌMaterial
     [SerializeField] Material[] color = new Material[8];
