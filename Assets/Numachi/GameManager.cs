@@ -19,9 +19,12 @@ public class GameManager : MonoBehaviour
 
     private STATE state;
 
+    public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
+
     private void Start()
     {
         state = STATE.ON_THE_WAY;
+        usableSkill = false;
     }
 
     void Update()
@@ -47,11 +50,14 @@ public class GameManager : MonoBehaviour
             case STATE.MIDDLE_BOSS:
 
                 Debug.Log("中ボスだよ");
+                usableSkill = true;
 
                 break;
 
             //大ボスの処理
             case STATE.LAST_BOSS:
+
+                usableSkill = true;
 
                 break;
 

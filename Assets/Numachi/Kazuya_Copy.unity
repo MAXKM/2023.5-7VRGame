@@ -123,6 +123,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &497027394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497027396}
+  - component: {fileID: 497027395}
+  m_Layer: 0
+  m_Name: GameInformation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &497027395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497027394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63388a1ef86052242b99f63f195fddae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinUpLevel: 0
+  goldEnemyProbabilityLevel: 5
+  bossBattleTimeLevel: 0
+  razerMagnificationLevel: 0
+  powerUpLevel: 0
+  powerUpTimeLevel: 0
+  laserNumLevel: 0
+  weakPointNumLevel: 0
+  weakPointMagnificationLevel: 0
+  numberOfPlays: 0
+  havingTotalCoin: 0
+--- !u!4 &497027396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497027394}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.463754, y: 0.06510258, z: 1.8938093}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &532194998
 GameObject:
   m_ObjectHideFlags: 0
@@ -197,6 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6780447454717321351, guid: 3e850c0457341b74599cb1ac49a44d0c, type: 3}
+  monitorCount: 0
   color:
   - {fileID: 2100000, guid: f5d902c1cd472fe488920e6a3e86508b, type: 2}
   - {fileID: 2100000, guid: 8cde620b89d530b458c605708d32419e, type: 2}
@@ -206,6 +262,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a2d650b60d4a36e46a663d73611de6e8, type: 2}
   - {fileID: 2100000, guid: ed62c06070a3137449cf7b966c884580, type: 2}
   - {fileID: 2100000, guid: 5716b1b922c04b441bbac62daa037c39, type: 2}
+  gameInformation: {fileID: 497027395}
 --- !u!4 &999742977
 Transform:
   m_ObjectHideFlags: 0

@@ -26,10 +26,12 @@ public class NormalMonitorManager : MonoBehaviour
     [SerializeField] Material[] color = new Material[8];
 
     //雑魚のMeshRenderer
-    MeshRenderer meshRenderer;
+    private MeshRenderer meshRenderer;
 
     //ゴールド敵出現確率
     private int goldEnemyProbability = 1;
+
+    [SerializeField] private GameInformation gameInformation;
 
     //Awake関数でオブジェクトプールの初期化
     private void Awake()
@@ -114,6 +116,9 @@ public class NormalMonitorManager : MonoBehaviour
         //色を変更
         meshRenderer = newObj.GetComponent<MeshRenderer>();
 
+        //ゴールド敵の確率を計算
+        goldEnemyProbability = GoldEnemyProbabilityCalculation(gameInformation.goldEnemyProbabilityLevel);
+
         //確率でゴールド敵を出現
         if (Random.Range(0,10) < goldEnemyProbability)
         {
@@ -140,4 +145,30 @@ public class NormalMonitorManager : MonoBehaviour
     //    yield return waitForSeconds;
     //    obj.GetComponent<BoxCollider>().enabled = true;
     //}
+
+    //ゴールド敵の確率を計算
+    private int GoldEnemyProbabilityCalculation(int level)
+    {
+        //レベル別に確率を計算
+        switch (level)
+        {
+            case 1:
+                goldEnemyProbability = 1;
+                break;
+            case 2:
+                goldEnemyProbability = 2;
+                break;
+            case 3:
+                goldEnemyProbability = 3;
+                break;
+            case 4:
+                goldEnemyProbability = 4;
+                break;
+            case 5:
+                goldEnemyProbability = 5;
+                break;
+        }
+
+        return goldEnemyProbability;
+    }
 }
