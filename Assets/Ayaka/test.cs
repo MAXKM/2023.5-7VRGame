@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverManager : MonoBehaviour
+public class test : MonoBehaviour
 {
+    public float timerCount;
+    public GameObject button;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,15 +17,14 @@ public class GameOverManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timerCount += Time.deltaTime;
+        if (timerCount >= 3.0f)
+        {
+            ButtonDisplay();
+        }
     }
-
-    public GameObject button;
-
-    //ボタンを表示させる関数
-    public void OnClickStartButton()
+    public void ButtonDisplay()
     {
-        //ボタン押されたらシーン遷移
-        SceneManager.LoadScene("StartScene");
+        button.SetActive(true);
     }
 }
