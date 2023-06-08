@@ -4,20 +4,25 @@ using UnityEngine;
 
 public class MonitorDetection : MonoBehaviour
 {
+    NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
     public bool Detection;
     private bool Detectionable;
+    GameObject monitor;
     // Start is called before the first frame update
     void Start()
     {
         Detection = false;
         Debug.Log(Detection);
         Detectionable = false;
+        monitor = transform.parent.gameObject;
     }
     private void OnTriggerEnter(Collider other)
     {
         Detectionable = true;
         if (other.gameObject.tag=="Hand" && Detectionable == true)
         {
+            normalMonitorManager.AppearanceObject();
+            normalMonitorManager.ReturnObjectToPool(monitor);
             Detection = true;
             Debug.Log(Detection);
         }
