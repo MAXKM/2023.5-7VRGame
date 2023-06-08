@@ -19,11 +19,10 @@ public class MonitorEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(monitordetection.Detection == true)
-        {
-            Destroy(this.gameObject);
-            Invoke("MonitorDestoryParticl", 0);
-        }
+        //if(monitordetection.Detection == true)
+        //{
+        //    //Destroy(this.gameObject);
+        //}
     }
 
     void MonitorMoving()
@@ -31,7 +30,7 @@ public class MonitorEffect : MonoBehaviour
         Monitor.transform.DOLocalMoveY(0f, 1f);
         Monitor.transform.DOScale(new Vector3(1f, 1f, 1f), 1f);
     }
-    void MonitorDestoryParticl()
+    public void MonitorDestoryParticl()
     {
         Destroy.Play();
     }

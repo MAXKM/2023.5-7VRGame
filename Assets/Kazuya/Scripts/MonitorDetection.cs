@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class MonitorDetection : MonoBehaviour
 {
-    NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
+    //NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
     public bool Detection;
     private bool Detectionable;
     GameObject monitor;
+    [SerializeField] MonitorEffect monitoreffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +22,10 @@ public class MonitorDetection : MonoBehaviour
         Detectionable = true;
         if (other.gameObject.tag=="Hand" && Detectionable == true)
         {
-            normalMonitorManager.AppearanceObject();
-            normalMonitorManager.ReturnObjectToPool(monitor);
+            //normalMonitorManager.AppearanceObject();
+            //normalMonitorManager.ReturnObjectToPool(monitor);
             Detection = true;
+            monitoreffect.MonitorDestoryParticl();
             Debug.Log(Detection);
         }
         
