@@ -9,7 +9,7 @@ public class MonitorDetection : MonoBehaviour
     private bool Detectionable;
     //SerializeFieldÇ…ïœçX
     [SerializeField] GameObject monitor;
-    [SerializeField] Test02 monitoreffect;
+    [SerializeField] MonitorEffect monitoreffect;
 
     //í«â¡
     MeshRenderer meshRenderer;
