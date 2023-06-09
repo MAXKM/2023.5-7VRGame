@@ -113,6 +113,12 @@ public class NormalMonitorManager : MonoBehaviour
         //オブジェクトの座標を初期化
         newObj.transform.position = firstPos;
 
+        //MeshREndererが非表示だったら表示させる
+        //if (!meshRenderer.enabled)
+        //{
+        //    meshRenderer.enabled = true;
+        //}
+
         //色を変更
         meshRenderer = newObj.GetComponent<MeshRenderer>();
 

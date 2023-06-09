@@ -8,6 +8,10 @@ public class Test02 : MonoBehaviour
     //public GameObject Monitor;
     MonitorDetection monitordetection;
     [SerializeField] ParticleSystem Destroy;
+
+    //’Ç‰Á
+    [SerializeField] MeshRenderer meshRenderer;
+    //
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,10 @@ public class Test02 : MonoBehaviour
     //*’Ç‰Á*
     private void OnEnable()
     {
+        if (!meshRenderer.enabled)
+        {
+            meshRenderer.enabled = true;
+        }
         MonitorMoving();
     }
 

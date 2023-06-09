@@ -12,6 +12,10 @@ public class Test01 : MonoBehaviour
     //SerializeFieldÇ…ïœçX
     [SerializeField] GameObject monitor;
     [SerializeField] Test02 monitoreffect;
+
+    //í«â¡
+    MeshRenderer meshRenderer;
+    //
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +29,19 @@ public class Test01 : MonoBehaviour
         Detectionable = true;
         if (other.gameObject.tag == "Hand" && Detectionable == true)
         {
-            normalMonitorManager.AppearanceObject();
-            normalMonitorManager.ReturnObjectToPool(monitor);
-            Detection = true;
+            //í«â¡
+            if (meshRenderer == null)
+            {
+                meshRenderer = monitor.gameObject.GetComponent<MeshRenderer>();
+            }
+            meshRenderer.enabled = false;
+            //
             monitoreffect.MonitorDestoryParticl();
+            normalMonitorManager.AppearanceObject();
+            //í«â¡
+            StartCoroutine(HideCoroutine());
+            //
+            Detection = true;
             Debug.Log(Detection);
         }
 
@@ -43,5 +56,14 @@ public class Test01 : MonoBehaviour
         }
     }
 
+    //í«â¡
+    WaitForSeconds hideWait = new WaitForSeconds(0.7f);
+
+    IEnumerator HideCoroutine()
+    {
+        yield return hideWait;
+        normalMonitorManager.ReturnObjectToPool(monitor);
+    }
+    //
 }
 
