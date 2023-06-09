@@ -7,8 +7,13 @@ public class MonitorDetection : MonoBehaviour
     NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
     public bool Detection;
     private bool Detectionable;
-    GameObject monitor;
-    [SerializeField] MonitorEffect monitoreffect;
+    //SerializeFieldÇ…ïœçX
+    [SerializeField] GameObject monitor;
+    [SerializeField] Test02 monitoreffect;
+
+    //í«â¡
+    MeshRenderer meshRenderer;
+    //
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +25,24 @@ public class MonitorDetection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Detectionable = true;
-        if (other.gameObject.tag=="Hand" && Detectionable == true)
+        if (other.gameObject.tag == "Hand" && Detectionable == true)
         {
-            normalMonitorManager.AppearanceObject();
-            normalMonitorManager.ReturnObjectToPool(monitor);
-            Detection = true;
+            //í«â¡
+            if (meshRenderer == null)
+            {
+                meshRenderer = monitor.gameObject.GetComponent<MeshRenderer>();
+            }
+            meshRenderer.enabled = false;
+            //
             monitoreffect.MonitorDestoryParticl();
+            normalMonitorManager.AppearanceObject();
+            //í«â¡
+            StartCoroutine(HideCoroutine());
+            //
+            Detection = true;
             Debug.Log(Detection);
         }
-        
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -39,5 +53,14 @@ public class MonitorDetection : MonoBehaviour
             Debug.Log(Detection);
         }
     }
-    
+
+    //í«â¡
+    WaitForSeconds hideWait = new WaitForSeconds(0.7f);
+
+    IEnumerator HideCoroutine()
+    {
+        yield return hideWait;
+        normalMonitorManager.ReturnObjectToPool(monitor);
+    }
+    //
 }
