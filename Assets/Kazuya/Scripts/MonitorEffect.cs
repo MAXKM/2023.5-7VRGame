@@ -33,6 +33,8 @@ public class MonitorEffect : MonoBehaviour
             meshRenderer.enabled = true;
         }
         MonitorMoving();
+        counttext.gameObject.SetActive(true);
+        CountText();
     }
 
     // Update is called once per frame
