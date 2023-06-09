@@ -9,15 +9,16 @@ public class Test01 : MonoBehaviour
     NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
     public bool Detection;
     private bool Detectionable;
-
-    GameObject monitor;
+    //SerializeField�ɕύX
+    [SerializeField] GameObject monitor;
+    [SerializeField] Test02 monitoreffect;
     // Start is called before the first frame update
     void Start()
     {
-        monitor = transform.parent.gameObject;
         Detection = false;
         Debug.Log(Detection);
         Detectionable = false;
+        monitor = transform.parent.gameObject;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +28,7 @@ public class Test01 : MonoBehaviour
             normalMonitorManager.AppearanceObject();
             normalMonitorManager.ReturnObjectToPool(monitor);
             Detection = true;
+            monitoreffect.MonitorDestoryParticl();
             Debug.Log(Detection);
         }
 
