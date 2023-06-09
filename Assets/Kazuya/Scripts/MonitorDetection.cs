@@ -37,6 +37,7 @@ public class MonitorDetection : MonoBehaviour
             //
             monitoreffect.MonitorDestoryParticl();
             normalMonitorManager.AppearanceObject();
+            monitoreffect.CountText();
             //’Ç‰Á
             StartCoroutine(HideCoroutine());
             //

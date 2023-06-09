@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
 
 public class MonitorEffect : MonoBehaviour
 {
     //public GameObject Monitor;
+    NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
     MonitorDetection monitordetection;
     [SerializeField] ParticleSystem Destroy;
+    [SerializeField] TextMeshProUGUI counttext;
 
     //’Ç‰Á
     [SerializeField] MeshRenderer meshRenderer;
@@ -49,5 +52,10 @@ public class MonitorEffect : MonoBehaviour
     public void MonitorDestoryParticl()
     {
         Destroy.Play();
+    }
+
+    public void CountText()
+    {
+        counttext.text = normalMonitorManager.monitorCount.ToString();
     }
 }
