@@ -22,6 +22,7 @@ public class MonitorDetection : MonoBehaviour
         Debug.Log(Detection);
         Detectionable = false;
         monitor = transform.parent.gameObject;
+        monitoreffect.CountText();
     }
     private void OnTriggerEnter(Collider other)
     {
