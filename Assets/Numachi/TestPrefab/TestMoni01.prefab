@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Destroy: {fileID: 5837986892842016469}
+  counttext: {fileID: 6893512645127638375}
   meshRenderer: {fileID: 7062555952827299864}
 --- !u!1001 &7106896834531566612
 PrefabInstance:
