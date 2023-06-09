@@ -37,8 +37,9 @@ public class MonitorDetection : MonoBehaviour
             meshRenderer.enabled = false;
             //
             monitoreffect.MonitorDestoryParticl();
-            normalMonitorManager.AppearanceObject();
             monitoreffect.CountText();
+            normalMonitorManager.AppearanceObject();
+          
             //’Ç‰Á
             StartCoroutine(HideCoroutine());
             //
