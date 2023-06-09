@@ -58,4 +58,9 @@ public class MonitorEffect : MonoBehaviour
     {
         counttext.text = normalMonitorManager.monitorCount.ToString();
     }
+
+    public void HideText()
+    {
+        counttext.gameObject.SetActive(false);
+    }
 }

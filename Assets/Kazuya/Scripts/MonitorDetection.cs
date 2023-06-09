@@ -35,6 +35,7 @@ public class MonitorDetection : MonoBehaviour
                 meshRenderer = monitor.gameObject.GetComponent<MeshRenderer>();
             }
             meshRenderer.enabled = false;
+            monitoreffect.HideText();
             //
             monitoreffect.MonitorDestoryParticl();
             monitoreffect.CountText();
