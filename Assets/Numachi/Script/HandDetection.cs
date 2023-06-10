@@ -14,10 +14,23 @@ public class HandDetection : MonoBehaviour
     //ｎ秒強化状態化を判定
     public bool strengthenMode;
 
+    //手のTransform
+    [SerializeField] Transform rightHandTf,leftHandTf;
+
+    //手の座標
+    Vector3 rightHandPos,leftHandPos;
+
+    //ロケット発動のトリガーポイント
+    const float ROCKET_ACTIVATION_POINT = 0.3f;
+
+    //ロケット発動状態を判定
+    public bool rocketMode;
+
     private void Start()
     {
         attackable = false;
         strengthenMode = false;
+        rocketMode = false;
     }
 
     private void Update()
@@ -31,6 +44,17 @@ public class HandDetection : MonoBehaviour
         {
             attackable = false;
         }
+
+        //HandPosに両手の座標を代入
+        rightHandPos = rightHandTf.localPosition;
+        leftHandPos = leftHandTf.localPosition;
+
+        //両手の高さがロケットのトリガーポイントを超えたらロケット発動
+        if(rightHandPos.y > ROCKET_ACTIVATION_POINT && leftHandPos.y > ROCKET_ACTIVATION_POINT)
+        {
+            rocketMode = true;
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
