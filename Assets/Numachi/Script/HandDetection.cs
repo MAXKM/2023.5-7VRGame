@@ -5,35 +5,40 @@ using Oculus;
 
 public class HandDetection : MonoBehaviour
 {
-    [SerializeField] Material red,yellow;
     MeshRenderer meshRenderer;
 
-    private bool isAttackable;
+    //攻撃可能か、スキル発動可能かを判別
+    //中指のトリガーを押すことでtrue
+    private bool attackable;
+
+    //ｎ秒強化状態化を判定
+    public bool strengthenMode;
 
     private void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        attackable = false;
+        strengthenMode = false;
     }
 
     private void Update()
     {
+        //右中指のトリガーを押したら
         if (OVRInput.Get(OVRInput.RawButton.RHandTrigger))
         {
-            isAttackable = true;
+            attackable = true;
         }
         else
         {
-            isAttackable = false;
+            attackable = false;
         }
-        Debug.Log(isAttackable);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "hand" && isAttackable)
+        if(other.gameObject.tag == "hand" && attackable)
         {
-            meshRenderer.material = red;
-            Debug.Log("hit");
+            //n秒強化状態に入る
+            strengthenMode = true;
         }
     }
 }
