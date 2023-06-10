@@ -7,6 +7,8 @@ public class SkillEffectManager : MonoBehaviour
 {
     [SerializeField] HandDetection handDetection;
 
+    [SerializeField] GameInformation gameInformation;
+
     //左右両方のMeshRenderer
     [SerializeField] MeshRenderer meshRendererR,meshRendererL;
 
@@ -14,22 +16,41 @@ public class SkillEffectManager : MonoBehaviour
     [SerializeField] Material strengthenColor,normalColor;
 
     //n秒強化時の秒数
-    [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI timeText,rocketText;
 
     //残り秒数
-    float reminingSeconds = 0;
+    private float reminingSeconds = 0;
 
     //レベル別制限時間
-    float limitSeconds = 1.5f;
+    private float limitSeconds;
+
+    //レベル別ロケット残数
+    private int rocketNum;
+
+    //Update関数内で残数を1だけ減らすためのフラグ変数
+    private bool isDecrease = false;
 
     private void Start()
     {
+        //初期状態はテキストを非表示
         timeText.gameObject.SetActive(false);
+        rocketText.gameObject.SetActive(false);
+
+        //レベル別制限時間を取得
+        limitSeconds = LimitTimeCalculation(gameInformation.powerUpTimeLevel);
+
+        //ロケットの残数を計算
+        rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
     }
     private void Update()
     {
         if (handDetection.strengthenMode)
         {
+            if(gameInformation.powerUpTimeLevel < 2)
+            {
+                return;
+            }
+
             //時間計測開始
             reminingSeconds += Time.deltaTime;
 
@@ -38,27 +59,38 @@ public class SkillEffectManager : MonoBehaviour
 
             //テキストを表示
             DisplayTimeText(handDetection.strengthenMode);
+
+            if (limitSeconds - reminingSeconds <= 0)
+            {
+                //0秒になったら強化状態終了
+                handDetection.strengthenMode = false;
+                FinishStregnthenMode();
+
+                //テキストを非表示
+                DisplayTimeText(handDetection.strengthenMode);
+            }
         }
 
-        if(limitSeconds - reminingSeconds <= 0)
+        if (handDetection.rocketMode)
         {
-            //0秒になったら強化状態終了
-            handDetection.strengthenMode = false;
-            FinishStregnthenMode();
-
-            //テキストを非表示
-            DisplayTimeText(handDetection.strengthenMode);
+            RocketLaunch();
         }
+        else
+        {
+            isDecrease = false;
+        }
+        Debug.Log(rocketNum);
     }
 
-    void DisplayTimeText(bool strMode)
+    //テキストの表示/非表示
+    private void DisplayTimeText(bool strMode)
     {
         timeText.gameObject.SetActive(strMode);
-        timeText.text = reminingSeconds.ToString("n2");
+        timeText.text = (limitSeconds - reminingSeconds).ToString("n2");
     }
 
     //強化状態の処理
-    void StartStrengthenMode()
+    private void StartStrengthenMode()
     {
         //両手を赤に変更
         meshRendererL.material = strengthenColor;
@@ -66,10 +98,85 @@ public class SkillEffectManager : MonoBehaviour
     }
 
     //強化状態終了の処理
-    void FinishStregnthenMode()
+    private void FinishStregnthenMode()
     {
         //両手を白に変更
         meshRendererL.material = normalColor;
         meshRendererR.material = normalColor;
+    }
+
+    //レベル別の制限時間を計算
+    private float LimitTimeCalculation(int level)
+    {
+        //レベル別に制限時間を計算
+        switch (level)
+        {
+            case 1:
+                limitSeconds = 0;
+                break;
+            case 2:
+                limitSeconds = 1.5f;
+                break;
+            case 3:
+                limitSeconds = 3f;
+                break;
+            case 4:
+                limitSeconds = 4.5f;
+                break;
+            case 5:
+                limitSeconds = 6f;
+                break;
+        }
+
+        return limitSeconds;
+    }
+
+    //ロケット発動
+    private void RocketLaunch()
+    {
+        //残数が0だったら発動しない
+        if(rocketNum <= 0)
+        {
+            return;
+        }
+
+        //ロケット発動処理
+        rocketText.gameObject.SetActive(true);
+        rocketText.text = "Rocket!!";
+
+        //残数を減らす
+        if (!isDecrease)
+        {
+            isDecrease = true;
+            rocketNum--;
+        }
+
+        //ロケット状態を停止（テスト）
+        StartCoroutine(RocketTest());
+    }
+
+    //テスト用
+    IEnumerator RocketTest()
+    {
+        yield return new WaitForSeconds(3f);
+        rocketText.gameObject.SetActive(false);
+        handDetection.rocketMode = false;
+    }
+
+    //ロケット残数を計算
+    private int RocketNumCaluclation(int level)
+    {
+        //最大残数
+        int max = 3;
+
+        //レベル別に残数を計算
+        for(int i = 1;i < max + 1; i++)
+        {
+            if(level == i)
+            {
+                rocketNum = i - 1;
+            }
+        }
+        return rocketNum;
     }
 }
