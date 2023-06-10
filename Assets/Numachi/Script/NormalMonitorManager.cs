@@ -14,13 +14,13 @@ public class NormalMonitorManager : MonoBehaviour
     private List<GameObject> objectPool;
 
     //プールする個数
-    private const int initialSize = 2;
+    private const int initialSize = 1;
 
     //オブジェクトの出現座標
     Vector3 firstPos = new Vector3(0, 5, 0);
 
-    //倒した数カウント
-    public int monitorCount = 0;
+    //何体目の敵かをカウント
+    public int monitorCount = 1;
 
     //雑魚MonitorのMaterial
     [SerializeField] Material[] color = new Material[8];
@@ -32,6 +32,11 @@ public class NormalMonitorManager : MonoBehaviour
     private int goldEnemyProbability = 1;
 
     [SerializeField] private GameInformation gameInformation;
+
+    private void Start()
+    {
+        monitorCount = 1;
+    }
 
     //Awake関数でオブジェクトプールの初期化
     private void Awake()
@@ -92,9 +97,6 @@ public class NormalMonitorManager : MonoBehaviour
     //いらなくなったオブジェクトをプールに戻す
     public void ReturnObjectToPool(GameObject obj)
     {
-        //敵を倒すたびにカウント
-        monitorCount++;
-
         //非表示
         obj.SetActive(false);
     }
@@ -102,8 +104,11 @@ public class NormalMonitorManager : MonoBehaviour
     //オブジェクトを新しく表示
     public void AppearanceObject()
     {
+        //何体目かをカウント
+        monitorCount++;
+
         //19体倒すと出現しなくなる
-        if(monitorCount >= 19 - 1)
+        if(monitorCount > 19)
         {
             return;
         }
