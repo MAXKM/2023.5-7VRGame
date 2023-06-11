@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     public KariInfo gameinformation;
+    //public GameInformation gameinformation;
     //public MonitorDetection monitordetection;
     //public BossMonitorManager bossmonitormager;
     //public HandDetection handdetection;
