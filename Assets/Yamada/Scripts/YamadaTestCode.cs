@@ -10,7 +10,7 @@ public class YamadaTestCode : MonoBehaviour
     [SerializeField] HPGauge _gauge;
     void Start()
     {
-        
+        _gauge.Set(100);
     }
 
     float ranDamage = 0, ranX = 0f, ranY = 0f;
@@ -19,8 +19,8 @@ public class YamadaTestCode : MonoBehaviour
         if (Input.anyKeyDown)
         {
             ranDamage = Random.Range(1, 20);
-            ranX = Random.Range(-2f, 2f);
-            ranY = Random.Range(-2f, 2f);
+            ranX = Random.Range(-1f, 1f);
+            ranY = Random.Range(0, 1f);
             _damage.Active(new Vector3(ranX, ranY, 0), ranDamage);
             _gauge.GaugeReduction(ranDamage);
         }

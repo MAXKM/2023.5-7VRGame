@@ -18,7 +18,7 @@ public class DamagePopUpText : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    Color resetCol = new Color(1, 1, 1, 1);
+    Color resetCol = new Color(0, 0, 0, 1);
     public void Init(Vector3 pos, float damage)
     {
         rectTransform.localPosition = pos;
@@ -29,12 +29,12 @@ public class DamagePopUpText : MonoBehaviour
         // DOTweenのシーケンスを作成
         var sequence = DOTween.Sequence();
         _text.color = resetCol;
-        sequence.Append(rectTransform.DOScale(0.8f, 0.01f));
+        sequence.Append(rectTransform.DOScale(new Vector3(-0.8f, 0.8f, 0.8f), 0.01f));
 
         _text.text = damage.ToString();
 
         // 最初に拡大表示する
-        sequence.Append(rectTransform.DOScale(1.0f, 0.5f));
+        sequence.Append(rectTransform.DOScale(new Vector3(-1f, 1f, 1f), 0.5f));
 
         // 次に上へ移動させる
         sequence.Append(rectTransform.DOMoveY(0.05f, 1f).SetRelative());
