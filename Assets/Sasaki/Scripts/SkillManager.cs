@@ -6,11 +6,13 @@ public class SkillManager : MonoBehaviour
 {
     //public KariInfo gameinformation;
     public GameInformation gameinformation;
+    [SerializeField] DamagePopUpTextManager damagepopuptextmanager;
     //public MonitorDetection monitordetection;
     //public BossMonitorManager bossmonitormager;
-    public HandDetection handdetection;
+    //public HandDetection handdetection;
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
     float PowerdLimit=0;
+    Vector3 vv;
     float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
     bool powerd;        //仮：攻撃力強化状態か(HandDetectionから受け取る)
@@ -21,61 +23,63 @@ public class SkillManager : MonoBehaviour
     void Start()
     {
 
-        a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
-        b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
-        PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
+        //a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
+        //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
+        //PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
 
         //弱点などの切り替え
         //DDecision = true;
-        BDecision = true;
+        //BDecision = true;
         //weakpoint = true;
-        powerd = false;
+        //powerd = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        powerd = handdetection.strengthenMode;
-        if (DDecision == true)  //道中の当たり判定が来たら
-        {
-            Damage = DDamage();
-            Debug.Log(Damage);
-        }
+        //powerd = handdetection.strengthenMode;
 
-        if (BDecision == true)  //ボスの当たり判定が来たら
-        {
-            Damage = BDamage();
-            Debug.Log(Damage);
-        }
-        
+        //if (DDecision == true)  //道中の当たり判定が来たら
+        //{
+        //    Damage = DDamage();
+        //    Debug.Log(Damage);
+        //}
+
+        //if (BDecision == true)  //ボスの当たり判定が来たら
+        //{
+        //    Damage = BDamage();
+        //    Debug.Log(Damage);
+        //}
+
     }
 
-    private float DDamage()  //道中のダメージ計算
+    public void DDamage(float Distance)  //道中のダメージ計算
     {
-        Damage = a; //*Distance
-        return Damage;
+        Damage = a * Distance;
+        damagepopuptextmanager.Active(vv, Damage);
     }
 
-    private float BDamage()  //ボスのダメージ計算
+    public void BDamage(float Distance)  //ボスのダメージ計算
     {
         if(weakpoint == true && powerd == true)     //弱点かつ強化バフあり
         {
-            Damage = a * b * c;//*Distance
+            Damage = a * b * c * Distance;
         }
         else if(weakpoint==true && powerd == false)     //弱点あり
         {
-            Damage = a * b;//*Distance
+            Damage = a * b * Distance;
         }
         else if(weakpoint == false && powerd == true)       //強化バフあり
         {
-            Damage = a * c;//*Distance
+            Damage = a * c * Distance;
         }
         else        //デフォルト
         {
-            Damage = a;//*Distance
+            Damage = a * Distance;
         }
-        return Damage;
+
+        damagepopuptextmanager.Active(vv, Damage);
     }
 
     private float PunchPower(int level)

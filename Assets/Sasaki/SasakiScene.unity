@@ -207,6 +207,61 @@ Transform:
   m_Father: {fileID: 414041765}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &171559769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171559771}
+  - component: {fileID: 171559770}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &171559770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171559769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63388a1ef86052242b99f63f195fddae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinUpLevel: 0
+  goldEnemyProbabilityLevel: 0
+  bossBattleTimeLevel: 0
+  rocketMagnificationLevel: 0
+  powerUpLevel: 0
+  powerUpTimeLevel: 0
+  rocketNumLevel: 0
+  weakPointNumLevel: 0
+  weakPointMagnificationLevel: 0
+  numberOfPlays: 0
+  havingTotalCoin: 0
+--- !u!4 &171559771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171559769}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.943317, y: -1.6382022, z: 6.4125166}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &382922244
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,8 +273,8 @@ GameObject:
   - component: {fileID: 382922246}
   - component: {fileID: 382922245}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: SkillM
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: becc32cf19e59e744a1cfa20a9a921e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameinformation: {fileID: 2083779762}
+  gameinformation: {fileID: 171559770}
+  damagepopuptextmanager: {fileID: 0}
 --- !u!4 &382922246
 Transform:
   m_ObjectHideFlags: 0
