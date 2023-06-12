@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-    public KariInfo gameinformation;
-    //public GameInformation gameinformation;
+    //public KariInfo gameinformation;
+    public GameInformation gameinformation;
     //public MonitorDetection monitordetection;
     //public BossMonitorManager bossmonitormager;
-    //public HandDetection handdetection;
+    public HandDetection handdetection;
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
+    float PowerdLimit=0;
     float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
     bool powerd;        //仮：攻撃力強化状態か(HandDetectionから受け取る)
@@ -22,18 +23,20 @@ public class SkillManager : MonoBehaviour
 
         a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
         b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
+        PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
 
         //弱点などの切り替え
         //DDecision = true;
         BDecision = true;
         //weakpoint = true;
-        powerd = true;
+        powerd = false;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        powerd = handdetection.strengthenMode;
         if (DDecision == true)  //道中の当たり判定が来たら
         {
             Damage = DDamage();
@@ -121,5 +124,29 @@ public class SkillManager : MonoBehaviour
                 break;
         }
         return b;
+    }
+
+    private float PowerTimeLimit(int level)
+    {
+        //弱点倍率レベルで倍率を変える
+        switch (level)
+        {
+            case 1:
+                PowerdLimit = 0;
+                break;
+            case 2:
+                PowerdLimit = 1.5f;
+                break;
+            case 3:
+                PowerdLimit = 3;
+                break;
+            case 4:
+                PowerdLimit = 4.5f;
+                break;
+            case 5:
+                PowerdLimit = 6;
+                break;
+        }
+        return PowerdLimit;
     }
 }
