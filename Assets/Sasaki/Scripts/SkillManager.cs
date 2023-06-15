@@ -54,6 +54,11 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    public void PowerUP()
+    {
+        powerd = true;
+    }
+
     public void DDamage(float Distance)  //道中のダメージ計算
     {
         Damage = a * Distance;
