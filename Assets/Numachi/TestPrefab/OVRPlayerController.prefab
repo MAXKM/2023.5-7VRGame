@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 3093407111442162737}
   m_Layer: 0
   m_Name: HandDetectionLeft
-  m_TagString: hand
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 3093407111743808181}
   m_Layer: 0
   m_Name: HandDetectionRight
-  m_TagString: hand
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,6 +262,8 @@ MonoBehaviour:
   rightHandTf: {fileID: 3093407111940099308}
   leftHandTf: {fileID: 3093407111940103298}
   rocketMode: 0
+  distanceRight: 0
+  distanceLeft: 0
 --- !u!114 &3093407111743808181
 MonoBehaviour:
   m_ObjectHideFlags: 0
