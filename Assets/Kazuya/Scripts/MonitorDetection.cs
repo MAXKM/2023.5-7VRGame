@@ -5,6 +5,8 @@ using UnityEngine;
 public class MonitorDetection : MonoBehaviour
 {
     NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
+    HandDetection handdetection;
+    SkillManager skillmanager;
     public bool Detection;
     private bool Detectionable;
     //SerializeFieldに変更
@@ -23,6 +25,8 @@ public class MonitorDetection : MonoBehaviour
         Detectionable = false;
         monitor = transform.parent.gameObject;
         monitoreffect.CountText();
+        GameObject obj = GameObject.FindGameObjectWithTag("GameController");
+        skillmanager = obj.GetComponent<SkillManager>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -36,7 +40,8 @@ public class MonitorDetection : MonoBehaviour
             }
             meshRenderer.enabled = false;
             monitoreffect.HideText();
-            //
+            //SkillManagerに接触通知を送る、距離の値を送る
+            skillmanager.DDamage(handdetection.distanceLeft + handdetection.distanceRight);
             monitoreffect.MonitorDestoryParticl();
             monitoreffect.CountText();
             normalMonitorManager.AppearanceObject();
