@@ -31,7 +31,7 @@ public class MonitorDetection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Detectionable = true;
-        if (other.gameObject.tag == "Hand" && Detectionable == true)
+        if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
             //’Ç‰Á
             if (meshRenderer == null)
@@ -41,7 +41,15 @@ public class MonitorDetection : MonoBehaviour
             meshRenderer.enabled = false;
             monitoreffect.HideText();
             //SkillManager‚ÉÚG’Ê’m‚ğ‘—‚éA‹——£‚Ì’l‚ğ‘—‚é
-            skillmanager.DDamage(handdetection.distanceLeft + handdetection.distanceRight);
+            if (other.gameObject.tag == "LeftHand" ){
+                handdetection = other.gameObject.GetComponent<HandDetection>();
+                skillmanager.DDamage(handdetection.distanceLeft) ;
+            }else if(other.gameObject.tag == "RightHand")
+            {
+                handdetection = other.gameObject.GetComponent<HandDetection>();
+                skillmanager.DDamage(handdetection.distanceRight);
+            }
+            handdetection.ResetDistance();
             monitoreffect.MonitorDestoryParticl();
             monitoreffect.CountText();
             normalMonitorManager.AppearanceObject();
