@@ -66,8 +66,8 @@ public class HandDetection : MonoBehaviour
 
         distanceRight = DistanceCalculationRight(distanceRight);
         distanceLeft = DistanceCaluculationLeft(distanceLeft);
-        Debug.Log("‰E‹——£" + distanceRight);
-        Debug.Log("¶‹——£" + distanceLeft);
+        //Debug.Log("‰E‹——£" + distanceRight);
+        //Debug.Log("¶‹——£" + distanceLeft);
 
     }
 

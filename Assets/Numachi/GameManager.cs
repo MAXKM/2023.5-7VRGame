@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
         GAME_OVER　//ゲームオーバー
     }
 
+    //ゲームの開始を合図するbool変数
+    public bool gameStart;
+
     [SerializeField] NormalMonitorManager normalMonitorManager;
 
     private STATE state;
@@ -23,8 +26,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        state = STATE.ON_THE_WAY;
+        state = STATE.TITLE;
         usableSkill = false;
+        gameStart = false;
     }
 
     void Update()
@@ -35,10 +39,21 @@ public class GameManager : MonoBehaviour
             //titleの処理
             case STATE.TITLE:
 
+                //ゲーム開始の合図が出されたら道中へ移行
+                if (gameStart)
+                {
+                    state = STATE.ON_THE_WAY;
+                }
+
                 break;
 
             //道中の処理
             case STATE.ON_THE_WAY:
+
+                //NormalMonitorManagerによるモニターの生成開始
+                normalMonitorManager.gameObject.SetActive(true);
+
+                //19体目を倒したらボス戦へ移行
                 if(normalMonitorManager.monitorCount == 19)
                 {
                     state = STATE.MIDDLE_BOSS;
@@ -71,5 +86,6 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
+        Debug.Log(state);
     }
 }
