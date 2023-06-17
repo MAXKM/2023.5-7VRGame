@@ -5,9 +5,12 @@ using UnityEngine;
 public class FirstMonitor : MonoBehaviour
 {
     [SerializeField]GameManager gameManager;
+    [SerializeField]NormalMonitorManager normalMonitorManager;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        //gameManager.ä÷êîñº();
+        gameManager.gameStart = true;
+        normalMonitorManager.monitorCount++;
+        normalMonitorManager.ReturnObjectToPool(this.gameObject);
     }
 }
