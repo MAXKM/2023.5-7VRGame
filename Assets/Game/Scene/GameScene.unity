@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3093407111442162739, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: m_TagString
-      value: Hand
+      value: LeftHand
       objectReference: {fileID: 0}
     - target: {fileID: 3093407111743808138, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: m_TagString
-      value: Hand
+      value: RightHand
       objectReference: {fileID: 0}
     - target: {fileID: 3093407111743808180, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: m_Enabled
@@ -196,6 +196,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1b030c2140698a4ab003555b987128b, type: 3}
+--- !u!1 &294561380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294561382}
+  - component: {fileID: 294561383}
+  m_Layer: 0
+  m_Name: SkillManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294561382
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294561380}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.9318175, y: -2.0724027, z: 2.6647859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &294561383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294561380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becc32cf19e59e744a1cfa20a9a921e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameinformation: {fileID: 497027395}
 --- !u!1 &497027394
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +756,7 @@ GameObject:
   - component: {fileID: 2075020950}
   m_Layer: 0
   m_Name: Hand
-  m_TagString: Hand
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

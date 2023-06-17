@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillManager : MonoBehaviour
+public class Test03 : MonoBehaviour
 {
     //public KariInfo gameinformation;
     public GameInformation gameinformation;
@@ -11,7 +11,7 @@ public class SkillManager : MonoBehaviour
     //public BossMonitorManager bossmonitormager;
     //public HandDetection handdetection;
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
-    float PowerdLimit=0;
+    float PowerdLimit = 0;
     Vector3 vv;
     float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
@@ -32,7 +32,7 @@ public class SkillManager : MonoBehaviour
         //BDecision = true;
         //weakpoint = true;
         //powerd = false;
-        
+
     }
 
     // Update is called once per frame
@@ -67,15 +67,15 @@ public class SkillManager : MonoBehaviour
 
     public void BDamage(float Distance)  //ボスのダメージ計算
     {
-        if(weakpoint == true && powerd == true)     //弱点かつ強化バフあり
+        if (weakpoint == true && powerd == true)     //弱点かつ強化バフあり
         {
             Damage = a * b * c * Distance;
         }
-        else if(weakpoint==true && powerd == false)     //弱点あり
+        else if (weakpoint == true && powerd == false)     //弱点あり
         {
             Damage = a * b * Distance;
         }
-        else if(weakpoint == false && powerd == true)       //強化バフあり
+        else if (weakpoint == false && powerd == true)       //強化バフあり
         {
             Damage = a * c * Distance;
         }
