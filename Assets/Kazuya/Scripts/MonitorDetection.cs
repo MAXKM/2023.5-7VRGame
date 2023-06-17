@@ -42,7 +42,8 @@ public class MonitorDetection : MonoBehaviour
             monitoreffect.HideText();
             //SkillManager‚ÉÚG’Ê’m‚ğ‘—‚éA‹——£‚Ì’l‚ğ‘—‚é
             if (other.gameObject.tag == "LeftHand" ){
-                handdetection = other.gameObject.GetComponent<HandDetection>();
+                GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
+                handdetection = obj.GetComponent<HandDetection>();
                 skillmanager.DDamage(handdetection.distanceLeft) ;
             }else if(other.gameObject.tag == "RightHand")
             {
