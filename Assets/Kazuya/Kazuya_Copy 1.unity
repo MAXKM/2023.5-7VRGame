@@ -275,7 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1820234611}
   normalMonitorManager: {fileID: 999742976}
-  Destroy: {fileID: 5476568030354915410, guid: 6bf5fb234960bd244afc52f88b1c0e4b, type: 3}
+  Destroy: {fileID: 940965207}
 --- !u!65 &419664999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -458,6 +458,11 @@ Transform:
 --- !u!4 &940965205 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1302561306493693048, guid: 6bf5fb234960bd244afc52f88b1c0e4b, type: 3}
+  m_PrefabInstance: {fileID: 1412504185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &940965207 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5476568030354915410, guid: 6bf5fb234960bd244afc52f88b1c0e4b, type: 3}
   m_PrefabInstance: {fileID: 1412504185}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &999742975
