@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class FirstMonitor : MonoBehaviour
 {
+    [SerializeField]GameManager gameManager;
     // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //gameManager.ä÷êîñº();
     }
 }
