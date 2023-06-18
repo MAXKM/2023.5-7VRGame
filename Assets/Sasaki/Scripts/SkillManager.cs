@@ -84,7 +84,7 @@ public class SkillManager : MonoBehaviour
             Damage = a * Distance;
         }
 
-        damagepopuptextmanager.Active(vv, Damage);
+        //damagepopuptextmanager.Active(vv, Damage);
     }
 
     private float PunchPower(int level)
