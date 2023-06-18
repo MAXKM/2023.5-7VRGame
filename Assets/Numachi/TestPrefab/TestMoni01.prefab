@@ -502,6 +502,7 @@ MonoBehaviour:
   Detection: 0
   monitor: {fileID: 6780447454717321351}
   monitoreffect: {fileID: 7128699327720275073}
+  collider: {fileID: 7299490496719624845}
 --- !u!1 &6731403448524650504
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +714,7 @@ MonoBehaviour:
   Destroy: {fileID: 5837986892842016469}
   counttext: {fileID: 6893512645127638375}
   meshRenderer: {fileID: 7062555952827299864}
+  collider: {fileID: 7299490496719624845}
 --- !u!1 &7186602098236454565
 GameObject:
   m_ObjectHideFlags: 0
