@@ -47,14 +47,14 @@ public class MonitorDetection : MonoBehaviour
                     GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
                     handdetection = obj.GetComponent<HandDetection>();
                 }
-                skillmanager.DDamage(handdetection.distanceLeft) ;
+                skillmanager.DDamage(other.ClosestPointOnBounds(this.transform.position), handdetection.distanceLeft) ;
             }else if(other.gameObject.tag == "RightHand")
             {
                 if (handdetection == null)
                 {
                     handdetection = other.gameObject.GetComponent<HandDetection>();
                 }
-                skillmanager.DDamage(handdetection.distanceRight);
+                skillmanager.DDamage(other.ClosestPointOnBounds(this.transform.position) , handdetection.distanceRight);
             }
             handdetection.ResetDistance();
             monitoreffect.MonitorDestoryParticl();
