@@ -6,7 +6,7 @@ public class SkillManager : MonoBehaviour
 {
     //public KariInfo gameinformation;
     public GameInformation gameinformation;
-    [SerializeField] DamagePopUpTextManager damagepopuptextmanager;
+    //[SerializeField] DamagePopUpTextManager damagepopuptextmanager;
     //public MonitorDetection monitordetection;
     //public BossMonitorManager bossmonitormager;
     //public HandDetection handdetection;
@@ -23,7 +23,7 @@ public class SkillManager : MonoBehaviour
     void Start()
     {
 
-        //a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
+        a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
         //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
         //PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
 
@@ -62,7 +62,10 @@ public class SkillManager : MonoBehaviour
     public void DDamage(Vector3 vv, float Distance)  //道中のダメージ計算
     {
         Damage = a * Distance;
-        damagepopuptextmanager.Active(vv, Damage);
+
+        //テスト用に追加
+        Debug.Log("damage:" + Damage);
+        //damagepopuptextmanager.Active(vv, Damage);
     }
 
     public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
@@ -84,7 +87,7 @@ public class SkillManager : MonoBehaviour
             Damage = a * Distance;
         }
 
-        damagepopuptextmanager.Active(vv, Damage);
+        //damagepopuptextmanager.Active(vv, Damage);
     }
 
     private float PunchPower(int level)
