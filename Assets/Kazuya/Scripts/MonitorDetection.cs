@@ -38,8 +38,7 @@ public class MonitorDetection : MonoBehaviour
             {
                 meshRenderer = monitor.gameObject.GetComponent<MeshRenderer>();
             }
-            meshRenderer.enabled = false;
-            monitoreffect.HideText();
+
             //SkillManager‚ÉÚG’Ê’m‚ğ‘—‚éA‹——£‚Ì’l‚ğ‘—‚é
             if (other.gameObject.tag == "LeftHand" ){
                 if(handdetection == null)
@@ -47,15 +46,27 @@ public class MonitorDetection : MonoBehaviour
                     GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
                     handdetection = obj.GetComponent<HandDetection>();
                 }
-                skillmanager.DDamage(other.ClosestPointOnBounds(this.transform.position), handdetection.distanceLeft) ;
+                if(handdetection.distanceLeft < 1)
+                {
+                    handdetection.ResetDistance();
+                    return;
+                }
+                skillmanager.DDamage(this.transform.position, handdetection.distanceLeft) ;
             }else if(other.gameObject.tag == "RightHand")
             {
                 if (handdetection == null)
                 {
                     handdetection = other.gameObject.GetComponent<HandDetection>();
                 }
-                skillmanager.DDamage(other.ClosestPointOnBounds(this.transform.position) , handdetection.distanceRight);
+                if(handdetection.distanceRight < 1)
+                {
+                    handdetection.ResetDistance();
+                    return;
+                }
+                skillmanager.DDamage(this.transform.position , handdetection.distanceRight);
             }
+            meshRenderer.enabled = false;
+            monitoreffect.HideText();
             handdetection.ResetDistance();
             monitoreffect.MonitorDestoryParticl();
             monitoreffect.CountText();
