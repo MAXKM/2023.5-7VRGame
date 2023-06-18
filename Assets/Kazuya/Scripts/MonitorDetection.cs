@@ -12,6 +12,7 @@ public class MonitorDetection : MonoBehaviour
     //SerializeFieldÇ…ïœçX
     [SerializeField] GameObject monitor;
     [SerializeField] MonitorEffect monitoreffect;
+    [SerializeField] BoxCollider collider;
     //
 
     //í«â¡
@@ -66,6 +67,7 @@ public class MonitorDetection : MonoBehaviour
                 skillmanager.DDamage(this.transform.position , handdetection.distanceRight);
             }
             meshRenderer.enabled = false;
+            collider.enabled = false;
             monitoreffect.HideText();
             handdetection.ResetDistance();
             monitoreffect.MonitorDestoryParticl();

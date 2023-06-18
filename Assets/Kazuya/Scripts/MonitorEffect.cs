@@ -14,6 +14,7 @@ public class MonitorEffect : MonoBehaviour
 
     //’Ç‰Á
     [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] BoxCollider collider;
     //
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,11 @@ public class MonitorEffect : MonoBehaviour
         {
             meshRenderer.enabled = true;
         }
+        if (!collider.enabled)
+        {
+            collider.enabled = true;
+        }
+
         MonitorMoving();
         counttext.gameObject.SetActive(true);
         CountText();
