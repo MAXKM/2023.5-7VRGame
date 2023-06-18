@@ -59,13 +59,13 @@ public class SkillManager : MonoBehaviour
         powerd = true;
     }
 
-    public void DDamage(float Distance)  //道中のダメージ計算
+    public void DDamage(Vector3 vv, float Distance)  //道中のダメージ計算
     {
         Damage = a * Distance;
         damagepopuptextmanager.Active(vv, Damage);
     }
 
-    public void BDamage(float Distance)  //ボスのダメージ計算
+    public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
     {
         if(weakpoint == true && powerd == true)     //弱点かつ強化バフあり
         {
