@@ -35,8 +35,8 @@ public class HandDetection : MonoBehaviour
     private void Start()
     {
         attackable = false;
-        strengthenMode = false;
         rocketMode = false;
+        strengthenMode = false;
         ResetDistance();
         previousPosRight = rightHandTf.localPosition;
         previousPosLeft = leftHandTf.localPosition;
@@ -73,7 +73,7 @@ public class HandDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "hand" && attackable)
+        if(other.gameObject.tag == "LeftHand"&& attackable)
         {
             //nïbã≠âªèÛë‘Ç…ì¸ÇÈ
             strengthenMode = true;
