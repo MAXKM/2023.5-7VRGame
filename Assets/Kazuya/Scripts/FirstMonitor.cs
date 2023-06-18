@@ -12,7 +12,7 @@ public class FirstMonitor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         gameManager.gameStart = true;
-        normalMonitorManager.monitorCount++;
+        //normalMonitorManager.monitorCount++;
         if (meshRenderer == null)
         {
             meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
