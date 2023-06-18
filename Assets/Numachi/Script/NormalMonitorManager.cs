@@ -20,7 +20,7 @@ public class NormalMonitorManager : MonoBehaviour
     Vector3 firstPos = new Vector3(0, 5, 0);
 
     //何体目の敵かをカウント
-    public int monitorCount = 2;
+    public int monitorCount;
 
     //雑魚MonitorのMaterial
     [SerializeField] Material[] color = new Material[8];
@@ -35,7 +35,6 @@ public class NormalMonitorManager : MonoBehaviour
 
     private void Start()
     {
-        monitorCount = 2;
         this.gameObject.SetActive(false);
     }
 
@@ -47,6 +46,9 @@ public class NormalMonitorManager : MonoBehaviour
         {
             instance = this;
         }
+
+        //2体目の敵からカウント
+        monitorCount = 2;
 
         objectPool = new List<GameObject>();
 
