@@ -11,16 +11,16 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject BM2;//BossMonitor2
     public GameObject BM3;//BossMonitor3
     public GameObject E;//Effect
-    //GameObject[] BMA;//BossMonitorArray
+    GameObject[] BMA;//BossMonitorArray
     GameObject INM;//InstansiatÇ≈ê∂ê¨ÇµÇΩNM
     GameObject[] IE;//InstansiatÇ≈ê∂ê¨ÇµÇΩE
-    GameObject IBM;
+    GameObject IBM;//InstansiatÇ≈ê∂ê¨ÇµÇΩBM
     void Start()
     {
-        /*BMA = new GameObject[2];
+        BMA = new GameObject[3];
         BMA[0] = BM1;
         BMA[1] = BM2;
-        BMA[2] = BM3;*/
+        BMA[2] = BM3;
         IE = new GameObject[3];
 
         INM = Instantiate(NM, new Vector3(0.0f, 5.0f, 0.0f), Quaternion.Euler(0, 0, 0));
@@ -49,7 +49,7 @@ public class MonitorAppearance : MonoBehaviour
     IEnumerator SC(float wait)
     {
         yield return new WaitForSeconds(wait);
-        this.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
+        this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 1.0f);
         IE[1] = Instantiate(E, new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(0, 0, 0));
     }
@@ -57,7 +57,7 @@ public class MonitorAppearance : MonoBehaviour
     IEnumerator SC2(float wait)
     {
         yield return new WaitForSeconds(wait);
-        this.transform.localScale = new Vector3(1.15f, 1.15f, 1.15f);
+        this.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
         this.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 1.0f);
         IE[2] = Instantiate(E, new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(0, 0, 0));
     }
@@ -66,7 +66,7 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         Destroy(INM);
-        IBM = Instantiate(BM1, new Vector3(0.0f, 1.75f, 0.0f), Quaternion.Euler(0, 0, 0));
+        IBM = Instantiate(BMA[0], new Vector3(0.0f, 1.75f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM.transform.parent = this.transform;
 
     }
@@ -75,7 +75,7 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         IBM.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-        this.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 2.0f);
+        this.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 1.5f);
         Destroy(IE[0]);Destroy(IE[1]); Destroy(IE[2]);
     }
 }
