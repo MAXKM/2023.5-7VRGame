@@ -19,13 +19,15 @@ public class SkillManager : MonoBehaviour
     bool weakpoint;     //仮：急所かどうか(BossMonitorManagerから受け取る)
     bool DDecision;     //仮：道中の当たり判定(MonitorDetectinから受け取る)
     bool BDecision;     //仮：ボスの当たり判定(BossMonitorManagerから受け取る)
+
+    [SerializeField] HandDetection handDetection;
     // Start is called before the first frame update
     void Start()
     {
 
         a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
         //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
-        //PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
+        PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
 
         //弱点などの切り替え
         //DDecision = true;
@@ -54,10 +56,14 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    public void PowerUP()
-    {
-        powerd = true;
-    }
+    //使わないかも
+    //public void PowerUP()
+    //{
+    //    if (handDetection.strengthenMode)
+    //    {
+    //        powerd = true;
+    //    }
+    //}
 
     public void DDamage(Vector3 vv, float Distance)  //道中のダメージ計算
     {
@@ -70,15 +76,15 @@ public class SkillManager : MonoBehaviour
 
     public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
     {
-        if(weakpoint == true && powerd == true)     //弱点かつ強化バフあり
+        if(weakpoint == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
         {
             Damage = a * b * c * Distance;
         }
-        else if(weakpoint==true && powerd == false)     //弱点あり
+        else if(weakpoint==true && handDetection.strengthenMode == false)     //弱点あり
         {
             Damage = a * b * Distance;
         }
-        else if(weakpoint == false && powerd == true)       //強化バフあり
+        else if(weakpoint == false && handDetection.strengthenMode == true)       //強化バフあり
         {
             Damage = a * c * Distance;
         }
@@ -138,7 +144,7 @@ public class SkillManager : MonoBehaviour
         return b;
     }
 
-    private float PowerTimeLimit(int level)
+    public float PowerTimeLimit(int level)
     {
         //弱点倍率レベルで倍率を変える
         switch (level)

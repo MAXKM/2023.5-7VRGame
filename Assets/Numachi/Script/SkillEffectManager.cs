@@ -9,6 +9,8 @@ public class SkillEffectManager : MonoBehaviour
 
     [SerializeField] GameInformation gameInformation;
 
+    [SerializeField] SkillManager skillManager;
+
     //左右両方のMeshRenderer
     [SerializeField] MeshRenderer meshRendererR,meshRendererL;
 
@@ -37,7 +39,7 @@ public class SkillEffectManager : MonoBehaviour
         rocketText.gameObject.SetActive(false);
 
         //レベル別制限時間を取得
-        limitSeconds = LimitTimeCalculation(gameInformation.powerUpTimeLevel);
+        limitSeconds = skillManager.PowerTimeLimit(gameInformation.powerUpTimeLevel);
 
         //ロケットの残数を計算
         rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
@@ -106,30 +108,30 @@ public class SkillEffectManager : MonoBehaviour
     }
 
     //レベル別の制限時間を計算
-    private float LimitTimeCalculation(int level)
-    {
-        //レベル別に制限時間を計算
-        switch (level)
-        {
-            case 1:
-                limitSeconds = 0;
-                break;
-            case 2:
-                limitSeconds = 1.5f;
-                break;
-            case 3:
-                limitSeconds = 3f;
-                break;
-            case 4:
-                limitSeconds = 4.5f;
-                break;
-            case 5:
-                limitSeconds = 6f;
-                break;
-        }
+    //private float LimitTimeCalculation(int level)
+    //{
+    //    //レベル別に制限時間を計算
+    //    switch (level)
+    //    {
+    //        case 1:
+    //            limitSeconds = 0;
+    //            break;
+    //        case 2:
+    //            limitSeconds = 1.5f;
+    //            break;
+    //        case 3:
+    //            limitSeconds = 3f;
+    //            break;
+    //        case 4:
+    //            limitSeconds = 4.5f;
+    //            break;
+    //        case 5:
+    //            limitSeconds = 6f;
+    //            break;
+    //    }
 
-        return limitSeconds;
-    }
+    //    return limitSeconds;
+    //}
 
     //ロケット発動
     private void RocketLaunch()
