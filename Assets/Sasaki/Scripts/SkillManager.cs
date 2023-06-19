@@ -65,11 +65,18 @@ public class SkillManager : MonoBehaviour
     //    }
     //}
 
-    public void DDamage(Vector3 vv, float Distance)  //道中のダメージ計算
+    public void DDamage(Vector3 vv, float Distance,bool isAttack = true)  //道中のダメージ計算
     {
-        Distance = Distance * 100;
-        Distance = Mathf.Round(Distance) / 100;
-        Damage = a * Distance;
+        if (isAttack)
+        {
+            Distance = Mathf.Min(Distance,10) * 50;
+            Distance = Mathf.Round(Distance) / 100;
+            Damage = a * (Distance + 0.5f);
+        }
+        else
+        {
+            Damage = 0;
+        }
 
         //テスト用に追加
         Debug.Log("damage:" + Damage);
@@ -78,24 +85,24 @@ public class SkillManager : MonoBehaviour
 
     public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
     {
-        Distance = Distance * 100;              //距離を100倍
+        Distance = Distance * 10;              //距離を100倍
         Distance = Mathf.Round(Distance) / 100; //100倍にした距離を四捨五入し、元に戻して小数点第2位までにした
 
         if (weakpoint == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
         {
-            Damage = a * b * c * Distance;
+            Damage = a * b * c * (Distance + 0.5f);
         }
         else if(weakpoint==true && handDetection.strengthenMode == false)     //弱点あり
         {
-            Damage = a * b * Distance;
+            Damage = a * b * (Distance + 0.5f);
         }
         else if(weakpoint == false && handDetection.strengthenMode == true)       //強化バフあり
         {
-            Damage = a * c * Distance;
+            Damage = a * c * (Distance + 0.5f);
         }
         else        //デフォルト
         {
-            Damage = a * Distance;
+            Damage = a * (Distance + 0.5f);
         }
 
         damagepopuptextmanager.Active(vv, Damage);
