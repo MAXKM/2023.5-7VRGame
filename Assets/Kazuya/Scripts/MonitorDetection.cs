@@ -49,9 +49,10 @@ public class MonitorDetection : MonoBehaviour
                     GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
                     handdetection = obj.GetComponent<HandDetection>();
                 }
-                if(handdetection.distanceLeft < 1)
+                if(handdetection.distanceLeft < 0.5f)
                 {
                     handdetection.ResetDistance();
+                    skillmanager.DDamage(contactPoint, handdetection.distanceLeft,false);
                     return;
                 }
                 skillmanager.DDamage(contactPoint, handdetection.distanceLeft) ;
@@ -61,9 +62,10 @@ public class MonitorDetection : MonoBehaviour
                 {
                     handdetection = other.gameObject.GetComponent<HandDetection>();
                 }
-                if(handdetection.distanceRight < 1)
+                if(handdetection.distanceRight < 0.5f)
                 {
                     handdetection.ResetDistance();
+                    skillmanager.DDamage(contactPoint, handdetection.distanceRight,false);
                     return;
                 }
                 skillmanager.DDamage(contactPoint, handdetection.distanceRight);
