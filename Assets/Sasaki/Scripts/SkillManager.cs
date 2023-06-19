@@ -6,7 +6,7 @@ public class SkillManager : MonoBehaviour
 {
     //public KariInfo gameinformation;
     public GameInformation gameinformation;
-    //[SerializeField] DamagePopUpTextManager damagepopuptextmanager;
+    [SerializeField] DamagePopUpTextManager damagepopuptextmanager;
     //public MonitorDetection monitordetection;
     //public BossMonitorManager bossmonitormager;
     //public HandDetection handdetection;
@@ -71,7 +71,7 @@ public class SkillManager : MonoBehaviour
 
         //テスト用に追加
         Debug.Log("damage:" + Damage);
-        //damagepopuptextmanager.Active(vv, Damage);
+        damagepopuptextmanager.Active(vv, Damage);
     }
 
     public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
@@ -93,7 +93,7 @@ public class SkillManager : MonoBehaviour
             Damage = a * Distance;
         }
 
-        //damagepopuptextmanager.Active(vv, Damage);
+        damagepopuptextmanager.Active(vv, Damage);
     }
 
     private float PunchPower(int level)
