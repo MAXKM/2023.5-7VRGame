@@ -80,7 +80,7 @@ public class MonitorAppearance : MonoBehaviour
         Destroy(IE);
     }
 
-    IEnumerator CO(float wait)
+    IEnumerator CO(float wait)//Collider‚ðOn‚É‚·‚é
     {
         yield return new WaitForSeconds(wait);
         IBM.GetComponent<BoxCollider>().enabled = true;
