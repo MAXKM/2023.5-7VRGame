@@ -34,6 +34,8 @@ public class MonitorDetection : MonoBehaviour
         Detectionable = true;
         if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
+            Debug.Log(contactPoint);
             //’Ç‰Á
             if (meshRenderer == null)
             {
@@ -52,7 +54,7 @@ public class MonitorDetection : MonoBehaviour
                     handdetection.ResetDistance();
                     return;
                 }
-                skillmanager.DDamage(this.transform.position, handdetection.distanceLeft) ;
+                skillmanager.DDamage(contactPoint, handdetection.distanceLeft) ;
             }else if(other.gameObject.tag == "RightHand")
             {
                 if (handdetection == null)
@@ -64,7 +66,7 @@ public class MonitorDetection : MonoBehaviour
                     handdetection.ResetDistance();
                     return;
                 }
-                skillmanager.DDamage(this.transform.position , handdetection.distanceRight);
+                skillmanager.DDamage(contactPoint, handdetection.distanceRight);
             }
             meshRenderer.enabled = false;
             collider.enabled = false;

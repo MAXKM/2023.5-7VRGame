@@ -21,7 +21,7 @@ public class DamagePopUpText : MonoBehaviour
     Color resetCol = new Color(0, 0, 0, 1);
     public void Init(Vector3 pos, float damage)
     {
-        rectTransform.localPosition = pos;
+        rectTransform.position = pos;
         Vector3 p = Camera.position;
         p.y = rectTransform.position.y;
         rectTransform.LookAt(p);
