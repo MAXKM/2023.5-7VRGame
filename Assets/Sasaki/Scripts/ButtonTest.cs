@@ -7,6 +7,8 @@ public class ButtonTest : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _text;
 
+    private float a = 2.4444444f;
+    private float b = 2.55555f;
     // Start is called before the first frame update
 //    void Start()
 //    {
@@ -22,5 +24,8 @@ public class ButtonTest : MonoBehaviour
     public void OnClick()
     {
         _text.text = "Pushed";
+        a = a * 100;
+        a = Mathf.Round(a)/100;
+        Debug.Log("a:" +a);
     }
 }

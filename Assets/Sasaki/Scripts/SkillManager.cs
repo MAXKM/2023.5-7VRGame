@@ -67,6 +67,8 @@ public class SkillManager : MonoBehaviour
 
     public void DDamage(Vector3 vv, float Distance)  //道中のダメージ計算
     {
+        Distance = Distance * 100;
+        Distance = Mathf.Round(Distance) / 100;
         Damage = a * Distance;
 
         //テスト用に追加
@@ -76,7 +78,10 @@ public class SkillManager : MonoBehaviour
 
     public void BDamage(Vector3 vv, float Distance)  //ボスのダメージ計算
     {
-        if(weakpoint == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
+        Distance = Distance * 100;              //距離を100倍
+        Distance = Mathf.Round(Distance) / 100; //100倍にした距離を四捨五入し、元に戻して小数点第2位までにした
+
+        if (weakpoint == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
         {
             Damage = a * b * c * Distance;
         }
