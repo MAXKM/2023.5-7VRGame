@@ -146,6 +146,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3093407111743808181, guid: d1b030c2140698a4ab003555b987128b, type: 3}
+      propertyPath: skillManager
+      value: 
+      objectReference: {fileID: 69709138}
+    - target: {fileID: 3093407111743808181, guid: d1b030c2140698a4ab003555b987128b, type: 3}
+      propertyPath: gameInformation
+      value: 
+      objectReference: {fileID: 497027395}
     - target: {fileID: 3093407111940014566, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -392,6 +400,7 @@ MonoBehaviour:
   gameManager: {fileID: 1820234611}
   normalMonitorManager: {fileID: 999742976}
   Destroy: {fileID: 940965207}
+  skillmanager: {fileID: 69709138}
 --- !u!65 &419664999
 BoxCollider:
   m_ObjectHideFlags: 0
