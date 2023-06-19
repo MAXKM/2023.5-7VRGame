@@ -11,8 +11,21 @@ public class FirstMonitor : MonoBehaviour
     [SerializeField]SkillManager skillmanager;
     MeshRenderer meshRenderer;
     // Start is called before the first frame update
+
+    private void Start()
+    {
+        if (handdetection == null)
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
+            handdetection = obj.GetComponent<HandDetection>();
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag != "LeftHand" && other.gameObject.tag != "RightHand")
+        {
+            return;
+        }
         Vector3 contactPoint = other.ClosestPoint(transform.position);
         gameManager.gameStart = true;
         //normalMonitorManager.monitorCount++;
@@ -23,11 +36,6 @@ public class FirstMonitor : MonoBehaviour
         
         if (other.gameObject.tag == "LeftHand")
         {
-            if (handdetection == null)
-            {
-                GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
-                handdetection = obj.GetComponent<HandDetection>();
-            }
             skillmanager.DDamage(contactPoint, handdetection.distanceLeft);
         }
         else if (other.gameObject.tag == "RightHand")
