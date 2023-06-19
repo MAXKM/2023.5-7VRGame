@@ -77,7 +77,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         IBM.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 1.5f);
-        Destroy(IE);
     }
 
     IEnumerator CO(float wait)//Collider‚ðOn‚É‚·‚é
