@@ -43,7 +43,9 @@ public class MonitorAppearance : MonoBehaviour
     IEnumerator ES(float wait)
     {
         yield return new WaitForSeconds(wait);
-        IE[0] = Instantiate(E, new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(0, 0, 0));
+        IE[0] = Instantiate(E, new Vector3(0.0f, 3.5f, 0.0f), Quaternion.Euler(90, 0, 0));
+        IE[0].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
     }
 
     IEnumerator SC(float wait)
@@ -51,7 +53,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 1.0f);
-        IE[1] = Instantiate(E, new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(0, 0, 0));
     }
 
     IEnumerator SC2(float wait)
@@ -59,7 +60,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         this.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
         this.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 1.0f);
-        IE[2] = Instantiate(E, new Vector3(0.0f, 1.5f, 0.0f), Quaternion.Euler(0, 0, 0));
     }
 
     IEnumerator BA(float wait)
@@ -76,6 +76,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         IBM.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 1.5f);
-        Destroy(IE[0]);Destroy(IE[1]); Destroy(IE[2]);
+        Destroy(IE[0]);
     }
 }
