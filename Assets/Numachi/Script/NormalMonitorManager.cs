@@ -48,7 +48,7 @@ public class NormalMonitorManager : MonoBehaviour
         }
 
         //2体目の敵からカウント
-        monitorCount = 2;
+        monitorCount = 1;
 
         objectPool = new List<GameObject>();
 
@@ -111,7 +111,7 @@ public class NormalMonitorManager : MonoBehaviour
         monitorCount++;
 
         //19体倒すと出現しなくなる
-        if(monitorCount > 19)
+        if(monitorCount > 19 - 1)
         {
             return;
         }

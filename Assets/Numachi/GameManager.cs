@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
 
-                Debug.Log("中ボスだよ");
                 usableSkill = true;
 
                 break;
@@ -86,6 +85,6 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
-        Debug.Log(state);
+        Debug.Log("現在" + state);
     }
 }

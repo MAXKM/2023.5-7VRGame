@@ -134,7 +134,7 @@ public class SkillEffectManager : MonoBehaviour
     //}
 
     //ロケット発動
-    private void RocketLaunch()
+    public void RocketLaunch()
     {
         //残数が0だったら発動しない
         if(rocketNum <= 0)
@@ -145,6 +145,7 @@ public class SkillEffectManager : MonoBehaviour
         //ロケット発動処理
         rocketText.gameObject.SetActive(true);
         rocketText.text = "Rocket!!";
+        Debug.Log("rocket");
 
         //残数を減らす
         if (!isDecrease)

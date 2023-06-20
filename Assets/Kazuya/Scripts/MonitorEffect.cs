@@ -64,7 +64,7 @@ public class MonitorEffect : MonoBehaviour
 
     public void CountText()
     {
-        counttext.text = normalMonitorManager.monitorCount.ToString();
+        counttext.text = (normalMonitorManager.monitorCount + 1).ToString();
     }
 
     public void HideText()

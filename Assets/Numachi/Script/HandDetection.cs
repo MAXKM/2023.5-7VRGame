@@ -7,9 +7,9 @@ public class HandDetection : MonoBehaviour
 {
     MeshRenderer meshRenderer;
 
-    //攻撃可能か、スキル発動可能かを判別
-    //中指のトリガーを押すことでtrue
-    private bool attackable;
+    //GameManagerのunableSkillで攻撃可能か、スキル発動可能かを判別
+    [SerializeField] GameManager gameManager;
+
 
     //ｎ秒強化状態化を判定
     public bool strengthenMode;
@@ -34,7 +34,6 @@ public class HandDetection : MonoBehaviour
 
     private void Start()
     {
-        attackable = false;
         rocketMode = false;
         strengthenMode = false;
         ResetDistance();
@@ -44,22 +43,12 @@ public class HandDetection : MonoBehaviour
 
     private void Update()
     {
-        //右中指のトリガーを押したら
-        if (OVRInput.Get(OVRInput.RawButton.RHandTrigger))
-        {
-            attackable = true;
-        }
-        else
-        {
-            attackable = false;
-        }
-
         //HandPosに両手の座標を代入
         rightHandPos = rightHandTf.localPosition;
         leftHandPos = leftHandTf.localPosition;
 
         //両手の高さがロケットのトリガーポイントを超えたらロケット発動
-        if(rightHandPos.y > ROCKET_ACTIVATION_POINT && leftHandPos.y > ROCKET_ACTIVATION_POINT)
+        if(rightHandPos.y > ROCKET_ACTIVATION_POINT && leftHandPos.y > ROCKET_ACTIVATION_POINT && gameManager.usableSkill)
         {
             rocketMode = true;
         }
@@ -73,7 +62,7 @@ public class HandDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "LeftHand"&& attackable)
+        if(other.gameObject.tag == "LeftHand" && gameManager.usableSkill)
         {
             //n秒強化状態に入る
             strengthenMode = true;
@@ -81,7 +70,6 @@ public class HandDetection : MonoBehaviour
     }
 
     //右手の移動距離を計算
-
     private float DistanceCalculationRight(float distance)
     {
         //現在の座標を一旦保存
