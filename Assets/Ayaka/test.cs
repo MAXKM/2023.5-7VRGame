@@ -33,6 +33,7 @@ public class test : MonoBehaviour
 
         //テキストの表示を入れ替える
         CoinText.text = "獲得コイン数：" + Coin_count;
+        //CoinText.text = "獲得コイン数：00000";
     }
 
     /*
