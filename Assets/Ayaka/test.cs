@@ -23,17 +23,18 @@ public class test : MonoBehaviour
     void Update()
     {
         //コインの値獲得する
-        float Coin_count = 0.0f;
-        Coin_count = information.havingTotalCoin;
+        //float Coin_count = 0.0f;
+        //Coin_count = information.havingTotalCoin;
+        GameObject CoinCount = GameObject.Find("GameInformation");
+        information = CoinCount.GetComponent<GameInformation>();
 
-        Debug.Log(Coin_count);
+        Debug.Log(information.havingTotalCoin);
 
         //オブジェクトからTextコンポーネントを取得
         Text CoinText = Coin.GetComponent<Text>();
 
         //テキストの表示を入れ替える
-        CoinText.text = "獲得コイン数：" + Coin_count;
-        //CoinText.text = "獲得コイン数：00000";
+        CoinText.text = "獲得コイン数：" + information.havingTotalCoin;
     }
 
     /*
