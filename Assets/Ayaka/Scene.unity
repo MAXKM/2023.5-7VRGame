@@ -431,6 +431,8 @@ GameObject:
   - component: {fileID: 1133721236}
   - component: {fileID: 1133721235}
   - component: {fileID: 1133721238}
+  - component: {fileID: 1133721240}
+  - component: {fileID: 1133721239}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -560,12 +562,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133721233}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 249215b22982d7244ac45784e0c5516c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
+--- !u!114 &1133721239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133721233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa36cc5d0bd50f418f9f220b3dd0693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1133721240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133721233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 198.1, y: 27.7, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1136605923
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,4 +882,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1608510852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608510854}
+  - component: {fileID: 1608510853}
+  m_Layer: 0
+  m_Name: GameInformation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1608510853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608510852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63388a1ef86052242b99f63f195fddae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinUpLevel: 0
+  goldEnemyProbabilityLevel: 0
+  bossBattleTimeLevel: 0
+  rocketMagnificationLevel: 0
+  powerUpLevel: 0
+  powerUpTimeLevel: 0
+  rocketNumLevel: 0
+  weakPointNumLevel: 0
+  weakPointMagnificationLevel: 0
+  numberOfPlays: 0
+  havingTotalCoin: 0
+--- !u!4 &1608510854
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608510852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 106.28186, y: 19.137945, z: -119.675316}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
