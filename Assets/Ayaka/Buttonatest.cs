@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonTest : MonoBehaviour
+public class Buttonatest : MonoBehaviour
 {
     public UnityEngine.UI.Button button;
 
@@ -11,7 +11,7 @@ public class ButtonTest : MonoBehaviour
     {
         if(TryGetComponent(out button))
         {
-            button.onClick.AddListener(OnClickItemButton);
+            button.onClick.AddListener(OnClickButton);
         }
         else
         {
