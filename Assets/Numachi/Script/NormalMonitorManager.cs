@@ -1,3 +1,4 @@
+using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +26,14 @@ public class NormalMonitorManager : MonoBehaviour
     //雑魚MonitorのMaterial
     [SerializeField] Material[] color = new Material[5];
 
+    //雑魚Monitorのmesh
+    [SerializeField] Mesh[] mesh = new Mesh[5];
+
     //雑魚のMeshRenderer
     private MeshRenderer meshRenderer;
+
+    //雑魚のMeshfilter
+    private MeshFilter meshFilter;
 
     //ゴールド敵出現確率
     private int goldEnemyProbability = 1;
@@ -58,7 +65,11 @@ public class NormalMonitorManager : MonoBehaviour
             GameObject obj = Instantiate(prefab,firstPos,Quaternion.identity);
 
             meshRenderer = obj.GetComponent<MeshRenderer>();
-            meshRenderer.material = color[Random.Range(0, 7)];
+            meshFilter = obj.GetComponent<MeshFilter>();
+
+            int monitorNum = Random.Range(0, 5);
+            meshRenderer.material = color[monitorNum];
+            meshFilter.mesh = mesh[monitorNum];
 
             //最初のひとつだけ表示
             if (i == 0)
@@ -127,8 +138,9 @@ public class NormalMonitorManager : MonoBehaviour
         //    meshRenderer.enabled = true;
         //}
 
-        //色を変更
+        //色、形状を変更
         meshRenderer = newObj.GetComponent<MeshRenderer>();
+        meshFilter = newObj.GetComponent<MeshFilter>();
 
         //ゴールド敵の確率を計算
         goldEnemyProbability = GoldEnemyProbabilityCalculation(gameInformation.goldEnemyProbabilityLevel);
@@ -136,14 +148,19 @@ public class NormalMonitorManager : MonoBehaviour
         //確率でゴールド敵を出現
         if (Random.Range(0,10) < goldEnemyProbability)
         {
-            //7番目のマテリアルがゴールド
+            //4番目のマテリアルがゴールド
             //マテリアルをゴールドに変更
-            meshRenderer.material = color[7]; 
+            meshRenderer.material = color[4];
+
+            //ゴールド敵の形状に変更
+            meshFilter.mesh = mesh[4];
         }
         else
         {
             //通常のモニターの色をランダムで変更
-            meshRenderer.material = color[Random.Range(0,7)];
+            int monitorNum = Random.Range(0, 4);
+            meshRenderer.material = color[monitorNum];
+            meshFilter.mesh = mesh[monitorNum];
         }
 
         //オブジェクトを表示
