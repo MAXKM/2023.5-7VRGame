@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802875, g: 0.22571936, b: 0.30692452, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802879, g: 0.22572026, b: 0.3069257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1145,17 +1145,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5f52e898df2094e9adec55bd2c0e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6780447454717321351, guid: 3e850c0457341b74599cb1ac49a44d0c, type: 3}
+  prefab: {fileID: 6780447454717321351, guid: 0ac0c2c07c1283a45b1890b9d97b9e3e, type: 3}
   monitorCount: 0
   color:
-  - {fileID: 2100000, guid: f5d902c1cd472fe488920e6a3e86508b, type: 2}
-  - {fileID: 2100000, guid: 8cde620b89d530b458c605708d32419e, type: 2}
-  - {fileID: 2100000, guid: 9c0b2ff877c4a074ea91d9be6766a8de, type: 2}
-  - {fileID: 2100000, guid: 5d1d16313944c7e439000135ec0744b3, type: 2}
-  - {fileID: 2100000, guid: 4b85d6f9510f294488ed670b9615a3c6, type: 2}
-  - {fileID: 2100000, guid: a2d650b60d4a36e46a663d73611de6e8, type: 2}
-  - {fileID: 2100000, guid: ed62c06070a3137449cf7b966c884580, type: 2}
-  - {fileID: 2100000, guid: 5716b1b922c04b441bbac62daa037c39, type: 2}
+  - {fileID: -8469494145858465668, guid: 7937a4a909a57db40baeee81951ef7a7, type: 3}
+  - {fileID: -8469494145858465668, guid: 18bdaf41ece848147a14e600052cae45, type: 3}
+  - {fileID: -8469494145858465668, guid: 1abaf928990c10045aeb9bfb5881428e, type: 3}
+  - {fileID: -8469494145858465668, guid: 486b71818364bad4281dfb8bcb705b8b, type: 3}
+  - {fileID: -8469494145858465668, guid: 05258e7885ff5e44086abfc2df118d49, type: 3}
+  mesh:
+  - {fileID: -2432090755550338912, guid: 7937a4a909a57db40baeee81951ef7a7, type: 3}
+  - {fileID: -2432090755550338912, guid: 18bdaf41ece848147a14e600052cae45, type: 3}
+  - {fileID: -2432090755550338912, guid: 1abaf928990c10045aeb9bfb5881428e, type: 3}
+  - {fileID: -2432090755550338912, guid: 486b71818364bad4281dfb8bcb705b8b, type: 3}
+  - {fileID: -2432090755550338912, guid: 05258e7885ff5e44086abfc2df118d49, type: 3}
   gameInformation: {fileID: 497027395}
 --- !u!4 &999742977
 Transform:
