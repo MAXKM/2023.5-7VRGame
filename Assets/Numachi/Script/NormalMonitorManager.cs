@@ -23,7 +23,7 @@ public class NormalMonitorManager : MonoBehaviour
     public int monitorCount;
 
     //ŽG‹›Monitor‚ÌMaterial
-    [SerializeField] Material[] color = new Material[8];
+    [SerializeField] Material[] color = new Material[5];
 
     //ŽG‹›‚ÌMeshRenderer
     private MeshRenderer meshRenderer;
