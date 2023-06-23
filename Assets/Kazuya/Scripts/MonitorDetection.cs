@@ -39,7 +39,7 @@ public class MonitorDetection : MonoBehaviour
             //’Ç‰Á
             if (meshRenderer == null)
             {
-                meshRenderer = monitor.gameObject.GetComponent<MeshRenderer>();
+                meshRenderer = monitor.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
             }
 
             //SkillManager‚ÉÚG’Ê’m‚ğ‘—‚éA‹——£‚Ì’l‚ğ‘—‚é

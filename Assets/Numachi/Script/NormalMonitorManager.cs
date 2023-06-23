@@ -64,8 +64,8 @@ public class NormalMonitorManager : MonoBehaviour
         {
             GameObject obj = Instantiate(prefab,firstPos,Quaternion.identity);
 
-            meshRenderer = obj.GetComponent<MeshRenderer>();
-            meshFilter = obj.GetComponent<MeshFilter>();
+            meshRenderer = obj.transform.GetChild(0).GetComponent<MeshRenderer>();
+            meshFilter = obj.transform.GetChild(0).GetComponent<MeshFilter>();
 
             int monitorNum = Random.Range(0, 5);
             meshRenderer.material = color[monitorNum];
@@ -139,8 +139,8 @@ public class NormalMonitorManager : MonoBehaviour
         //}
 
         //色、形状を変更
-        meshRenderer = newObj.GetComponent<MeshRenderer>();
-        meshFilter = newObj.GetComponent<MeshFilter>();
+        meshRenderer = newObj.transform.GetChild(0).GetComponent<MeshRenderer>();
+        meshFilter = newObj.transform.GetChild(0).GetComponent<MeshFilter>();
 
         //ゴールド敵の確率を計算
         goldEnemyProbability = GoldEnemyProbabilityCalculation(gameInformation.goldEnemyProbabilityLevel);
