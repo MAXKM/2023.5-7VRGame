@@ -12,6 +12,7 @@ public class FirstMonitor : MonoBehaviour
     [SerializeField]SkillManager skillmanager;
     MeshRenderer meshRenderer;
     [SerializeField] TextMeshProUGUI counttext;
+    [SerializeField] GameStartAnimation gamestartanimation;
     // Start is called before the first frame update
 
     private void Start()
@@ -50,6 +51,7 @@ public class FirstMonitor : MonoBehaviour
         }
         meshRenderer.enabled = false;
         counttext.gameObject.SetActive(false);
+        gamestartanimation.Fadetext();
         Destroy.Play();
         StartCoroutine(HideCoroutine());
 
