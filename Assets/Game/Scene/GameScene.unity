@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802879, g: 0.22572026, b: 0.3069257, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802875, g: 0.22571936, b: 0.30692452, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -577,6 +577,7 @@ MonoBehaviour:
   normalMonitorManager: {fileID: 999742976}
   Destroy: {fileID: 940965207}
   skillmanager: {fileID: 69709138}
+  counttext: {fileID: 1722868269}
 --- !u!65 &419664999
 BoxCollider:
   m_ObjectHideFlags: 0
