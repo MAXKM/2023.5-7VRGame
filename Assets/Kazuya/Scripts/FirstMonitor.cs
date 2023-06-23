@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FirstMonitor : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class FirstMonitor : MonoBehaviour
     HandDetection handdetection;
     [SerializeField]SkillManager skillmanager;
     MeshRenderer meshRenderer;
+    [SerializeField] TextMeshProUGUI counttext;
     // Start is called before the first frame update
 
     private void Start()
@@ -47,6 +49,7 @@ public class FirstMonitor : MonoBehaviour
             skillmanager.DDamage(contactPoint, handdetection.distanceRight);
         }
         meshRenderer.enabled = false;
+        counttext.gameObject.SetActive(false);
         Destroy.Play();
         StartCoroutine(HideCoroutine());
 
