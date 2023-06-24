@@ -18,11 +18,14 @@ public class GameManager : MonoBehaviour
     //ゲームの開始を合図するbool変数
     public bool gameStart;
 
+    //ゲーム中に所持したコイン
+    private int currentCoin;
+
     [SerializeField] NormalMonitorManager normalMonitorManager;
 
     [SerializeField] MonitorAppearance monitorAppearance;
 
-    WaitForSeconds wait;
+    WaitForSeconds waitToBoss;
 
     private STATE state;
 
@@ -33,7 +36,8 @@ public class GameManager : MonoBehaviour
         state = STATE.TITLE;
         usableSkill = false;
         gameStart = false;
-        wait = new WaitForSeconds(0.5f);
+        waitToBoss = new WaitForSeconds(0.5f);
+        currentCoin = 0;
     }
 
     void Update()
@@ -61,16 +65,17 @@ public class GameManager : MonoBehaviour
                 //19体目を倒したらボス戦へ移行
                 if(normalMonitorManager.monitorCount == 19)
                 {
-                    state = STATE.MIDDLE_BOSS;
+                    StartCoroutine(ToBossBattle());
                 }
 
                 break;
 
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
+                Debug.Log("ボス時点でのコイン" + currentCoin);
 
                 //Bossモニターの生成
-                StartCoroutine(BossMonitorAppearance());
+                monitorAppearance.gameObject.SetActive(true);
 
                 usableSkill = true;
 
@@ -96,10 +101,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("現在" + state);
     }
 
-    //0.5秒待ってからボスモニター生成
-    IEnumerator BossMonitorAppearance()
+    //0.5秒待ってからボスへ遷移
+    IEnumerator ToBossBattle()
     {
-        yield return wait;
-        monitorAppearance.gameObject.SetActive(true);
+        yield return waitToBoss;
+        state = STATE.MIDDLE_BOSS;
+
+        //道中で稼いだコインを取得
+        currentCoin = normalMonitorManager._currentCoin;
     }
 }
