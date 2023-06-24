@@ -24,9 +24,10 @@ public class MonitorAppearance : MonoBehaviour
         BMA[2] = BM3;
         count = 0;
 
-        INM = Instantiate(NM, new Vector3(0.0f, 5.0f, 0.0f), Quaternion.Euler(0, 0, 0));
+        INM = Instantiate(NM, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0, 90, 0));
         INM.GetComponent<BoxCollider>().enabled = false;
         INM.transform.parent = this.transform;
+        transform.position = new Vector3(0, 5, 0);
         this.transform.DOMove(new Vector3(0.0f, 0.75f, 0.0f), 1.5f);
         StartCoroutine(F(1.75f));
         StartCoroutine(ES(2.25f));
@@ -69,17 +70,18 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         Destroy(INM);
-        IBM = Instantiate(BMA[count], new Vector3(0.0f, 1.75f, 0.0f), Quaternion.Euler(0, 0, 0));
+        IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
-
+        this.transform.position = new Vector3(0, 1f, 0);
     }
 
     IEnumerator SC3(float wait)//Scale‚ðChange‚R
     {
         yield return new WaitForSeconds(wait);
-        IBM.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-        this.transform.DOScale(new Vector3(1.0f, 1.0f, 1.0f), 1.5f);
+        //IBM.transform.localScale = Vector3.one * 0.5f;
+        this.transform.localScale = Vector3.one * 0.6f;
+        this.transform.DOScale(Vector3.one * 0.5f, 0.3f);
     }
 
     IEnumerator CO(float wait)//Collider‚ðOn‚É‚·‚é
