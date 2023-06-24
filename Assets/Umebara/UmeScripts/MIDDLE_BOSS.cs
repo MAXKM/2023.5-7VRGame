@@ -5,9 +5,9 @@ using UnityEngine;
 public class MIDDLE_BOSS : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] MonitorAppearance monitorappearance;
-    [SerializeField] SkillManager skillmanager;
-    [SerializeField] GameInformation gameinformation;
+    MonitorAppearance monitorappearance;
+    SkillManager skillmanager;
+    GameInformation gameinformation;
     public float MiddleBossHp;
     private float bossBattleTime;
     public bool defeated;
