@@ -7,6 +7,10 @@ TagManager:
   - Hand
   - Weak
   - hand
+  - LeftHand
+  - RightHand
+  - GI
+  - MAM
   layers:
   - Default
   - TransparentFX
