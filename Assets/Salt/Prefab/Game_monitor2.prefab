@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 950931144296242636}
   - component: {fileID: 4369528723970350646}
-  - component: {fileID: -1009791767821414959}
+  - component: {fileID: 5672188771641192576}
   m_Layer: 0
   m_Name: Game_monitor2
   m_TagString: Untagged
@@ -47,7 +47,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4, z: 0.7}
   m_Center: {x: 0, y: -0.25, z: 0}
---- !u!114 &-1009791767821414959
+--- !u!114 &5672188771641192576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -56,13 +56,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 466600277744699254}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 240c46172fd39ce459da4889f483aae9, type: 3}
+  m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monitorappearance: {fileID: 0}
+  skillmanager: {fileID: 0}
+  gameinformation: {fileID: 0}
+  MiddleBossHp: 0
+  defeated: 0
   Detection: 0
-  monitor: {fileID: 0}
-  monitoreffect: {fileID: 0}
-  collider: {fileID: 0}
 --- !u!1 &8931897666383724463
 GameObject:
   m_ObjectHideFlags: 0
