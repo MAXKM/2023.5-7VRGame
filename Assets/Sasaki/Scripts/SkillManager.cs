@@ -13,7 +13,7 @@ public class SkillManager : MonoBehaviour
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
     float PowerdLimit=0;
     Vector3 vv;
-    float Damage;       //ダメージ量
+    public float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
     bool powerd;        //仮：攻撃力強化状態か(HandDetectionから受け取る)
     bool weakpoint;     //仮：急所かどうか(BossMonitorManagerから受け取る)
