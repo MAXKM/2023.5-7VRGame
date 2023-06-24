@@ -15,8 +15,8 @@ public class MonitorAppearance : MonoBehaviour
     GameObject INM;//Instansiate‚Å¶¬‚µ‚½NM
     GameObject IBM;//Instansiate‚Å¶¬‚µ‚½BM
     GameObject IE;//Instansiate‚Å¶¬‚µ‚½IE
-    public int count;
-    void Start()
+    public int count;//BossMonitor‚Ì”Ô†
+    void Awake()
     {
         BMA = new GameObject[3];
         BMA[0] = BM1;
