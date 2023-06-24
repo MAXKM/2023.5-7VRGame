@@ -14,7 +14,8 @@ public class MIDDLE_BOSS : MonoBehaviour
     public bool Detection;
     private bool Detectionable;
     HandDetection handdetection;
-    void Start()
+    private float damage;
+    void Awake()
     {
         switch (gameinformation.bossBattleTimeLevel)
         {
@@ -57,6 +58,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     void Update()
     {
         bossBattleTime -= Time.deltaTime;
+        MiddleBossHp -= skillmanager.Damage;
 
         if (MiddleBossHp <= 0 && bossBattleTime >= 0)
         {
