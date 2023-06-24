@@ -15,12 +15,14 @@ public class MonitorAppearance : MonoBehaviour
     GameObject INM;//InstansiateÇ≈ê∂ê¨ÇµÇΩNM
     GameObject IBM;//InstansiateÇ≈ê∂ê¨ÇµÇΩBM
     GameObject IE;//InstansiateÇ≈ê∂ê¨ÇµÇΩIE
+    public int count;
     void Start()
     {
         BMA = new GameObject[3];
         BMA[0] = BM1;
         BMA[1] = BM2;
         BMA[2] = BM3;
+        count = 0;
 
         INM = Instantiate(NM, new Vector3(0.0f, 5.0f, 0.0f), Quaternion.Euler(0, 0, 0));
         INM.GetComponent<BoxCollider>().enabled = false;
@@ -33,6 +35,7 @@ public class MonitorAppearance : MonoBehaviour
         StartCoroutine(BA(6.5f));
         StartCoroutine(SC3(6.5f));
         StartCoroutine(CO(8.0f));
+        count += 1;
     }
 
     IEnumerator F(float wait)//Float(ÉÇÉjÉ^Å[Ç™ïÇÇ´è„Ç™ÇÈ)
@@ -66,7 +69,7 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         Destroy(INM);
-        IBM = Instantiate(BMA[0], new Vector3(0.0f, 1.75f, 0.0f), Quaternion.Euler(0, 0, 0));
+        IBM = Instantiate(BMA[count], new Vector3(0.0f, 1.75f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
 
