@@ -58,8 +58,6 @@ public class MIDDLE_BOSS : MonoBehaviour
     void Update()
     {
         bossBattleTime -= Time.deltaTime;
-        MiddleBossHp -= skillmanager.Damage;
-
         if (MiddleBossHp <= 0 && bossBattleTime >= 0)
         {
             defeated = true;
@@ -109,6 +107,8 @@ public class MIDDLE_BOSS : MonoBehaviour
                 skillmanager.BDamage(contactPoint, handdetection.distanceRight);
             }
             handdetection.ResetDistance();
+            MiddleBossHp -= skillmanager.Damage;
+            Debug.Log(MiddleBossHp);
             Detection = true;
             Debug.Log(Detection);
         }
