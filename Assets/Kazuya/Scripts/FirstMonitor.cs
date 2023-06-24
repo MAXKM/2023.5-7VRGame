@@ -34,7 +34,7 @@ public class FirstMonitor : MonoBehaviour
         //normalMonitorManager.monitorCount++;
         if (meshRenderer == null)
         {
-            meshRenderer = this.gameObject.GetComponent<MeshRenderer>();
+            meshRenderer = this.gameObject.transform.GetChild(0).GetComponent<MeshRenderer>();
         }
         
         if (other.gameObject.tag == "LeftHand")
