@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5913112246132438427}
   - component: {fileID: 1572373621691839935}
   - component: {fileID: 5278707570988619919}
+  - component: {fileID: 7121945902939373253}
   m_Layer: 0
   m_Name: Game_monitor4
   m_TagString: Untagged
@@ -157,3 +158,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2, y: 0.65, z: 0.7}
   m_Center: {x: 0, y: -1.2, z: 0}
+--- !u!114 &7121945902939373253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5361169866631698979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c46172fd39ce459da4889f483aae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Detection: 0
+  monitor: {fileID: 0}
+  monitoreffect: {fileID: 0}
+  collider: {fileID: 0}

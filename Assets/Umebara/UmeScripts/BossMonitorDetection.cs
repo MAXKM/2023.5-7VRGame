@@ -2,73 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MIDDLE_BOSS : MonoBehaviour
+public class BossMonitorDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] MonitorAppearance monitorappearance;
-    [SerializeField] SkillManager skillmanager;
-    [SerializeField] GameInformation gameinformation;
-    public float MiddleBossHp;
-    private float bossBattleTime;
-    public bool defeated;
+    NormalMonitorManager normalMonitorManager = NormalMonitorManager.instance;
+    HandDetection handdetection;
+    SkillManager skillmanager;
     public bool Detection;
     private bool Detectionable;
-    HandDetection handdetection;
+    //SerializeFieldに変更
+    [SerializeField] GameObject monitor;
+    [SerializeField] MonitorEffect monitoreffect;
+    [SerializeField] BoxCollider collider;
+    //
+
+    //追加
+    MeshRenderer meshRenderer;
+    //
+    // Start is called before the first frame update
     void Start()
     {
-        switch (gameinformation.bossBattleTimeLevel)
-        {
-            case 1:
-                bossBattleTime = 5.0f;
-                break;
-            case 2:
-                bossBattleTime = 7.5f;
-                break;
-            case 3:
-                bossBattleTime = 10.0f;
-                break;
-            case 4:
-                bossBattleTime = 12.5f;
-                break;
-            case 5:
-                bossBattleTime = 15.0f;
-                break;
-        }
-
-        switch (monitorappearance.count)
-        {
-            case 0:
-                MiddleBossHp = 300;
-                break;
-
-            case 1:
-                MiddleBossHp = 550;
-                break;
-
-            case 2:
-                MiddleBossHp = 1200;
-                break;
-        }
         Detection = false;
+        Debug.Log(Detection);
         Detectionable = false;
+        monitor = transform.parent.gameObject;
+        monitoreffect.CountText();
+        GameObject obj = GameObject.FindGameObjectWithTag("GameController");
+        skillmanager = obj.GetComponent<SkillManager>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        bossBattleTime -= Time.deltaTime;
-
-        if (MiddleBossHp <= 0 && bossBattleTime >= 0)
-        {
-            defeated = true;
-
-        }
-        else if (bossBattleTime <= 0)
-        {
-            defeated = false;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Detectionable = true;
@@ -76,6 +36,12 @@ public class MIDDLE_BOSS : MonoBehaviour
         {
             Vector3 contactPoint = other.ClosestPoint(transform.position);
             Debug.Log(contactPoint);
+            //追加
+            if (meshRenderer == null)
+            {
+                meshRenderer = monitor.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>();
+            }
+
             //SkillManagerに接触通知を送る、距離の値を送る
             if (other.gameObject.tag == "LeftHand")
             {
@@ -106,10 +72,39 @@ public class MIDDLE_BOSS : MonoBehaviour
                 }
                 skillmanager.BDamage(contactPoint, handdetection.distanceRight);
             }
+            meshRenderer.enabled = false;
+            collider.enabled = false;
+            monitoreffect.HideText();
             handdetection.ResetDistance();
+            monitoreffect.MonitorDestoryParticl();
+            monitoreffect.CountText();
+            normalMonitorManager.AppearanceObject();
+
+            //追加
+            StartCoroutine(HideCoroutine());
+            //
             Detection = true;
             Debug.Log(Detection);
         }
 
     }
+    private void OnTriggerExit(Collider other)
+    {
+        Detectionable = false;
+        if (other.gameObject.tag == "Hand" && Detectionable == false)
+        {
+            Detection = false;
+            Debug.Log(Detection);
+        }
+    }
+
+    //追加
+    WaitForSeconds hideWait = new WaitForSeconds(0.7f);
+
+    IEnumerator HideCoroutine()
+    {
+        yield return hideWait;
+        normalMonitorManager.ReturnObjectToPool(monitor);
+    }
+    //
 }
