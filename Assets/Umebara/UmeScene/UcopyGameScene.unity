@@ -626,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameinformation: {fileID: 497027395}
   damagepopuptextmanager: {fileID: 2117034769}
+  Damage: 0
   handDetection: {fileID: 60309090}
 --- !u!4 &69709139
 Transform:
@@ -4129,6 +4130,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1800718101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800718103}
+  - component: {fileID: 1800718102}
+  m_Layer: 0
+  m_Name: MiddleBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1800718102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800718101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monitorappearance: {fileID: 1824338820}
+  skillmanager: {fileID: 69709138}
+  gameinformation: {fileID: 497027395}
+  MiddleBossHp: 0
+  defeated: 0
+  Detection: 0
+--- !u!4 &1800718103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800718101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3386216, y: 1.5023227, z: 2.0969663}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804921042
 GameObject:
   m_ObjectHideFlags: 0
@@ -4306,7 +4357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1824338819
 Transform:
   m_ObjectHideFlags: 0
@@ -4338,7 +4389,7 @@ MonoBehaviour:
   BM1: {fileID: 4350068476079225937, guid: f366f9909ca04f54daabef7e6deff7cd, type: 3}
   BM2: {fileID: 466600277744699254, guid: 0573f96a24460704185f581106242cc6, type: 3}
   BM3: {fileID: 5156963162023497541, guid: 133459b4566d8444fb07e6735e36ad13, type: 3}
-  E: {fileID: 0}
+  E: {fileID: 6525991278737377225, guid: f2f2c709f02c54e498cf110f424bccf6, type: 3}
   count: 0
 --- !u!1 &1921952969
 GameObject:
