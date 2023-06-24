@@ -38,11 +38,14 @@ public class NormalMonitorManager : MonoBehaviour
     //ゴールド敵出現確率
     private int goldEnemyProbability = 1;
 
+    public int _currentCoin;
+
     [SerializeField] private GameInformation gameInformation;
 
     private void Start()
     {
         this.gameObject.SetActive(false);
+        _currentCoin = 0;
     }
 
     //Awake関数でオブジェクトプールの初期化
@@ -71,6 +74,17 @@ public class NormalMonitorManager : MonoBehaviour
             meshRenderer.material = color[monitorNum];
             meshFilter.mesh = mesh[monitorNum];
 
+            if(monitorNum == 4)
+            {
+                //4 => ゴールド敵
+                //ゴールド敵のタグに変更
+                obj.tag = "Gold";
+            }
+            else
+            {
+                obj.tag = "Normal";
+            }
+
             //最初のひとつだけ表示
             if (i == 0)
             {
@@ -88,7 +102,7 @@ public class NormalMonitorManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(monitorCount);
+        Debug.Log("現在コイン:" + _currentCoin);
     }
 
     //オブジェクトをプールから取得
@@ -113,6 +127,9 @@ public class NormalMonitorManager : MonoBehaviour
     {
         //非表示
         obj.SetActive(false);
+
+        //倒したタイミングでコイン加算
+        CoinCalculation(obj);
     }
 
     //オブジェクトを新しく表示
@@ -132,12 +149,6 @@ public class NormalMonitorManager : MonoBehaviour
         //オブジェクトの座標を初期化
         newObj.transform.position = firstPos;
 
-        //MeshREndererが非表示だったら表示させる
-        //if (!meshRenderer.enabled)
-        //{
-        //    meshRenderer.enabled = true;
-        //}
-
         //色、形状を変更
         meshRenderer = newObj.transform.GetChild(0).GetComponent<MeshRenderer>();
         meshFilter = newObj.transform.GetChild(0).GetComponent<MeshFilter>();
@@ -154,6 +165,9 @@ public class NormalMonitorManager : MonoBehaviour
 
             //ゴールド敵の形状に変更
             meshFilter.mesh = mesh[4];
+
+            //ゴールド敵用タグに変更
+            newObj.tag = "Gold";
         }
         else
         {
@@ -161,21 +175,26 @@ public class NormalMonitorManager : MonoBehaviour
             int monitorNum = Random.Range(0, 4);
             meshRenderer.material = color[monitorNum];
             meshFilter.mesh = mesh[monitorNum];
+
+            //ノーマルタグに変更
+            newObj.tag = "Normal";
         }
 
         //オブジェクトを表示
         newObj.SetActive(true);
     }
 
-    ////WaitForSecondsのキャッシュ
-    //WaitForSeconds waitForSeconds = new WaitForSeconds(0.5f);
-
-    ////出現したモニターのコライダーを送らせて有効化するコルーチン
-    //private IEnumerator ColliderDelayCoroutine(GameObject obj)
-    //{
-    //    yield return waitForSeconds;
-    //    obj.GetComponent<BoxCollider>().enabled = true;
-    //}
+    private void CoinCalculation(GameObject monitor)
+    {
+        if (monitor.CompareTag("Normal"))
+        {
+            _currentCoin += 10;
+        }
+        else if (monitor.CompareTag("Gold"))
+        {
+            _currentCoin += 10 * 2;
+        }
+    }
 
     //ゴールド敵の確率を計算
     private int GoldEnemyProbabilityCalculation(int level)

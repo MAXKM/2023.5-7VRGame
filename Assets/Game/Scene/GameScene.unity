@@ -1448,7 +1448,7 @@ GameObject:
   - component: {fileID: 419665003}
   m_Layer: 0
   m_Name: FirstMonitorManager
-  m_TagString: Untagged
+  m_TagString: Normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2332,6 +2332,7 @@ MonoBehaviour:
   - {fileID: -2432090755550338912, guid: 3663bd7188d798a48a6575174f1ba008, type: 3}
   - {fileID: -2432090755550338912, guid: 486b71818364bad4281dfb8bcb705b8b, type: 3}
   - {fileID: -2432090755550338912, guid: d07e789a40472394f9bbcfcc399cf68e, type: 3}
+  _currentCoin: 0
   gameInformation: {fileID: 497027395}
 --- !u!4 &999742977
 Transform:

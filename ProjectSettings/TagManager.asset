@@ -11,6 +11,8 @@ TagManager:
   - RightHand
   - GI
   - MAM
+  - Normal
+  - Gold
   layers:
   - Default
   - TransparentFX
