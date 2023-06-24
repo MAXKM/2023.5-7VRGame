@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5537991582879307263}
   - component: {fileID: 535974662518567096}
+  - component: {fileID: -1056381185962904255}
   m_Layer: 0
   m_Name: Game_monitor3
   m_TagString: Untagged
@@ -129,3 +130,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 2.5, z: 0.8}
   m_Center: {x: 0, y: -0.2, z: 0}
+--- !u!114 &-1056381185962904255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5156963162023497541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monitorappearance: {fileID: 0}
+  skillmanager: {fileID: 0}
+  gameinformation: {fileID: 0}
+  MiddleBossHp: 0
+  defeated: 0
+  Detection: 0

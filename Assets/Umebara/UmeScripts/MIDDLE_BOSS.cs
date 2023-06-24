@@ -17,6 +17,10 @@ public class MIDDLE_BOSS : MonoBehaviour
     private float damage;
     void Awake()
     {
+        GameObject obj = GameObject.FindGameObjectWithTag("GameController");
+        monitorappearance = obj.GetComponent<MonitorAppearance>();
+        skillmanager = obj.GetComponent<SkillManager>();
+        gameinformation = obj.GetComponent<GameInformation>();
         switch (gameinformation.bossBattleTimeLevel)
         {
             case 1:
