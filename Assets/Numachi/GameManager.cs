@@ -20,6 +20,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] NormalMonitorManager normalMonitorManager;
 
+    [SerializeField] MonitorAppearance monitorAppearance;
+
+    WaitForSeconds wait;
+
     private STATE state;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
@@ -29,6 +33,7 @@ public class GameManager : MonoBehaviour
         state = STATE.TITLE;
         usableSkill = false;
         gameStart = false;
+        wait = new WaitForSeconds(0.5f);
     }
 
     void Update()
@@ -64,6 +69,9 @@ public class GameManager : MonoBehaviour
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
 
+                //Bossモニターの生成
+                StartCoroutine(BossMonitorAppearance());
+
                 usableSkill = true;
 
                 break;
@@ -86,5 +94,12 @@ public class GameManager : MonoBehaviour
                 break;
         }
         Debug.Log("現在" + state);
+    }
+
+    //0.5秒待ってからボスモニター生成
+    IEnumerator BossMonitorAppearance()
+    {
+        yield return wait;
+        monitorAppearance.gameObject.SetActive(true);
     }
 }
