@@ -626,6 +626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameinformation: {fileID: 497027395}
   damagepopuptextmanager: {fileID: 2117034769}
+  Damage: 0
   handDetection: {fileID: 60309090}
 --- !u!4 &69709139
 Transform:
@@ -715,7 +716,7 @@ GameObject:
   - component: {fileID: 104250820}
   m_Layer: 0
   m_Name: MonitorAppearanceManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1742,7 +1743,7 @@ GameObject:
   - component: {fileID: 497027395}
   m_Layer: 0
   m_Name: GameInformation
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
