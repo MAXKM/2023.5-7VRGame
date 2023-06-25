@@ -21,7 +21,7 @@ public class HPGauge : MonoBehaviour
     }
 
     //ŠJŽnŽž‚ÉBOSS‚ÉŒÄ‚ñ‚Å‚à‚ç‚¤
-    public void Set(int HPNum)
+    public void Set(float HPNum)
     {
         MaxHP = HPNum;
         CurrentHP = MaxHP;

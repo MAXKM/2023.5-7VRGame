@@ -115,9 +115,8 @@ public class MIDDLE_BOSS : MonoBehaviour
             }
             handdetection.ResetDistance();
             MiddleBossHp -= skillmanager.Damage;
-            Debug.Log(MiddleBossHp);
+            hpgauge.GaugeReduction(skillmanager.Damage);
             Detection = true;
-            Debug.Log(Detection);
         }
 
     }
