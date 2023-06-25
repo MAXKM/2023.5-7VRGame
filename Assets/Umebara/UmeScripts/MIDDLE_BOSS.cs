@@ -53,7 +53,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         switch (monitorappearance.count)
         {
             case 0:
-                MiddleBossHp = 10;
+                MiddleBossHp = 50;
                 break;
 
             case 1:
@@ -82,7 +82,8 @@ public class MIDDLE_BOSS : MonoBehaviour
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
             Destroy(newweakpoint.weakpoint);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
         else if (bossBattleTime <= 0)
         {

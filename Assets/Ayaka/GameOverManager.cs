@@ -36,7 +36,7 @@ public class GameOverManager : MonoBehaviour
 
         //テキストの表示を入れ替える
         //CoinText.text = "獲得コイン数：" + coin;
-        CoinText.text = "Coin:" + coin;
+        CoinText.text = "GameOver\n" + "Coin:" + coin;
     }
 
     public void ButtonDisplay()

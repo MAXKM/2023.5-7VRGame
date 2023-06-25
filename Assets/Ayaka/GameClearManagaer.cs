@@ -27,7 +27,7 @@ public class GameClearManagaer : MonoBehaviour
 
         //テキストの表示を入れ替える
         //CoinText.text = "獲得コイン数：" + coin;
-        CoinText.text = "Coin:" + coin;
+        CoinText.text = "Conguraturation!!\n" + "Coin:" + coin;
     }
 
     public void SceneChange()

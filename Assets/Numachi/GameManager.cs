@@ -83,20 +83,34 @@ public class GameManager : MonoBehaviour
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
-                if (middleBoss == null && monitorAppearance.MBCall==true)
+
+                //中ボス管理のスクリプトを呼び出せるかを判定
+                if (monitorAppearance.MBCall)
                 {
-                    middleBoss= GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
-                    monitorAppearance.MBCall = false;
+                    //空だったら呼び出す
+                    if (middleBoss == null)
+                    {
+                        middleBoss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+                    }
                 }
+                else
+                {
+                    //呼び出せる状態になるまでreturnし続ける
+                    return;
+                }
+
                 usableSkill = true;
 
+                Debug.Log(middleBoss.ToString());
+
                 //ボスを倒したかを判定
-                if (middleBoss.defeated==1)
+                if (middleBoss.defeated == 1)
                 {
+                    Debug.Log("test.ok");
                     state = STATE.CLEAR;
                 }
                     
-                else if(middleBoss.defeated==2)
+                else if(middleBoss.defeated == 2)
                     state = STATE.GAME_OVER;
 
                 break;
