@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] MonitorAppearance monitorAppearance;
 
+    [SerializeField] GameClearManagaer clearManager;
+    [SerializeField] GameOverManager gameOverManager;
+    [SerializeField] MIDDLE_BOSS middleBoss;
+
     WaitForSeconds waitToBoss;
 
     private STATE state;
@@ -33,7 +37,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        state = STATE.TITLE;
+        //state = STATE.TITLE;
+        state = STATE.CLEAR;
+
         usableSkill = false;
         gameStart = false;
         waitToBoss = new WaitForSeconds(0.5f);
@@ -79,6 +85,12 @@ public class GameManager : MonoBehaviour
 
                 usableSkill = true;
 
+                //ボスを倒したかを判定
+                if (middleBoss.defeated)
+                    state = STATE.CLEAR;
+                else
+                    state = STATE.GAME_OVER;
+
                 break;
 
             //大ボスの処理
@@ -90,6 +102,12 @@ public class GameManager : MonoBehaviour
 
             //クリア時の処理
             case STATE.CLEAR:
+
+                //クリアのテキストを表示
+                clearManager.Coin_Text(currentCoin);
+
+                //タイトルへシーン遷移
+                clearManager.SceneChange();
 
                 break;
 
