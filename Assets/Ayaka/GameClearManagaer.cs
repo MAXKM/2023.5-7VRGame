@@ -11,8 +11,10 @@ public class GameClearManagaer : MonoBehaviour
 
     public float timerCount;
 
-    void Coin_Text()
+    public void Coin_Text(int coin)
     {
+        Coin.SetActive(true);
+
         //コインの値獲得する
         GameObject CoinCount = GameObject.Find("GameInformation");
         information = CoinCount.GetComponent<GameInformation>();
@@ -23,16 +25,16 @@ public class GameClearManagaer : MonoBehaviour
         Text CoinText = Coin.GetComponent<Text>();
 
         //テキストの表示を入れ替える
-        CoinText.text = "獲得コイン数：" + information.havingTotalCoin;
+        CoinText.text = "獲得コイン数：" + coin;
     }
 
-    void SceneChange()
+    public void SceneChange()
     {
         //3秒立ったらシーン遷移
         timerCount += Time.deltaTime;
         if (timerCount >= 3.0f)
         {
-            SceneManager.LoadScene("StartScene");
+            SceneManager.LoadScene("GameScene");
         }
     }
 }

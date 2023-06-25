@@ -18,7 +18,7 @@ public class GameOverManager : MonoBehaviour
         button.SetActive(false);
     }
 
-    void Coin_Text()
+    public void Coin_Text()
     {
         //コインの値獲得する
         GameObject CoinCount = GameObject.Find("GameInformation");
@@ -46,6 +46,6 @@ public class GameOverManager : MonoBehaviour
     public void OnClickStartButton()
     {
         //ボタン押されたらシーン遷移
-        SceneManager.LoadScene("StartScene");
+        SceneManager.LoadScene("GameScene");
     }
 }
