@@ -46,7 +46,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         switch (monitorappearance.count)
         {
             case 0:
-                MiddleBossHp = 300;
+                MiddleBossHp = 10;
                 break;
 
             case 1:
