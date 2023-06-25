@@ -294,6 +294,7 @@ MonoBehaviour:
   BM2: {fileID: 5156963162023497541, guid: 133459b4566d8444fb07e6735e36ad13, type: 3}
   BM3: {fileID: 5361169866631698979, guid: 8c4ad09d7948c1240895f0041d3cc77e, type: 3}
   E: {fileID: 6525991278737377225, guid: f2f2c709f02c54e498cf110f424bccf6, type: 3}
+  IBM: {fileID: 0}
   count: 0
 --- !u!4 &224802405
 Transform:
@@ -328,7 +329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &458310752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,9 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monitorappearance: {fileID: 224802404}
-  skillmanager: {fileID: 1076274986}
   MiddleBossHp: 0
+  defeated: 0
+  Detection: 0
 --- !u!4 &732603340
 Transform:
   m_ObjectHideFlags: 0
@@ -807,6 +808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameinformation: {fileID: 0}
   damagepopuptextmanager: {fileID: 0}
+  Damage: 0
   handDetection: {fileID: 0}
 --- !u!4 &1076274987
 Transform:
