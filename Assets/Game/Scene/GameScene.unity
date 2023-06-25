@@ -1694,7 +1694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &419664998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5297,6 +5297,7 @@ MonoBehaviour:
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}
   middleBoss: {fileID: 5672188771641192576, guid: 0573f96a24460704185f581106242cc6, type: 3}
+  state: 2
   usableSkill: 0
 --- !u!4 &1820234612
 Transform:
@@ -6389,7 +6390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2060544529
 RectTransform:
   m_ObjectHideFlags: 0

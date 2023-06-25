@@ -1,3 +1,4 @@
+using Oculus.Voice.Core.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,15 +32,13 @@ public class GameManager : MonoBehaviour
 
     WaitForSeconds waitToBoss;
 
-    private STATE state;
+    [SerializeField] private STATE state;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
 
     private void Start()
     {
         //state = STATE.TITLE;
-        state = STATE.GAME_OVER;
-
 
         usableSkill = false;
         gameStart = false;
