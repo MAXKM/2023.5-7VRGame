@@ -46,7 +46,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 4.5, y: 4, z: 0.7}
-  m_Center: {x: 0, y: -0.25, z: 0}
+  m_Center: {x: 0, y: -0.25, z: 1.25}
 --- !u!114 &5672188771641192576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,9 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monitorappearance: {fileID: 0}
-  skillmanager: {fileID: 0}
-  gameinformation: {fileID: 0}
   MiddleBossHp: 0
   defeated: 0
   Detection: 0
