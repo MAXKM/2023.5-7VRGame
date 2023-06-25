@@ -28,13 +28,14 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameClearManagaer clearManager;
     [SerializeField] GameOverManager gameOverManager;
-    [SerializeField] MIDDLE_BOSS middleBoss;
+    MIDDLE_BOSS middleBoss;
 
     WaitForSeconds waitToBoss;
 
     [SerializeField] private STATE state;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
+
 
     private void Start()
     {
@@ -82,13 +83,20 @@ public class GameManager : MonoBehaviour
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
-
+                if (middleBoss == null && monitorAppearance.MBCall==true)
+                {
+                    middleBoss= GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+                    monitorAppearance.MBCall = false;
+                }
                 usableSkill = true;
 
                 //ボスを倒したかを判定
-                if (middleBoss.defeated)
+                if (middleBoss.defeated==1)
+                {
                     state = STATE.CLEAR;
-                else
+                }
+                    
+                else if(middleBoss.defeated==2)
                     state = STATE.GAME_OVER;
 
                 break;

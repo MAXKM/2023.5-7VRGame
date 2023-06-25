@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: -1056381185962904255}
   m_Layer: 0
   m_Name: Game_monitor3
-  m_TagString: Untagged
+  m_TagString: MB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,9 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monitorappearance: {fileID: 0}
-  skillmanager: {fileID: 0}
-  gameinformation: {fileID: 0}
   MiddleBossHp: 0
   defeated: 0
   Detection: 0

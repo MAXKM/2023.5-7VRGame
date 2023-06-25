@@ -12,7 +12,14 @@ public class MIDDLE_BOSS : MonoBehaviour
     NewWeakPoint newweakpoint;
     public float MiddleBossHp;
     private float bossBattleTime;
-    public bool defeated;
+    /*
+    public enum Situation
+    {
+        still_alive, clear,game_over
+    }
+    public Situation situation;
+    */
+    public int defeated;
     public bool Detection;
     private bool Detectionable;
     HandDetection handdetection;
@@ -60,6 +67,8 @@ public class MIDDLE_BOSS : MonoBehaviour
         Detection = false;
         Detectionable = false;
         hpgauge.Set(MiddleBossHp);
+        //situation = Situation.still_alive;
+        defeated = 0;
     }
     // Update is called once per frame
     void Update()
@@ -68,19 +77,18 @@ public class MIDDLE_BOSS : MonoBehaviour
         bossBattleTime -= Time.deltaTime;
         if (MiddleBossHp <= 0 && bossBattleTime >= 0)
         {
-            defeated = true;
+            //situation = Situation.clear;
+            defeated = 1;
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
             Destroy(newweakpoint.weakpoint);
             Destroy(this.gameObject);
-
         }
         else if (bossBattleTime <= 0)
         {
-            defeated = false;
+            defeated = 2;
+            //situation = Situation.game_over;
         }
-
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -125,6 +133,5 @@ public class MIDDLE_BOSS : MonoBehaviour
             hpgauge.GaugeReduction(skillmanager.Damage);
             Detection = true;
         }
-
     }
 }
