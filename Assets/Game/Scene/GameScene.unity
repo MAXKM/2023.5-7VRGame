@@ -577,6 +577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVRPlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940251080, guid: d1b030c2140698a4ab003555b987128b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1b030c2140698a4ab003555b987128b, type: 3}
 --- !u!114 &60309090 stripped
@@ -1690,7 +1694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &419664998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,8 +4210,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   information: {fileID: 497027395}
   Coin: {fileID: 547836217}
-  timerCount: 0
   button: {fileID: 890268230}
+  timerCount: 0
+  gameOverPanel: {fileID: 799333188}
 --- !u!4 &1297022421
 Transform:
   m_ObjectHideFlags: 0
@@ -5289,9 +5294,9 @@ MonoBehaviour:
   gameStart: 0
   normalMonitorManager: {fileID: 999742976}
   monitorAppearance: {fileID: 104250820}
-  clearManager: {fileID: 0}
-  gameOverManager: {fileID: 0}
-  middleBoss: {fileID: 0}
+  clearManager: {fileID: 1320406907}
+  gameOverManager: {fileID: 1297022420}
+  middleBoss: {fileID: 5672188771641192576, guid: 0573f96a24460704185f581106242cc6, type: 3}
   usableSkill: 0
 --- !u!4 &1820234612
 Transform:
@@ -6384,7 +6389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2060544529
 RectTransform:
   m_ObjectHideFlags: 0

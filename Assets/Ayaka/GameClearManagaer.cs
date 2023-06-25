@@ -26,7 +26,8 @@ public class GameClearManagaer : MonoBehaviour
         TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
 
         //テキストの表示を入れ替える
-        CoinText.text = "獲得コイン数：" + coin;
+        //CoinText.text = "獲得コイン数：" + coin;
+        CoinText.text = "Coin:" + coin;
     }
 
     public void SceneChange()
