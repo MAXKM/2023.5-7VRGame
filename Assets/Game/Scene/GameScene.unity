@@ -764,6 +764,7 @@ MonoBehaviour:
   count: 0
   hpGauge: {fileID: 59895606}
   weak: {fileID: 943311629}
+  MBCall: 0
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -1694,7 +1695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &419664998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2911,6 +2912,7 @@ MonoBehaviour:
   WeakPoint: 0
   prefabWeak: {fileID: 1496822332654214059, guid: 697f70d5f6635234cb3b98b4b231bf22, type: 3}
   weak: 0
+  weakpoint: {fileID: 0}
 --- !u!4 &943311631
 Transform:
   m_ObjectHideFlags: 0
@@ -5296,7 +5298,6 @@ MonoBehaviour:
   monitorAppearance: {fileID: 104250820}
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}
-  middleBoss: {fileID: 5672188771641192576, guid: 0573f96a24460704185f581106242cc6, type: 3}
   state: 2
   usableSkill: 0
 --- !u!4 &1820234612

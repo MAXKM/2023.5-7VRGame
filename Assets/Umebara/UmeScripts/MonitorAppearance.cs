@@ -19,6 +19,7 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject hpGauge;
     //public bool hpSet;
     public GameObject weak;
+    public bool MBCall;
     void Awake()
     {
         BMA = new GameObject[3];
@@ -39,6 +40,7 @@ public class MonitorAppearance : MonoBehaviour
         StartCoroutine(BA(6.5f));
         StartCoroutine(SC3(6.5f));
         StartCoroutine(CO(8.0f));
+        MBCall = false;
     }
 
     IEnumerator F(float wait)//Float(ÉÇÉjÉ^Å[Ç™ïÇÇ´è„Ç™ÇÈ)
@@ -94,6 +96,7 @@ public class MonitorAppearance : MonoBehaviour
         hpGauge.gameObject.SetActive(true);
         //weak.SetActive(true);
         //hpSet = true;
+        MBCall = true;
         count += 1;
     }
 }
