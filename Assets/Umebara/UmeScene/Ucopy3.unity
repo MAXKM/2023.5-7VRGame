@@ -2909,6 +2909,7 @@ MonoBehaviour:
   WeakPoint: 0
   prefabWeak: {fileID: 1496822332654214059, guid: 697f70d5f6635234cb3b98b4b231bf22, type: 3}
   weak: 0
+  weakpoint: {fileID: 0}
 --- !u!4 &943311631
 Transform:
   m_ObjectHideFlags: 0
@@ -4210,8 +4211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   information: {fileID: 497027395}
   Coin: {fileID: 547836217}
-  timerCount: 0
   button: {fileID: 890268230}
+  timerCount: 0
+  gameOverPanel: {fileID: 0}
 --- !u!4 &1297022421
 Transform:
   m_ObjectHideFlags: 0
@@ -5293,6 +5295,9 @@ MonoBehaviour:
   gameStart: 0
   normalMonitorManager: {fileID: 999742976}
   monitorAppearance: {fileID: 104250820}
+  clearManager: {fileID: 0}
+  gameOverManager: {fileID: 0}
+  middleBoss: {fileID: 0}
   usableSkill: 0
 --- !u!4 &1820234612
 Transform:
