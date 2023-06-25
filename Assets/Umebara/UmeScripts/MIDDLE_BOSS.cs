@@ -74,6 +74,11 @@ public class MIDDLE_BOSS : MonoBehaviour
         {
             defeated = false;
         }
+        /*if (monitorappearance.hpSet == true)
+        {
+            hpgauge.Set(MiddleBossHp);
+            hpSet = false;
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
