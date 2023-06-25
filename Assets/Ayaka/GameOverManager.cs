@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class GameOverManager : MonoBehaviour
         Debug.Log(information.havingTotalCoin);
 
         //オブジェクトからTextコンポーネントを取得
-        Text CoinText = Coin.GetComponent<Text>();
+        TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
 
         //テキストの表示を入れ替える
         CoinText.text = "獲得コイン数：" + information.havingTotalCoin;
