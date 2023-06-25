@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //state = STATE.TITLE;
-        state = STATE.CLEAR;
+        state = STATE.GAME_OVER;
+
 
         usableSkill = false;
         gameStart = false;
@@ -113,6 +114,10 @@ public class GameManager : MonoBehaviour
 
             //ゲームオーバー時の処理
             case STATE.GAME_OVER:
+
+                //ゲームオーバーのUIを表示
+                gameOverManager.Coin_Text(currentCoin);
+                gameOverManager.ButtonDisplay();
 
                 break;
         }

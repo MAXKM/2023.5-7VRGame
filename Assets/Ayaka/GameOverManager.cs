@@ -8,30 +8,35 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     public GameInformation information; //コインの枚数
-    public GameObject Coin = null;      //テキストオブジェクト
+
+    public GameObject Coin;
+    public GameObject button;
 
     public float timerCount;
-    public GameObject button;
+    public GameObject gameOverPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-        button.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
 
-    public void Coin_Text()
+    public void Coin_Text(int coin)
     {
+        gameOverPanel.SetActive(true);
+
         //コインの値獲得する
         GameObject CoinCount = GameObject.Find("GameInformation");
         information = CoinCount.GetComponent<GameInformation>();
 
-        Debug.Log(information.havingTotalCoin);
+        //Debug.Log(information.havingTotalCoin);
 
         //オブジェクトからTextコンポーネントを取得
         TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
 
         //テキストの表示を入れ替える
-        CoinText.text = "獲得コイン数：" + information.havingTotalCoin;
+        //CoinText.text = "獲得コイン数：" + coin;
+        CoinText.text = "Coin:" + coin;
     }
 
     public void ButtonDisplay()
