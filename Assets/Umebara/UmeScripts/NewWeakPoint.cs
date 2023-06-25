@@ -10,6 +10,7 @@ public class NewWeakPoint : MonoBehaviour
     //public bool weak;
     public GameObject prefabWeak;
     public bool weak;
+    public GameObject weakpoint;
     void Awake()
     {
         weak = false;
@@ -31,7 +32,8 @@ public class NewWeakPoint : MonoBehaviour
             float y = Random.Range(0.19f, 0.9f);
             float z = Random.Range(-0.71f, 0.68f);
             Vector3 pos = new Vector3(0.1f, y, z);
-            Instantiate(prefabWeak, pos, Quaternion.Euler(0, 0, -90));
+            weakpoint = Instantiate(prefabWeak, pos, Quaternion.Euler(0, 0, -90));
+            weakpoint.transform.parent = this.transform;
         }
     }
 
