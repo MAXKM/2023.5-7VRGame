@@ -52,7 +52,7 @@ public class WeakPointScript : MonoBehaviour
     //“–‚½‚Á‚½Žž
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("hand") && weak == false)
+        if (other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand") && weak == false)
         {
             weak = true;
             Changed();

@@ -18,6 +18,7 @@ public class MonitorAppearance : MonoBehaviour
     public int count;//BossMonitorÇÃî‘çÜ
     public GameObject hpGauge;
     //public bool hpSet;
+    public GameObject weak;
     void Awake()
     {
         BMA = new GameObject[3];
@@ -90,6 +91,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         IBM.GetComponent<BoxCollider>().enabled = true;
         hpGauge.gameObject.SetActive(true);
+        weak.SetActive(true);
         //hpSet = true;
         count += 1;
     }
