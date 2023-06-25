@@ -13,7 +13,7 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject E;//Effect
     GameObject[] BMA;//BossMonitorArray
     GameObject INM;//Instansiate‚Å¶¬‚µ‚½NM
-    GameObject IBM;//Instansiate‚Å¶¬‚µ‚½BM
+    public GameObject IBM;//Instansiate‚Å¶¬‚µ‚½BM
     GameObject IE;//Instansiate‚Å¶¬‚µ‚½IE
     public int count;//BossMonitor‚Ì”Ô†
     void Awake()
@@ -36,7 +36,6 @@ public class MonitorAppearance : MonoBehaviour
         StartCoroutine(BA(6.5f));
         StartCoroutine(SC3(6.5f));
         StartCoroutine(CO(8.0f));
-        count += 1;
     }
 
     IEnumerator F(float wait)//Float(ƒ‚ƒjƒ^[‚ª•‚‚«ã‚ª‚é)
@@ -88,5 +87,6 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         IBM.GetComponent<BoxCollider>().enabled = true;
+        count += 1;
     }
 }

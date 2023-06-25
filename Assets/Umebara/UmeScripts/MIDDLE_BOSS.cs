@@ -8,6 +8,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     MonitorAppearance monitorappearance;
     SkillManager skillmanager;
     GameInformation gameinformation;
+    HPGauge hpgauge;
     public float MiddleBossHp;
     private float bossBattleTime;
     public bool defeated;
@@ -20,21 +21,22 @@ public class MIDDLE_BOSS : MonoBehaviour
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
         gameinformation = GameObject.FindGameObjectWithTag("GI").GetComponent<GameInformation>();
+        hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
         switch (gameinformation.bossBattleTimeLevel)
         {
-            case 1:
+            case 0:
                 bossBattleTime = 5.0f;
                 break;
-            case 2:
+            case 1:
                 bossBattleTime = 7.5f;
                 break;
-            case 3:
+            case 2:
                 bossBattleTime = 10.0f;
                 break;
-            case 4:
+            case 3:
                 bossBattleTime = 12.5f;
                 break;
-            case 5:
+            case 4:
                 bossBattleTime = 15.0f;
                 break;
         }
@@ -55,11 +57,13 @@ public class MIDDLE_BOSS : MonoBehaviour
         }
         Detection = false;
         Detectionable = false;
+        hpgauge.Set(MiddleBossHp);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(monitorappearance.IBM.GetComponent<BoxCollider>().enabled == true)
         bossBattleTime -= Time.deltaTime;
         if (MiddleBossHp <= 0 && bossBattleTime >= 0)
         {
