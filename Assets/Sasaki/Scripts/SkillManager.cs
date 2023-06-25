@@ -16,15 +16,15 @@ public class SkillManager : MonoBehaviour
     public float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
     bool powerd;        //仮：攻撃力強化状態か(HandDetectionから受け取る)
-    bool weakpoint;     //仮：急所かどうか(BossMonitorManagerから受け取る)
+    //bool weakpoint;     //仮：急所かどうか(BossMonitorManagerから受け取る)
     bool DDecision;     //仮：道中の当たり判定(MonitorDetectinから受け取る)
     bool BDecision;     //仮：ボスの当たり判定(BossMonitorManagerから受け取る)
 
     [SerializeField] HandDetection handDetection;
+    [SerializeField] NewWeakPoint newweakpoint;
     // Start is called before the first frame update
     void Start()
     {
-
         a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
         //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
         PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
@@ -88,15 +88,15 @@ public class SkillManager : MonoBehaviour
         Distance = Distance * 10;              //距離を100倍
         Distance = Mathf.Round(Distance) / 100; //100倍にした距離を四捨五入し、元に戻して小数点第2位までにした
 
-        if (weakpoint == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
+        if (newweakpoint.weak == true && handDetection.strengthenMode == true)     //弱点かつ強化バフあり
         {
             Damage = a * b * c * (Distance + 0.5f);
         }
-        else if(weakpoint==true && handDetection.strengthenMode == false)     //弱点あり
+        else if(newweakpoint.weak == true && handDetection.strengthenMode == false)     //弱点あり
         {
             Damage = a * b * (Distance + 0.5f);
         }
-        else if(weakpoint == false && handDetection.strengthenMode == true)       //強化バフあり
+        else if(newweakpoint.weak == false && handDetection.strengthenMode == true)       //強化バフあり
         {
             Damage = a * c * (Distance + 0.5f);
         }
