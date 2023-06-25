@@ -4190,7 +4190,7 @@ GameObject:
   - component: {fileID: 1297022421}
   - component: {fileID: 1297022420}
   m_Layer: 0
-  m_Name: GaameOverManager
+  m_Name: GameOverManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4211,7 +4211,7 @@ MonoBehaviour:
   information: {fileID: 497027395}
   Coin: {fileID: 547836217}
   timerCount: 0
-  button: {fileID: 0}
+  button: {fileID: 890268230}
 --- !u!4 &1297022421
 Transform:
   m_ObjectHideFlags: 0
