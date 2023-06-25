@@ -15,7 +15,7 @@ public class HPGauge : MonoBehaviour
     
     private Tween _redGaugeTween;
 
-    private void Awake()
+    private void Start()
     {
         HPGauges.SetActive(false);
     }
