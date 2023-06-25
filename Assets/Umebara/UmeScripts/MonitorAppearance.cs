@@ -72,6 +72,7 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         Destroy(INM);
+        weak.SetActive(true);
         IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -91,7 +92,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         IBM.GetComponent<BoxCollider>().enabled = true;
         hpGauge.gameObject.SetActive(true);
-        weak.SetActive(true);
+        //weak.SetActive(true);
         //hpSet = true;
         count += 1;
     }

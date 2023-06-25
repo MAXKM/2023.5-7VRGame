@@ -9,6 +9,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     SkillManager skillmanager;
     GameInformation gameinformation;
     HPGauge hpgauge;
+    NewWeakPoint newweakpoint;
     public float MiddleBossHp;
     private float bossBattleTime;
     public bool defeated;
@@ -22,6 +23,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
         gameinformation = GameObject.FindGameObjectWithTag("GI").GetComponent<GameInformation>();
         hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
+        newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         switch (gameinformation.bossBattleTimeLevel)
         {
             case 0:
@@ -59,7 +61,6 @@ public class MIDDLE_BOSS : MonoBehaviour
         Detectionable = false;
         hpgauge.Set(MiddleBossHp);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -68,17 +69,18 @@ public class MIDDLE_BOSS : MonoBehaviour
         if (MiddleBossHp <= 0 && bossBattleTime >= 0)
         {
             defeated = true;
+            monitorappearance.hpGauge.SetActive(false);
+            monitorappearance.weak.SetActive(false);
+            Destroy(newweakpoint.weakpoint);
+            Destroy(this.gameObject);
 
         }
         else if (bossBattleTime <= 0)
         {
             defeated = false;
         }
-        /*if (monitorappearance.hpSet == true)
-        {
-            hpgauge.Set(MiddleBossHp);
-            hpSet = false;
-        }*/
+
+
     }
 
     private void OnTriggerEnter(Collider other)

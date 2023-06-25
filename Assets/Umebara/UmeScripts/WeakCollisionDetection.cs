@@ -6,6 +6,7 @@ public class WeakCollisionDetection : MonoBehaviour
 {
     // Start is called before the first frame update
     NewWeakPoint newweakpoint;
+    [SerializeField] MonitorAppearance monitorappearance;
     void Start()
     {
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
@@ -28,4 +29,6 @@ public class WeakCollisionDetection : MonoBehaviour
         Vector3 pos = new Vector3(0.1f, y, z);
         myTransform.position = pos;
     }
+
+
 }
