@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
 
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
-                Debug.Log("ボス時点でのコイン" + currentCoin);
+                
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
@@ -101,12 +101,10 @@ public class GameManager : MonoBehaviour
 
                 usableSkill = true;
 
-                Debug.Log(middleBoss.ToString());
-
                 //ボスを倒したかを判定
                 if (middleBoss.defeated == 1)
                 {
-                    Debug.Log("test.ok");
+                
                     state = STATE.CLEAR;
                 }
                     
@@ -142,7 +140,6 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
-        Debug.Log("現在" + state);
     }
 
     //0.5秒待ってからボスへ遷移
