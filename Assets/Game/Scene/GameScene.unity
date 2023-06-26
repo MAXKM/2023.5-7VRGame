@@ -765,6 +765,7 @@ MonoBehaviour:
   hpGauge: {fileID: 59895606}
   weak: {fileID: 943311629}
   MBCall: 0
+  hpgauge: {fileID: 0}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
