@@ -66,7 +66,6 @@ public class MIDDLE_BOSS : MonoBehaviour
         }
         Detection = false;
         Detectionable = false;
-        hpgauge.Set(MiddleBossHp);
         //situation = Situation.still_alive;
         defeated = 0;
     }
