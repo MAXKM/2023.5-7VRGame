@@ -765,7 +765,7 @@ MonoBehaviour:
   hpGauge: {fileID: 59895606}
   weak: {fileID: 943311629}
   MBCall: 0
-  hpgauge: {fileID: 0}
+  hpgauge: {fileID: 2008121851}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -5159,6 +5159,7 @@ GameObject:
   - component: {fileID: 1804921045}
   - component: {fileID: 1804921044}
   - component: {fileID: 1804921043}
+  - component: {fileID: 1804921047}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5250,6 +5251,25 @@ RectTransform:
   m_AnchoredPosition: {x: -2.462, y: 1.09}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1804921047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804921042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aaf960227867044282d921171d2d7ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  pointer: {fileID: 0}
+  sortOrder: 0
 --- !u!1 &1820234610
 GameObject:
   m_ObjectHideFlags: 0
