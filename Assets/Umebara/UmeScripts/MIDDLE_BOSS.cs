@@ -24,7 +24,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     private bool Detectionable;
     HandDetection handdetection;
     private float damage;
-    void Awake()
+    void Start()
     {
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
@@ -75,7 +75,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     {
         if(monitorappearance.IBM.GetComponent<BoxCollider>().enabled == true)
         bossBattleTime -= Time.deltaTime;
-        if (MiddleBossHp <= 0 && bossBattleTime >= 0)
+        if (MiddleBossHp < 0 && bossBattleTime > 0)
         {
             //situation = Situation.clear;
             defeated = 1;
@@ -85,9 +85,10 @@ public class MIDDLE_BOSS : MonoBehaviour
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
-        else if (bossBattleTime <= 0)
+        if (bossBattleTime <= 0 )
         {
             defeated = 2;
+            monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
             //situation = Situation.game_over;
         }
     }
