@@ -519,6 +519,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3721230178863954625, guid: dd3a95e1a4e409e4c9940dfe509f1a20, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7345730212074451140, guid: dd3a95e1a4e409e4c9940dfe509f1a20, type: 3}
       propertyPath: m_Name
       value: monitor_destroy
@@ -565,6 +569,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7905921954577602283, guid: dd3a95e1a4e409e4c9940dfe509f1a20, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8598828143593886732, guid: dd3a95e1a4e409e4c9940dfe509f1a20, type: 3}
+      propertyPath: looping
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
