@@ -765,6 +765,7 @@ MonoBehaviour:
   hpGauge: {fileID: 59895606}
   weak: {fileID: 943311629}
   MBCall: 0
+  hpgauge: {fileID: 0}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -5314,7 +5315,6 @@ GameObject:
   - component: {fileID: 1879083672}
   - component: {fileID: 1879083671}
   - component: {fileID: 1879083670}
-  - component: {fileID: 1879083669}
   m_Layer: 5
   m_Name: BossHp
   m_TagString: Untagged
@@ -5322,20 +5322,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1879083669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879083668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e7289ed59d952f4fb0d50024e2b3f83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: {fileID: 2117034769}
-  _gauge: {fileID: 2008121851}
 --- !u!114 &1879083670
 MonoBehaviour:
   m_ObjectHideFlags: 0

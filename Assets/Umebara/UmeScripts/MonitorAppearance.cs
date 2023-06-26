@@ -20,6 +20,8 @@ public class MonitorAppearance : MonoBehaviour
     //public bool hpSet;
     public GameObject weak;
     public bool MBCall;
+    [SerializeField] HPGauge hpgauge;
+    MIDDLE_BOSS middleboss;
     void Awake()
     {
         BMA = new GameObject[3];
@@ -94,6 +96,8 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         IBM.GetComponent<BoxCollider>().enabled = true;
         hpGauge.gameObject.SetActive(true);
+        middleboss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+        hpgauge.Set(middleboss.MiddleBossHp);
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
