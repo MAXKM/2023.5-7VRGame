@@ -270,6 +270,7 @@ GameObject:
   - component: {fileID: 191612288}
   - component: {fileID: 191612287}
   - component: {fileID: 191612286}
+  - component: {fileID: 191612289}
   m_Layer: 5
   m_Name: RocketPowerUpButton
   m_TagString: Untagged
@@ -341,7 +342,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 191612287}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 191612289}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RocketM
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &191612287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,8 +375,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: dd2f79c5e355a254c80b701d09aa8953, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -380,6 +393,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191612284}
   m_CullTransparentMesh: 1
+--- !u!114 &191612289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191612284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: dd2f79c5e355a254c80b701d09aa8953, type: 3}
+  - {fileID: 21300000, guid: 7afe12807d799b14799332d3327e63a4, type: 3}
+  - {fileID: 21300000, guid: 5864f8580463d414c9b833561584b125, type: 3}
+  - {fileID: 21300000, guid: 370ad20ade1f7b1478c9db4f055d0be6, type: 3}
+  - {fileID: 21300000, guid: 72fee73ac3a54524dbae839dda5c8a34, type: 3}
 --- !u!1 &252158014
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +559,7 @@ GameObject:
   - component: {fileID: 350029339}
   - component: {fileID: 350029338}
   - component: {fileID: 350029337}
+  - component: {fileID: 350029340}
   m_Layer: 5
   m_Name: RockeNumUpButton
   m_TagString: Untagged
@@ -598,7 +631,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 350029338}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 350029340}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: RocketNum
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &350029338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,8 +664,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e07830ec862ec2643a1bfa64ca79bb3f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -637,6 +682,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350029335}
   m_CullTransparentMesh: 1
+--- !u!114 &350029340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350029335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: e07830ec862ec2643a1bfa64ca79bb3f, type: 3}
+  - {fileID: 21300000, guid: 4031005dc8e1139498046676b4f9813c, type: 3}
+  - {fileID: 21300000, guid: 74f83160b34187e40a93f20b1d356d54, type: 3}
 --- !u!1 &421400986
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +1004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -8.92, y: -0.03}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &500565142
@@ -1071,17 +1133,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63388a1ef86052242b99f63f195fddae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinUpLevel: 0
-  goldEnemyProbabilityLevel: 0
-  bossBattleTimeLevel: 0
-  rocketMagnificationLevel: 0
-  powerUpLevel: 0
-  powerUpTimeLevel: 5
-  rocketNumLevel: 3
-  weakPointNumLevel: 0
-  weakPointMagnificationLevel: 0
+  coinUpLevel: 1
+  goldEnemyProbabilityLevel: 1
+  bossBattleTimeLevel: 1
+  rocketMagnificationLevel: 1
+  powerUpLevel: 1
+  powerUpTimeLevel: 1
+  rocketNumLevel: 1
+  weakPointNumLevel: 1
+  weakPointMagnificationLevel: 1
   numberOfPlays: 0
-  havingTotalCoin: 0
+  havingTotalCoin: 100000
 --- !u!4 &720989714
 Transform:
   m_ObjectHideFlags: 0
@@ -1109,6 +1171,7 @@ GameObject:
   - component: {fileID: 724193941}
   - component: {fileID: 724193940}
   - component: {fileID: 724193939}
+  - component: {fileID: 724193942}
   m_Layer: 5
   m_Name: PowerUpTimeButton
   m_TagString: Untagged
@@ -1180,7 +1243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 724193940}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 724193942}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PowerupTime
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &724193940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,8 +1276,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: e5e189799eb7f7d43a6a8a2173c9b6fe, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1219,6 +1294,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724193937}
   m_CullTransparentMesh: 1
+--- !u!114 &724193942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724193937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: e5e189799eb7f7d43a6a8a2173c9b6fe, type: 3}
+  - {fileID: 21300000, guid: 084ccbd3ac37786419318a5f35477143, type: 3}
+  - {fileID: 21300000, guid: 0f8dd9b660690074c935f5fe6068fdd8, type: 3}
+  - {fileID: 21300000, guid: b21bbeca05993184d8fcab9cb477619d, type: 3}
+  - {fileID: 21300000, guid: cde5974adf88e904e9efaf0bed005e01, type: 3}
 --- !u!1 &755735458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -9.8, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755735460
@@ -1498,6 +1592,7 @@ GameObject:
   - component: {fileID: 983991422}
   - component: {fileID: 983991421}
   - component: {fileID: 983991420}
+  - component: {fileID: 983991423}
   m_Layer: 5
   m_Name: BossBattleTimeUpButton
   m_TagString: Untagged
@@ -1569,7 +1664,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 983991421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 983991423}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BossTime
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &983991421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,8 +1697,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 3113bb6cd71a53f408cc66ff2711de76, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1608,6 +1715,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 983991418}
   m_CullTransparentMesh: 1
+--- !u!114 &983991423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983991418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 3113bb6cd71a53f408cc66ff2711de76, type: 3}
+  - {fileID: 21300000, guid: 59de2707c3f3caf45a70e6ee26de2646, type: 3}
+  - {fileID: 21300000, guid: 1cf3c86851ad62345a3b87da270fba7c, type: 3}
+  - {fileID: 21300000, guid: c08c31d08e6707440a45e4b132e3f3ef, type: 3}
+  - {fileID: 21300000, guid: 650c88434c9c10b408e509a49ff305f6, type: 3}
 --- !u!1 &1019661785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1620,6 +1746,7 @@ GameObject:
   - component: {fileID: 1019661788}
   - component: {fileID: 1019661787}
   - component: {fileID: 1019661786}
+  - component: {fileID: 1019661790}
   m_Layer: 5
   m_Name: GoldEnemyUpButton
   m_TagString: Untagged
@@ -1670,7 +1797,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1019661787}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1019661790}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: GoldEnemy
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1019661787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,7 +1830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9e792887d0adb5e4fb7039f2c1de32e0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1730,6 +1869,25 @@ RectTransform:
   m_AnchoredPosition: {x: 2, y: 3}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1019661790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019661785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 9e792887d0adb5e4fb7039f2c1de32e0, type: 3}
+  - {fileID: 21300000, guid: dcb74176e5f86774693df7ac5043cfb3, type: 3}
+  - {fileID: 21300000, guid: f631f5de38cb7544c8c81f809bd7e9fd, type: 3}
+  - {fileID: 21300000, guid: 162fc16db54009b4793be1b5e893c11f, type: 3}
+  - {fileID: 21300000, guid: 2a8e14480be0cfb4285ba14f230dd204, type: 3}
 --- !u!1 &1138878541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,7 +2032,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1155167783}
-  - component: {fileID: 1155167782}
   m_Layer: 0
   m_Name: ButtonInfo
   m_TagString: Untagged
@@ -1882,20 +2039,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1155167782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155167781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a4f69b6dc24284ea4fdb5bb7b9b4cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FarstSprite: {fileID: 0}
-  SecondSprite: {fileID: 0}
 --- !u!4 &1155167783
 Transform:
   m_ObjectHideFlags: 0
@@ -1923,6 +2066,7 @@ GameObject:
   - component: {fileID: 1275815908}
   - component: {fileID: 1275815907}
   - component: {fileID: 1275815906}
+  - component: {fileID: 1275815909}
   m_Layer: 5
   m_Name: PowerUpButton
   m_TagString: Untagged
@@ -1994,7 +2138,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275815907}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275815909}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Powerup
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1275815907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2015,8 +2171,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2158d2931fac63d4989d14d3725c77a7, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2033,6 +2189,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275815904}
   m_CullTransparentMesh: 1
+--- !u!114 &1275815909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275815904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 2158d2931fac63d4989d14d3725c77a7, type: 3}
+  - {fileID: 21300000, guid: 2ade9eb9794d39c4a900ec7d54b32197, type: 3}
+  - {fileID: 21300000, guid: d5af4bed0ac661e498ebc5ff2b5b41db, type: 3}
+  - {fileID: 21300000, guid: 2a7be11264e876e48b5143eafbd60025, type: 3}
+  - {fileID: 21300000, guid: 94a58f27e2767ea438945be214cc6c7a, type: 3}
 --- !u!1 &1398653045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,7 +2588,7 @@ GameObject:
   - component: {fileID: 1626869953}
   - component: {fileID: 1626869952}
   - component: {fileID: 1626869951}
-  - component: {fileID: 1626869954}
+  - component: {fileID: 1626869955}
   m_Layer: 5
   m_Name: CoinUpButton
   m_TagString: Untagged
@@ -2486,16 +2661,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1626869954}
-        m_TargetAssemblyTypeName: ButtonTest, Assembly-CSharp
+      - m_Target: {fileID: 1626869955}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
         m_MethodName: OnClick
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Coinup
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1626869952
@@ -2518,8 +2693,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 64a7f9f3a55c8b041b5398c78fc78ad1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2536,7 +2711,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626869949}
   m_CullTransparentMesh: 1
---- !u!114 &1626869954
+--- !u!114 &1626869955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2545,10 +2720,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626869949}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5c326c0bbdd6a4484c7026053c6d8a, type: 3}
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: {fileID: 1731011944}
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 64a7f9f3a55c8b041b5398c78fc78ad1, type: 3}
+  - {fileID: 21300000, guid: 3010f9de322495545a799ac04a334dcb, type: 3}
+  - {fileID: 21300000, guid: 92a84c5fa9d2b8747a3f7ef544637f82, type: 3}
+  - {fileID: 21300000, guid: bddddce3a4d4bf24eb5224f155c22918, type: 3}
+  - {fileID: 21300000, guid: 1e3ee610f3927d1489848b1de0b7b002, type: 3}
 --- !u!1 &1697635799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2719,7 +2900,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2}
+  m_AnchoredPosition: {x: -11.72, y: 2}
   m_SizeDelta: {x: 8, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1731011944
@@ -2833,6 +3014,7 @@ GameObject:
   - component: {fileID: 1871543474}
   - component: {fileID: 1871543473}
   - component: {fileID: 1871543472}
+  - component: {fileID: 1871543475}
   m_Layer: 5
   m_Name: WeakpointPowerUpButton
   m_TagString: Untagged
@@ -2904,7 +3086,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1871543473}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1871543475}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WeakPointM
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1871543473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,8 +3119,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 081ce50bc56929d4a93111a46b38ba6c, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2943,6 +3137,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871543470}
   m_CullTransparentMesh: 1
+--- !u!114 &1871543475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871543470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 081ce50bc56929d4a93111a46b38ba6c, type: 3}
+  - {fileID: 21300000, guid: 57cc9c484af37f24ab48e851431a93d1, type: 3}
+  - {fileID: 21300000, guid: de72ce1f894833e45b1c53036ead6bbc, type: 3}
+  - {fileID: 21300000, guid: 9dea465f8edf3bc4e970187b463c467d, type: 3}
+  - {fileID: 21300000, guid: 5f3dd38665ca9ad469346fc83898b0c2, type: 3}
 --- !u!1 &1918101222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,6 +3168,7 @@ GameObject:
   - component: {fileID: 1918101226}
   - component: {fileID: 1918101225}
   - component: {fileID: 1918101224}
+  - component: {fileID: 1918101227}
   m_Layer: 5
   m_Name: WeakpointNumUpButton
   m_TagString: Untagged
@@ -3026,7 +3240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1918101225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1918101227}
+        m_TargetAssemblyTypeName: SkillButtonManager, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WeakNum
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1918101225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3047,8 +3273,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 2a85e0fe9a6be6b409fe2a5b61f8734a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3065,6 +3291,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918101222}
   m_CullTransparentMesh: 1
+--- !u!114 &1918101227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918101222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d663066594c070143b7fc88e3669e70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameInformation: {fileID: 720989713}
+  Ssprite:
+  - {fileID: 21300000, guid: 2a85e0fe9a6be6b409fe2a5b61f8734a, type: 3}
+  - {fileID: 21300000, guid: 6e1fbc6cdab8a4b4db9006c29174b12e, type: 3}
+  - {fileID: 21300000, guid: 1f268add96769cd40965432ae74575e0, type: 3}
 --- !u!1001 &1980385354
 PrefabInstance:
   m_ObjectHideFlags: 0
