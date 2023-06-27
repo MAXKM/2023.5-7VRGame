@@ -100,11 +100,6 @@ public class NormalMonitorManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Debug.Log("現在コイン:" + _currentCoin);
-    }
-
     //オブジェクトをプールから取得
     private GameObject GetObjectFromPool()
     {

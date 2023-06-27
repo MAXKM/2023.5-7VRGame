@@ -81,7 +81,6 @@ public class SkillEffectManager : MonoBehaviour
         {
             isDecrease = false;
         }
-        Debug.Log(rocketNum);
     }
 
     //テキストの表示/非表示
@@ -107,32 +106,6 @@ public class SkillEffectManager : MonoBehaviour
         meshRendererR.material = normalColor;
     }
 
-    //レベル別の制限時間を計算
-    //private float LimitTimeCalculation(int level)
-    //{
-    //    //レベル別に制限時間を計算
-    //    switch (level)
-    //    {
-    //        case 1:
-    //            limitSeconds = 0;
-    //            break;
-    //        case 2:
-    //            limitSeconds = 1.5f;
-    //            break;
-    //        case 3:
-    //            limitSeconds = 3f;
-    //            break;
-    //        case 4:
-    //            limitSeconds = 4.5f;
-    //            break;
-    //        case 5:
-    //            limitSeconds = 6f;
-    //            break;
-    //    }
-
-    //    return limitSeconds;
-    //}
-
     //ロケット発動
     public void RocketLaunch()
     {
@@ -145,7 +118,6 @@ public class SkillEffectManager : MonoBehaviour
         //ロケット発動処理
         rocketText.gameObject.SetActive(true);
         rocketText.text = "Rocket!!";
-        Debug.Log("rocket");
 
         //残数を減らす
         if (!isDecrease)

@@ -142,6 +142,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
     //0.5•b‘Ò‚Á‚Ä‚©‚çƒ{ƒX‚Ö‘JˆÚ
     IEnumerator ToBossBattle()
     {
