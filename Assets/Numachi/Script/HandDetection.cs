@@ -55,9 +55,6 @@ public class HandDetection : MonoBehaviour
 
         distanceRight = DistanceCalculationRight(distanceRight);
         distanceLeft = DistanceCaluculationLeft(distanceLeft);
-        //Debug.Log("âEãóó£" + distanceRight);
-        //Debug.Log("ç∂ãóó£" + distanceLeft);
-
     }
 
     private void OnTriggerEnter(Collider other)
