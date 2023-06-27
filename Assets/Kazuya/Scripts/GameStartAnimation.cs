@@ -6,7 +6,10 @@ using TMPro;
 
 public class GameStartAnimation : MonoBehaviour
 {
-    [SerializeField] CanvasGroup canvasgroup ;
+    [SerializeField] CanvasGroup title ;
+    [SerializeField] CanvasGroup explain;
+    [SerializeField] CanvasGroup RigthArrow_Explain;
+    [SerializeField] CanvasGroup LeftArrow_Explain;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,9 @@ public class GameStartAnimation : MonoBehaviour
 
     public void Fadetext()
     {
-        canvasgroup.DOFade(0,1f);
+        title.DOFade(0,1f);
+        explain.DOFade(0,1f);
+        RigthArrow_Explain.DOFade(0,1f);
+        LeftArrow_Explain.DOFade(0,1f);  
     }
 }
