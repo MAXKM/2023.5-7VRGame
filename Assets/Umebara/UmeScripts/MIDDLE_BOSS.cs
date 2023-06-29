@@ -98,7 +98,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
             Vector3 contactPoint = other.ClosestPoint(transform.position);
-            Debug.Log(contactPoint);
+            //Debug.Log(contactPoint);
             //SkillManager‚ÉÚG’Ê’m‚ğ‘—‚éA‹——£‚Ì’l‚ğ‘—‚é
             if (other.gameObject.tag == "LeftHand")
             {
