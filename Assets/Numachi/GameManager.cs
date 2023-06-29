@@ -22,12 +22,17 @@ public class GameManager : MonoBehaviour
     //ゲーム中に所持したコイン
     private int currentCoin;
 
+    //総周回数、進捗度
+    private int _numberOfPlays = 0, _progress = 0;
+
     [SerializeField] NormalMonitorManager normalMonitorManager;
 
     [SerializeField] MonitorAppearance monitorAppearance;
 
     [SerializeField] GameClearManagaer clearManager;
     [SerializeField] GameOverManager gameOverManager;
+    [SerializeField] GameInformation gameInformation;
+
     MIDDLE_BOSS middleBoss;
 
     WaitForSeconds waitToBoss;
@@ -39,12 +44,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //state = STATE.TITLE;
-
         usableSkill = false;
         gameStart = false;
         waitToBoss = new WaitForSeconds(0.5f);
         currentCoin = 0;
+        gameInformation.havingTotalCoin = gameInformation.Refresh("TOTAL_COIN");
     }
 
     void Update()
@@ -126,6 +130,18 @@ public class GameManager : MonoBehaviour
                 //クリアのテキストを表示
                 clearManager.Coin_Text(currentCoin);
 
+                //獲得コインを所持コインへ
+                PlayerPrefs.SetInt("TOTAL_COIN",currentCoin);
+
+                //進行度を進める
+                _progress++;
+                PlayerPrefs.SetInt("PROGRESS",_progress);
+
+                //周回数をカウント
+                _numberOfPlays++;
+                PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
+                PlayerPrefs.Save();
+
                 //タイトルへシーン遷移
                 clearManager.SceneChange();
 
@@ -134,6 +150,14 @@ public class GameManager : MonoBehaviour
             //ゲームオーバー時の処理
             case STATE.GAME_OVER:
 
+                //獲得コインを所持コインへ
+                PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
+
+                //周回数をカウント
+                _numberOfPlays++;
+                PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
+                PlayerPrefs.Save();
+
                 //ゲームオーバーのUIを表示
                 gameOverManager.Coin_Text(currentCoin);
                 gameOverManager.ButtonDisplay();
@@ -141,8 +165,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
-
 
     //0.5秒待ってからボスへ遷移
     IEnumerator ToBossBattle()

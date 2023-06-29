@@ -22,7 +22,7 @@ public class MonitorDetection : MonoBehaviour
     void Start()
     {
         Detection = false;
-        Debug.Log(Detection);
+        //Debug.Log(Detection);
         Detectionable = false;
         monitor = transform.parent.gameObject;
         monitoreffect.CountText();
@@ -35,7 +35,7 @@ public class MonitorDetection : MonoBehaviour
         if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
             Vector3 contactPoint = other.ClosestPoint(transform.position);
-            Debug.Log(contactPoint);
+            //Debug.Log(contactPoint);
             //’Ç‰Á
             if (meshRenderer == null)
             {
@@ -82,7 +82,7 @@ public class MonitorDetection : MonoBehaviour
             StartCoroutine(HideCoroutine());
             //
             Detection = true;
-            Debug.Log(Detection);
+            //Debug.Log(Detection);
         }
 
     }
@@ -92,7 +92,7 @@ public class MonitorDetection : MonoBehaviour
         if (other.gameObject.tag == "Hand" && Detectionable == false)
         {
             Detection = false;
-            Debug.Log(Detection);
+            //Debug.Log(Detection);
         }
     }
 

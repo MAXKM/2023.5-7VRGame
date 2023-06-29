@@ -1783,6 +1783,7 @@ MonoBehaviour:
   weakPointNumLevel: 0
   weakPointMagnificationLevel: 0
   numberOfPlays: 0
+  progress: 0
   havingTotalCoin: 0
 --- !u!4 &497027396
 Transform:
@@ -5225,6 +5226,7 @@ MonoBehaviour:
   monitorAppearance: {fileID: 104250820}
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}
+  gameInformation: {fileID: 497027395}
   state: 0
   usableSkill: 0
 --- !u!4 &1820234612
