@@ -12,6 +12,13 @@ public class GameClearManagaer : MonoBehaviour
 
     public float timerCount;
 
+    [SerializeField] ParticleSystem particle;
+
+    public void ParticlePlay()
+    {
+        particle.IsAlive(true);
+    }
+
     public void Coin_Text(int coin)
     {
         Coin.SetActive(true);

@@ -9,19 +9,34 @@ public class test : MonoBehaviour
     /*
     public float timerCount;
     public GameObject button;
-    */
+    
     public GameInformation information; //コインの枚数
     public GameObject Coin = null;      //テキストオブジェクト
+    */
+
+     
+    [SerializeField] ParticleSystem particle;
+
+    //public void Play()
+    //{
+     //   particle.Play();
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
         //button.SetActive(false);
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Play();
+        particle.IsAlive(true);
+
+        /*
         //コインの値獲得する
         //float Coin_count = 0.0f;
         //Coin_count = information.havingTotalCoin;
@@ -35,6 +50,7 @@ public class test : MonoBehaviour
 
         //テキストの表示を入れ替える
         CoinText.text = "獲得コイン数：" + information.havingTotalCoin;
+        */
     }
 
     /*
