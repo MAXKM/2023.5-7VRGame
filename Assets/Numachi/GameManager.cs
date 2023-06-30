@@ -1,3 +1,4 @@
+using Meta.WitAi;
 using Oculus.Voice.Core.Utilities;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     }
 
     //ゲームの開始を合図するbool変数
-    public bool gameStart;
+    //public bool gameStart;
 
     //ゲーム中に所持したコイン
     private int currentCoin;
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     WaitForSeconds waitToBoss;
 
-    [SerializeField] private STATE state;
+    [SerializeField] public STATE state;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
 
@@ -45,25 +46,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         usableSkill = false;
-        gameStart = false;
+        //gameStart = false;
         waitToBoss = new WaitForSeconds(0.5f);
         currentCoin = 0;
         gameInformation.havingTotalCoin = gameInformation.Refresh("TOTAL_COIN");
+        SetState(STATE.TITLE);
     }
 
-    void Update()
+    public void SetState(STATE _state)
     {
         //switch分で状態遷移を管理
-        switch (state)
+        switch (_state)
         {
             //titleの処理
             case STATE.TITLE:
-
-                //ゲーム開始の合図が出されたら道中へ移行
-                if (gameStart)
-                {
-                    state = STATE.ON_THE_WAY;
-                }
 
                 break;
 
@@ -74,7 +70,7 @@ public class GameManager : MonoBehaviour
                 normalMonitorManager.gameObject.SetActive(true);
 
                 //19体目を倒したらボス戦へ移行
-                if(normalMonitorManager.monitorCount == 19)
+                if (normalMonitorManager.monitorCount == 19)
                 {
                     StartCoroutine(ToBossBattle());
                 }
@@ -83,7 +79,7 @@ public class GameManager : MonoBehaviour
 
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
-                
+
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
@@ -108,11 +104,11 @@ public class GameManager : MonoBehaviour
                 //ボスを倒したかを判定
                 if (middleBoss.defeated == 1)
                 {
-                
+
                     state = STATE.CLEAR;
                 }
-                    
-                else if(middleBoss.defeated == 2)
+
+                else if (middleBoss.defeated == 2)
                     state = STATE.GAME_OVER;
 
                 break;
@@ -131,11 +127,11 @@ public class GameManager : MonoBehaviour
                 clearManager.Coin_Text(currentCoin);
 
                 //獲得コインを所持コインへ
-                PlayerPrefs.SetInt("TOTAL_COIN",currentCoin);
+                PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
 
                 //進行度を進める
                 _progress++;
-                PlayerPrefs.SetInt("PROGRESS",_progress);
+                PlayerPrefs.SetInt("PROGRESS", _progress);
 
                 //周回数をカウント
                 _numberOfPlays++;
@@ -165,6 +161,121 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
+    //void Update()
+    //{
+    //    //switch分で状態遷移を管理
+    //    switch (state)
+    //    {
+    //        //titleの処理
+    //        case STATE.TITLE:
+
+    //            //ゲーム開始の合図が出されたら道中へ移行
+    //            if (gameStart)
+    //            {
+    //                state = STATE.ON_THE_WAY;
+    //            }
+
+    //            break;
+
+    //        //道中の処理
+    //        case STATE.ON_THE_WAY:
+
+    //            //NormalMonitorManagerによるモニターの生成開始
+    //            normalMonitorManager.gameObject.SetActive(true);
+
+    //            //19体目を倒したらボス戦へ移行
+    //            if(normalMonitorManager.monitorCount == 19)
+    //            {
+    //                StartCoroutine(ToBossBattle());
+    //            }
+
+    //            break;
+
+    //        //中ボスの処理
+    //        case STATE.MIDDLE_BOSS:
+
+
+    //            //Bossモニターの生成
+    //            monitorAppearance.gameObject.SetActive(true);
+
+    //            //中ボス管理のスクリプトを呼び出せるかを判定
+    //            if (monitorAppearance.MBCall)
+    //            {
+    //                //空だったら呼び出す
+    //                if (middleBoss == null)
+    //                {
+    //                    middleBoss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+    //                }
+    //            }
+    //            else
+    //            {
+    //                //呼び出せる状態になるまでreturnし続ける
+    //                return;
+    //            }
+
+    //            usableSkill = true;
+
+    //            //ボスを倒したかを判定
+    //            if (middleBoss.defeated == 1)
+    //            {
+
+    //                state = STATE.CLEAR;
+    //            }
+
+    //            else if(middleBoss.defeated == 2)
+    //                state = STATE.GAME_OVER;
+
+    //            break;
+
+    //        //大ボスの処理
+    //        case STATE.LAST_BOSS:
+
+    //            usableSkill = true;
+
+    //            break;
+
+    //        //クリア時の処理
+    //        case STATE.CLEAR:
+
+    //            //クリアのテキストを表示
+    //            clearManager.Coin_Text(currentCoin);
+
+    //            //獲得コインを所持コインへ
+    //            PlayerPrefs.SetInt("TOTAL_COIN",currentCoin);
+
+    //            //進行度を進める
+    //            _progress++;
+    //            PlayerPrefs.SetInt("PROGRESS",_progress);
+
+    //            //周回数をカウント
+    //            _numberOfPlays++;
+    //            PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
+    //            PlayerPrefs.Save();
+
+    //            //タイトルへシーン遷移
+    //            clearManager.SceneChange();
+
+    //            break;
+
+    //        //ゲームオーバー時の処理
+    //        case STATE.GAME_OVER:
+
+    //            //獲得コインを所持コインへ
+    //            PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
+
+    //            //周回数をカウント
+    //            _numberOfPlays++;
+    //            PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
+    //            PlayerPrefs.Save();
+
+    //            //ゲームオーバーのUIを表示
+    //            gameOverManager.Coin_Text(currentCoin);
+    //            gameOverManager.ButtonDisplay();
+
+    //            break;
+    //    }
+    //}
 
     //0.5秒待ってからボスへ遷移
     IEnumerator ToBossBattle()

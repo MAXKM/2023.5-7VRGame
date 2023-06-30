@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802875, g: 0.22571936, b: 0.30692452, a: 1}
+  m_IndirectSpecularColor: {r: 0.1802879, g: 0.22572026, b: 0.3069257, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3312,6 +3312,7 @@ MonoBehaviour:
   - {fileID: -2432090755550338912, guid: d07e789a40472394f9bbcfcc399cf68e, type: 3}
   _currentCoin: 0
   gameInformation: {fileID: 497027395}
+  gameManager: {fileID: 1820234611}
 --- !u!4 &999742977
 Transform:
   m_ObjectHideFlags: 0
@@ -5551,7 +5552,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecc7dca53926d94887ae559981d356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStart: 0
   normalMonitorManager: {fileID: 999742976}
   monitorAppearance: {fileID: 104250820}
   clearManager: {fileID: 1320406907}
