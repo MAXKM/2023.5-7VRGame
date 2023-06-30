@@ -52,6 +52,7 @@ public class FirstMonitor : MonoBehaviour
         meshRenderer.enabled = false;
         counttext.gameObject.SetActive(false);
         gamestartanimation.Fadetext();
+        gamestartanimation.HideArrow();
         Destroy.Play();
         StartCoroutine(HideCoroutine());
 
