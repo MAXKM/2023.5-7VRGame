@@ -3,6 +3,7 @@ using Oculus.Voice.Core.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,9 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameOverManager gameOverManager;
     [SerializeField] GameInformation gameInformation;
 
-    MIDDLE_BOSS middleBoss;
-
-    WaitForSeconds waitToBoss;
+    WaitForSeconds waitToTitle;
 
     [SerializeField] public STATE state;
 
@@ -47,7 +46,7 @@ public class GameManager : MonoBehaviour
     {
         usableSkill = false;
         //gameStart = false;
-        waitToBoss = new WaitForSeconds(0.5f);
+        waitToTitle = new WaitForSeconds(5);
         currentCoin = 0;
         gameInformation.havingTotalCoin = gameInformation.Refresh("TOTAL_COIN");
         SetState(STATE.TITLE);
@@ -69,49 +68,19 @@ public class GameManager : MonoBehaviour
                 //NormalMonitorManagerによるモニターの生成開始
                 normalMonitorManager.gameObject.SetActive(true);
 
-                //19体目を倒したらボス戦へ移行
-                if (normalMonitorManager.monitorCount == 19)
-                {
-                    StartCoroutine(ToBossBattle());
-                }
-
                 break;
 
             //中ボスの処理
             case STATE.MIDDLE_BOSS:
-
+                //道中で稼いだコインを更新
+                currentCoin = normalMonitorManager._currentCoin;
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
 
-                //中ボス管理のスクリプトを呼び出せるかを判定
-                if (monitorAppearance.MBCall)
-                {
-                    //空だったら呼び出す
-                    if (middleBoss == null)
-                    {
-                        middleBoss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
-                    }
-                }
-                else
-                {
-                    //呼び出せる状態になるまでreturnし続ける
-                    return;
-                }
-
+                //スキル使用可能
                 usableSkill = true;
 
-                //ボスを倒したかを判定
-                
-                /*if (middleBoss.defeated == 1)
-                {
-
-                    state = STATE.CLEAR;
-                }
-
-                else if (middleBoss.defeated == 2)
-                    state = STATE.GAME_OVER;
-                */
                 break;
 
             //大ボスの処理
@@ -140,7 +109,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.Save();
 
                 //タイトルへシーン遷移
-                clearManager.SceneChange();
+                StartCoroutine(ToTitle());
 
                 break;
 
@@ -161,6 +130,15 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
+    }
+
+    //5秒待ってからタイトルへ戻る
+    IEnumerator ToTitle()
+    {
+        yield return waitToTitle;
+        //clearManager.SceneChange();
+        //↓仮
+        SceneManager.LoadScene("GameScene");
     }
 
     //void Update()
@@ -277,14 +255,4 @@ public class GameManager : MonoBehaviour
     //            break;
     //    }
     //}
-
-    //0.5秒待ってからボスへ遷移
-    IEnumerator ToBossBattle()
-    {
-        yield return waitToBoss;
-        state = STATE.MIDDLE_BOSS;
-
-        //道中で稼いだコインを取得
-        currentCoin = normalMonitorManager._currentCoin;
-    }
 }
