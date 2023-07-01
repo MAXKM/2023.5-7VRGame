@@ -20,6 +20,13 @@ public class GameInformation : MonoBehaviour
     public int progress; //進行度
     public int havingTotalCoin; //持ってるコインの合計
 
+    private void Start()
+    {
+        havingTotalCoin = Refresh("TOTAL_COIN");
+        progress = Refresh("PROGRESS");
+        numberOfPlays = Refresh("NUMBER_OF_PLAYS");
+    }
+
     //レベル更新時に呼び出す関数
     public int Refresh(string key)
     {

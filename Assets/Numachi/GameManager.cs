@@ -45,11 +45,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         usableSkill = false;
-        //gameStart = false;
         waitToTitle = new WaitForSeconds(5);
         currentCoin = 0;
-        gameInformation.havingTotalCoin = gameInformation.Refresh("TOTAL_COIN");
         SetState(STATE.TITLE);
+
+        //進捗度、周回数をロード
+        _progress = gameInformation.progress;
+        _numberOfPlays = gameInformation.numberOfPlays;
+
+        Debug.Log("所持コイン:" + gameInformation.havingTotalCoin + " 進行度:" + gameInformation.progress + " 周回数:" + gameInformation.numberOfPlays);
     }
 
     public void SetState(STATE _state)
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
                 clearManager.Coin_Text(currentCoin);
 
                 //獲得コインを所持コインへ
-                PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
+                PlayerPrefs.SetInt("TOTAL_COIN", gameInformation.havingTotalCoin + currentCoin);
 
                 //進行度を進める
                 _progress++;
@@ -117,11 +121,11 @@ public class GameManager : MonoBehaviour
             case STATE.GAME_OVER:
 
                 //獲得コインを所持コインへ
-                PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
+                PlayerPrefs.SetInt("TOTAL_COIN", gameInformation.havingTotalCoin + currentCoin);
 
                 //周回数をカウント
                 _numberOfPlays++;
-                PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
+                PlayerPrefs.SetInt("NUMBER_OF_PLAYS",  _numberOfPlays);
                 PlayerPrefs.Save();
 
                 //ゲームオーバーのUIを表示
