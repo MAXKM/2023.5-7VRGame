@@ -102,7 +102,8 @@ public class GameManager : MonoBehaviour
                 usableSkill = true;
 
                 //ボスを倒したかを判定
-                if (middleBoss.defeated == 1)
+                
+                /*if (middleBoss.defeated == 1)
                 {
 
                     state = STATE.CLEAR;
@@ -110,7 +111,7 @@ public class GameManager : MonoBehaviour
 
                 else if (middleBoss.defeated == 2)
                     state = STATE.GAME_OVER;
-
+                */
                 break;
 
             //大ボスの処理
