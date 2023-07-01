@@ -10,6 +10,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     GameInformation gameinformation;
     HPGauge hpgauge;
     NewWeakPoint newweakpoint;
+    GameManager gamemanager;
     public float MiddleBossHp;
     private float bossBattleTime;
     /*
@@ -19,7 +20,6 @@ public class MIDDLE_BOSS : MonoBehaviour
     }
     public Situation situation;
     */
-    public int defeated;
     public bool Detection;
     private bool Detectionable;
     HandDetection handdetection;
@@ -31,6 +31,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         gameinformation = GameObject.FindGameObjectWithTag("GI").GetComponent<GameInformation>();
         hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
+        gamemanager= GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
         switch (gameinformation.bossBattleTimeLevel)
         {
             case 0:
@@ -67,7 +68,6 @@ public class MIDDLE_BOSS : MonoBehaviour
         Detection = false;
         Detectionable = false;
         //situation = Situation.still_alive;
-        defeated = 0;
     }
     // Update is called once per frame
     void Update()
@@ -76,8 +76,8 @@ public class MIDDLE_BOSS : MonoBehaviour
         bossBattleTime -= Time.deltaTime;
         if (MiddleBossHp < 0 && bossBattleTime > 0)
         {
+            gamemanager.SetState(GameManager.STATE.CLEAR);
             //situation = Situation.clear;
-            defeated = 1;
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
             Destroy(newweakpoint.weakpoint);
@@ -86,9 +86,11 @@ public class MIDDLE_BOSS : MonoBehaviour
         }
         if (bossBattleTime <= 0 )
         {
-            defeated = 2;
+            gamemanager.SetState(GameManager.STATE.GAME_OVER);
             monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
+            this.enabled = false;
             //situation = Situation.game_over;
+
         }
     }
 
