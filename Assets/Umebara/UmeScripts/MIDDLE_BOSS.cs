@@ -13,6 +13,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     GameManager gamemanager;
     public float MiddleBossHp;
     private float bossBattleTime;
+    bool display;
     /*
     public enum Situation
     {
@@ -51,7 +52,7 @@ public class MIDDLE_BOSS : MonoBehaviour
                 break;
         }
 
-        switch (monitorappearance.count)
+        switch (gameinformation.progress)
         {
             case 0:
                 MiddleBossHp = 300;
@@ -67,13 +68,16 @@ public class MIDDLE_BOSS : MonoBehaviour
         }
         Detection = false;
         Detectionable = false;
+        display = false;
         //situation = Situation.still_alive;
     }
     // Update is called once per frame
     void Update()
     {
         if(monitorappearance.IBM.GetComponent<BoxCollider>().enabled == true)
-        bossBattleTime -= Time.deltaTime;
+        {
+            bossBattleTime -= Time.deltaTime;
+        }
         if (MiddleBossHp < 0 && bossBattleTime > 0)
         {
             gamemanager.SetState(GameManager.STATE.CLEAR);
