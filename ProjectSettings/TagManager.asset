@@ -16,6 +16,7 @@ TagManager:
   - HG
   - MB
   - GM
+  - BT
   layers:
   - Default
   - TransparentFX

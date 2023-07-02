@@ -11,6 +11,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     HPGauge hpgauge;
     NewWeakPoint newweakpoint;
     GameManager gamemanager;
+    BossTime bosstime;
     public float MiddleBossHp;
     private float bossBattleTime;
     bool display;
@@ -33,6 +34,8 @@ public class MIDDLE_BOSS : MonoBehaviour
         hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         gamemanager= GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        bosstime= GameObject.FindGameObjectWithTag("BT").GetComponent<BossTime>();
+
         switch (gameinformation.bossBattleTimeLevel)
         {
             case 0:
@@ -68,7 +71,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         }
         Detection = false;
         Detectionable = false;
-        display = false;
+        display = true;
         //situation = Situation.still_alive;
     }
     // Update is called once per frame
@@ -87,6 +90,12 @@ public class MIDDLE_BOSS : MonoBehaviour
             Destroy(newweakpoint.weakpoint);
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
+        }
+        if (bossBattleTime <= 5 && display == true)
+        {
+            bosstime.SetBomb();
+            display = false;
+
         }
         if (bossBattleTime <= 0 )
         {
