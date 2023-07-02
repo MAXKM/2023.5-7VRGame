@@ -22,7 +22,8 @@ public class GameInformation : MonoBehaviour
 
     private void Start()
     {
-        havingTotalCoin = Refresh("TOTAL_COIN");
+        //havingTotalCoin = Refresh("TOTAL_COIN");
+        havingTotalCoin = 100000; //デバッグ用
         progress = Refresh("PROGRESS");
         numberOfPlays = Refresh("NUMBER_OF_PLAYS");
     }
