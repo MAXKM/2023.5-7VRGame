@@ -18,7 +18,7 @@ public class BossTime : MonoBehaviour
         
     }
 
-    void SetBomb()
+    public void SetBomb()
     {
         bomb = Instantiate(Bomb, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
     }
