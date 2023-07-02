@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb8c072efab29b48a1dbd584682cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   strengthenMode: 0
   rightHandTf: {fileID: 3093407111940099308}
   leftHandTf: {fileID: 3093407111940103298}
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handDetection: {fileID: 3093407111743808180}
   gameInformation: {fileID: 0}
+  skillManager: {fileID: 0}
   meshRendererR: {fileID: 3093407111743808137}
   meshRendererL: {fileID: 3093407111442162750}
   strengthenColor: {fileID: 2100000, guid: 4b85d6f9510f294488ed670b9615a3c6, type: 2}
