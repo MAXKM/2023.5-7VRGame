@@ -190,12 +190,14 @@ public class NormalMonitorManager : MonoBehaviour
     {
         if (monitor.CompareTag("Normal"))
         {
-            _currentCoin += 10;
+            _currentCoin += CoinMagnificationCalculation(gameInformation.coinUpLevel);
         }
         else if (monitor.CompareTag("Gold"))
         {
-            _currentCoin += 10 * 2;
+            //ƒS[ƒ‹ƒh“G‚ÍŠl“¾—Ê2”{
+            _currentCoin += CoinMagnificationCalculation(gameInformation.coinUpLevel) * 2;
         }
+        Debug.Log(CoinMagnificationCalculation(gameInformation.coinUpLevel));
     }
 
     //ƒS[ƒ‹ƒh“G‚ÌŠm—¦‚ğŒvZ
@@ -222,5 +224,19 @@ public class NormalMonitorManager : MonoBehaviour
         }
 
         return goldEnemyProbability;
+    }
+
+    //ƒŒƒxƒ‹•Ê‚ÌƒRƒCƒ“Šl“¾—ÊŒvZ
+    private int CoinMagnificationCalculation(int level)
+    {
+        float coin = 10;
+
+        //Å‰‚Ì”{—¦‚Í“™”{
+        float mag = 1;
+        for (int i = 1; i < level; i++) 
+        {
+            mag += 0.5f;
+        }
+        return (int)(coin * mag);
     }
 }

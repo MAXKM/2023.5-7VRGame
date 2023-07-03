@@ -79,7 +79,8 @@ public class SkillManager : MonoBehaviour
         }
 
         //テスト用に追加
-        Debug.Log("damage:" + Damage);
+        //Debug.Log("damage:" + Damage);
+        //Debug.Log("a:" +a);
         damagepopuptextmanager.Active(vv, Damage);
     }
 
