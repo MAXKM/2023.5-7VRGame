@@ -412,8 +412,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5864f8580463d414c9b833561584b125, type: 3}
   - {fileID: 21300000, guid: 370ad20ade1f7b1478c9db4f055d0be6, type: 3}
   - {fileID: 21300000, guid: 72fee73ac3a54524dbae839dda5c8a34, type: 3}
-  ButtonNumber: 5
-  resetbutton: 0
+  ButtonNumber: 3
+  ResetButton: 0
 --- !u!1 &59895606
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1858,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasgroup: {fileID: 2060544532}
+  SkillPanel: {fileID: 0}
+  Leftarrow: {fileID: 0}
+  Rightarrow: {fileID: 0}
 --- !u!4 &493718771
 Transform:
   m_ObjectHideFlags: 0
@@ -1912,6 +1915,7 @@ MonoBehaviour:
   weakPointNumLevel: 1
   weakPointMagnificationLevel: 1
   numberOfPlays: 0
+  progress: 0
   havingTotalCoin: 100000
 --- !u!4 &497027396
 Transform:
@@ -2082,8 +2086,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f631f5de38cb7544c8c81f809bd7e9fd, type: 3}
   - {fileID: 21300000, guid: 162fc16db54009b4793be1b5e893c11f, type: 3}
   - {fileID: 21300000, guid: 2a8e14480be0cfb4285ba14f230dd204, type: 3}
-  ButtonNumber: 2
-  resetbutton: 0
+  ButtonNumber: 1
+  ResetButton: 0
 --- !u!1 &532194998
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,8 +2609,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1cf3c86851ad62345a3b87da270fba7c, type: 3}
   - {fileID: 21300000, guid: c08c31d08e6707440a45e4b132e3f3ef, type: 3}
   - {fileID: 21300000, guid: 650c88434c9c10b408e509a49ff305f6, type: 3}
-  ButtonNumber: 1
-  resetbutton: 0
+  ButtonNumber: 2
+  ResetButton: 0
 --- !u!1 &626331934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3058,6 +3062,7 @@ MonoBehaviour:
   - {fileID: -2432090755550338912, guid: d07e789a40472394f9bbcfcc399cf68e, type: 3}
   _currentCoin: 0
   gameInformation: {fileID: 497027395}
+  gameManager: {fileID: 0}
 --- !u!4 &999742977
 Transform:
   m_ObjectHideFlags: 0
@@ -3073,6 +3078,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1013304841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940251080, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_Name
+      value: OVRPlayerController_CopyS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940251080, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
 --- !u!1 &1022477787
 GameObject:
   m_ObjectHideFlags: 0
@@ -3226,7 +3292,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4031005dc8e1139498046676b4f9813c, type: 3}
   - {fileID: 21300000, guid: 74f83160b34187e40a93f20b1d356d54, type: 3}
   ButtonNumber: 6
-  resetbutton: 0
+  ResetButton: 0
 --- !u!1 &1026689457
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,8 +3828,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5af4bed0ac661e498ebc5ff2b5b41db, type: 3}
   - {fileID: 21300000, guid: 2a7be11264e876e48b5143eafbd60025, type: 3}
   - {fileID: 21300000, guid: 94a58f27e2767ea438945be214cc6c7a, type: 3}
-  ButtonNumber: 3
-  resetbutton: 0
+  ButtonNumber: 4
+  ResetButton: 0
 --- !u!1 &1154027871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3918,8 +3984,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0f8dd9b660690074c935f5fe6068fdd8, type: 3}
   - {fileID: 21300000, guid: b21bbeca05993184d8fcab9cb477619d, type: 3}
   - {fileID: 21300000, guid: cde5974adf88e904e9efaf0bed005e01, type: 3}
-  ButtonNumber: 4
-  resetbutton: 0
+  ButtonNumber: 5
+  ResetButton: 0
 --- !u!1 &1159010868
 GameObject:
   m_ObjectHideFlags: 0
@@ -4463,6 +4529,7 @@ MonoBehaviour:
   information: {fileID: 497027395}
   Coin: {fileID: 1032560573}
   timerCount: 0
+  particle: {fileID: 0}
 --- !u!4 &1320406908
 Transform:
   m_ObjectHideFlags: 0
@@ -4633,7 +4700,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: bddddce3a4d4bf24eb5224f155c22918, type: 3}
   - {fileID: 21300000, guid: 1e3ee610f3927d1489848b1de0b7b002, type: 3}
   ButtonNumber: 0
-  resetbutton: 0
+  ResetButton: 1
 --- !u!1001 &1412504185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5489,11 +5556,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecc7dca53926d94887ae559981d356b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStart: 0
   normalMonitorManager: {fileID: 999742976}
   monitorAppearance: {fileID: 104250820}
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}
+  gameInformation: {fileID: 497027395}
   state: 0
   usableSkill: 0
 --- !u!4 &1820234612
@@ -5905,8 +5972,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: de72ce1f894833e45b1c53036ead6bbc, type: 3}
   - {fileID: 21300000, guid: 9dea465f8edf3bc4e970187b463c467d, type: 3}
   - {fileID: 21300000, guid: 5f3dd38665ca9ad469346fc83898b0c2, type: 3}
-  ButtonNumber: 7
-  resetbutton: 0
+  ButtonNumber: 8
+  ResetButton: 0
 --- !u!1 &1955043777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6059,8 +6126,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2a85e0fe9a6be6b409fe2a5b61f8734a, type: 3}
   - {fileID: 21300000, guid: 6e1fbc6cdab8a4b4db9006c29174b12e, type: 3}
   - {fileID: 21300000, guid: 1f268add96769cd40965432ae74575e0, type: 3}
-  ButtonNumber: 8
-  resetbutton: 0
+  ButtonNumber: 7
+  ResetButton: 0
 --- !u!1 &1961890581
 GameObject:
   m_ObjectHideFlags: 0

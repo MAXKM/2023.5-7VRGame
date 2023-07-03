@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SkillButtonManager : MonoBehaviour
 {
     [SerializeField] GameInformation gameInformation;
+    //[SerializeField] PlayerManager playerManager;
     private Image mImage;
     public Sprite[] Ssprite;
     public int ButtonNumber;
@@ -21,13 +22,13 @@ public class SkillButtonManager : MonoBehaviour
             PlayerPrefs.DeleteKey(SkillName[ButtonNumber]);
         }
         Road();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void Road()
@@ -35,7 +36,7 @@ public class SkillButtonManager : MonoBehaviour
         if (ButtonNumber == 0)
         {
             gameInformation.coinUpLevel = PlayerPrefs.GetInt(SkillName[0], 1);
-            mImage.sprite = Ssprite[gameInformation.coinUpLevel-1];
+            mImage.sprite = Ssprite[gameInformation.coinUpLevel - 1];
         }
 
         if (ButtonNumber == 1)
@@ -60,7 +61,7 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.powerUpLevel = PlayerPrefs.GetInt(SkillName[4], 1);
             mImage.sprite = Ssprite[gameInformation.powerUpLevel - 1];
-
+            //playerManager.SScale(gameInformation.powerUpLevel);
 
         }
 
@@ -86,7 +87,7 @@ public class SkillButtonManager : MonoBehaviour
             gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(SkillName[8], 1);
             mImage.sprite = Ssprite[gameInformation.weakPointMagnificationLevel - 1];
         }
-    
+
     }
 
     public void OnClick(string button)
@@ -99,6 +100,7 @@ public class SkillButtonManager : MonoBehaviour
                     gameInformation.coinUpLevel = 2;
                     gameInformation.havingTotalCoin = gameInformation.havingTotalCoin - 90;
                     mImage.sprite = Ssprite[1];
+                    Debug.Log(1);
                 }
                 else if (gameInformation.coinUpLevel == 2 && gameInformation.havingTotalCoin >= 350)
                 {
@@ -121,7 +123,7 @@ public class SkillButtonManager : MonoBehaviour
                 PlayerPrefs.SetInt(SkillName[0], gameInformation.coinUpLevel);
                 break;
             case "GoldEnemy":
-                if (gameInformation.goldEnemyProbabilityLevel==1&&gameInformation.havingTotalCoin>=90)
+                if (gameInformation.goldEnemyProbabilityLevel == 1 && gameInformation.havingTotalCoin >= 90)
                 {
                     gameInformation.goldEnemyProbabilityLevel = 2;
                     gameInformation.havingTotalCoin = gameInformation.havingTotalCoin - 90;
@@ -227,6 +229,7 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[4], gameInformation.powerUpLevel);
+                //playerManager.SScale(gameInformation.powerUpLevel);
                 break;
             case "PowerupTime":
                 if (gameInformation.powerUpTimeLevel == 1 && gameInformation.havingTotalCoin >= 90)
