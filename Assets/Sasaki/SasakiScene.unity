@@ -240,12 +240,13 @@ MonoBehaviour:
   goldEnemyProbabilityLevel: 1
   bossBattleTimeLevel: 0
   rocketMagnificationLevel: 0
-  powerUpLevel: 0
+  powerUpLevel: 1
   powerUpTimeLevel: 0
   rocketNumLevel: 0
   weakPointNumLevel: 0
   weakPointMagnificationLevel: 0
   numberOfPlays: 0
+  progress: 0
   havingTotalCoin: 100000
 --- !u!4 &171559771
 Transform:
@@ -816,6 +817,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430322797}
   m_CullTransparentMesh: 1
+--- !u!1 &815588466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3093407111940312930, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+  m_PrefabInstance: {fileID: 1489424951}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &815588468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815588466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b397f9c2c9a5dd649a83d90d91d06ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1025964957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,6 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 171559770}
+  playerManager: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 9e792887d0adb5e4fb7039f2c1de32e0, type: 3}
   - {fileID: 21300000, guid: dcb74176e5f86774693df7ac5043cfb3, type: 3}
@@ -1369,7 +1388,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 162fc16db54009b4793be1b5e893c11f, type: 3}
   - {fileID: 21300000, guid: 2a8e14480be0cfb4285ba14f230dd204, type: 3}
   ButtonNumber: 1
-  resetbutton: 0
+  ResetButton: 0
 --- !u!114 &1451625382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1483,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451625379}
   m_CullTransparentMesh: 1
+--- !u!1001 &1489424951
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.472
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940251080, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_Name
+      value: OVRPlayerController_CopyS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093407111940251080, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4450508669373253886, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
 --- !u!1 &1867022315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1744,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Coinup
+          m_StringArgument: Powerup
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1876319057
@@ -1717,14 +1798,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 171559770}
+  playerManager: {fileID: 815588468}
   Ssprite:
   - {fileID: 21300000, guid: 64a7f9f3a55c8b041b5398c78fc78ad1, type: 3}
   - {fileID: 21300000, guid: 3010f9de322495545a799ac04a334dcb, type: 3}
   - {fileID: 21300000, guid: 92a84c5fa9d2b8747a3f7ef544637f82, type: 3}
   - {fileID: 21300000, guid: bddddce3a4d4bf24eb5224f155c22918, type: 3}
   - {fileID: 21300000, guid: 1e3ee610f3927d1489848b1de0b7b002, type: 3}
-  ButtonNumber: 0
-  resetbutton: 0
+  ButtonNumber: 4
+  ResetButton: 1
 --- !u!1 &1910632376
 GameObject:
   m_ObjectHideFlags: 0
