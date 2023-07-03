@@ -38,19 +38,19 @@ public class MIDDLE_BOSS : MonoBehaviour
 
         switch (gameinformation.bossBattleTimeLevel)
         {
-            case 0:
+            case 1:
                 bossBattleTime = 5.0f;
                 break;
-            case 1:
+            case 2:
                 bossBattleTime = 7.5f;
                 break;
-            case 2:
+            case 3:
                 bossBattleTime = 10.0f;
                 break;
-            case 3:
+            case 4:
                 bossBattleTime = 12.5f;
                 break;
-            case 4:
+            case 5:
                 bossBattleTime = 15.0f;
                 break;
         }
@@ -69,6 +69,7 @@ public class MIDDLE_BOSS : MonoBehaviour
                 MiddleBossHp = 1200;
                 break;
         }
+        Debug.Log("hp:" +MiddleBossHp);
         Detection = false;
         Detectionable = false;
         display = true;
