@@ -10,8 +10,6 @@ public class GameClearManagaer : MonoBehaviour
     public GameInformation information; //コインの枚数
     public GameObject Coin = null;      //テキストオブジェクト
 
-    public float timerCount;
-
     [SerializeField] ParticleSystem particle;
 
     public void ParticlePlay()
@@ -37,13 +35,13 @@ public class GameClearManagaer : MonoBehaviour
         CoinText.text = "Conguraturation!!\n" + "Coin:" + coin;
     }
 
-    public void SceneChange()
+    IEnumerator SceneChange()
     {
-        //3秒立ったらシーン遷移
-        timerCount += Time.deltaTime;
-        if (timerCount >= 3.0f)
-        {
-            SceneManager.LoadScene("GameScene");
-        }
+        //3秒数える
+        yield return new WaitForSeconds(3.0f);
+
+        //3秒立った後の処理
+        SceneManager.LoadScene("GameScene");
     }
+
 }
