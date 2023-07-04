@@ -40,9 +40,11 @@ public class SkillEffectManager : MonoBehaviour
 
         //レベル別制限時間を取得
         limitSeconds = skillManager.PowerTimeLimit(gameInformation.powerUpTimeLevel);
+        Debug.Log("制限時間" + limitSeconds);
 
         //ロケットの残数を計算
         rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
+        Debug.Log("個数" + rocketNum);
     }
     private void Update()
     {

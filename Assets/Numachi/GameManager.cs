@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameClearManagaer clearManager;
     [SerializeField] GameOverManager gameOverManager;
     [SerializeField] GameInformation gameInformation;
+    [SerializeField] HandDetection handDetection;
 
     WaitForSeconds waitToTitle;
 
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        usableSkill = false;
+        //usableSkill = false;
         waitToTitle = new WaitForSeconds(5);
         currentCoin = 0;
         SetState(STATE.TITLE);
@@ -79,6 +80,9 @@ public class GameManager : MonoBehaviour
                 //道中で稼いだコインを更新
                 currentCoin = normalMonitorManager._currentCoin;
 
+                //HandDetectionを有効化
+                handDetection.enabled = true;
+
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
 
@@ -90,12 +94,17 @@ public class GameManager : MonoBehaviour
             //大ボスの処理
             case STATE.LAST_BOSS:
 
+                //HandDetectionを有効化
+                handDetection.enabled = true;
                 usableSkill = true;
 
                 break;
 
             //クリア時の処理
             case STATE.CLEAR:
+
+                //HandDetectionの無効化
+                handDetection.enabled = false;
 
                 //クリアのテキストを表示
                 clearManager.Coin_Text(currentCoin);
@@ -119,6 +128,8 @@ public class GameManager : MonoBehaviour
 
             //ゲームオーバー時の処理
             case STATE.GAME_OVER:
+                //HandDetectionの無効化
+                handDetection.enabled = false;
 
                 //獲得コインを所持コインへ
                 PlayerPrefs.SetInt("TOTAL_COIN", gameInformation.havingTotalCoin + currentCoin);
