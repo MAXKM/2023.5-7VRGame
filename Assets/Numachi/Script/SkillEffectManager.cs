@@ -11,6 +11,7 @@ public class SkillEffectManager : MonoBehaviour
 
     [SerializeField] SkillManager skillManager;
 
+    [SerializeField] ParticleSystem rocketParticle;
     //左右両方のMeshRenderer
     [SerializeField] MeshRenderer meshRendererR,meshRendererL;
 
@@ -118,6 +119,7 @@ public class SkillEffectManager : MonoBehaviour
         }
 
         //ロケット発動処理
+        rocketParticle.Play();
         rocketText.gameObject.SetActive(true);
         rocketText.text = "Rocket!!";
 
@@ -129,7 +131,7 @@ public class SkillEffectManager : MonoBehaviour
         }
 
         //ロケット状態を停止（テスト）
-        StartCoroutine(RocketTest());
+        //StartCoroutine(RocketTest());
     }
 
     //テスト用
