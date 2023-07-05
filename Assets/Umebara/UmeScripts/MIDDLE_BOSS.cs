@@ -68,6 +68,10 @@ public class MIDDLE_BOSS : MonoBehaviour
             case 2:
                 MiddleBossHp = 1200;
                 break;
+
+            case 3:
+                MiddleBossHp = 4000;
+                break;
         }
         Debug.Log("hp:" +MiddleBossHp);
         Detection = false;
@@ -92,7 +96,7 @@ public class MIDDLE_BOSS : MonoBehaviour
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
-        if (bossBattleTime <= 5 && display == true)
+        if (bossBattleTime < 5 && display == true)
         {
             bosstime.SetBomb();
             display = false;

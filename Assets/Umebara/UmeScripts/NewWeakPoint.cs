@@ -16,13 +16,13 @@ public class NewWeakPoint : MonoBehaviour
         weak = false;
         switch (gameInformation.weakPointNumLevel)
         {
-            case 0:
+            case 1:
                 WeakPoint = 1;
                 break;
-            case 1:
+            case 2:
                 WeakPoint = 2;
                 break;
-            case 2:
+            case 3:
                 WeakPoint = 3;
                 break;
         }
@@ -34,11 +34,12 @@ public class NewWeakPoint : MonoBehaviour
             Vector3 pos = new Vector3(0.1f, y, z);
             weakpoint = Instantiate(prefabWeak, pos, Quaternion.Euler(0, 0, -90));
             weakpoint.transform.parent = this.transform;
+            weakpoint.GetComponent<Renderer>().enabled = false;
         }
     }
 
-    private void Update()
+    public void WA()
     {
-
+        weakpoint.GetComponent<Renderer>().enabled = true;
     }
 }
