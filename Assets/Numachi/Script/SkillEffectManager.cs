@@ -11,13 +11,10 @@ public class SkillEffectManager : MonoBehaviour
 
     [SerializeField] SkillManager skillManager;
 
-    [SerializeField] ParticleSystem rocketParticle;
-
-    //n秒強化時のパーティクル
-    ParticleSystem rightFire, leftFire;
+    [SerializeField] ParticleSystem rocketParticle,rightFire,leftFire;
 
     //n秒強化時の秒数
-    [SerializeField] TextMeshProUGUI timeText,rocketText;
+    [SerializeField] TextMeshProUGUI timeText;
 
     //残り秒数
     private float reminingSeconds = 0;
