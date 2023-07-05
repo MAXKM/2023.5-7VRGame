@@ -16,7 +16,6 @@ public class MonitorAppearance : MonoBehaviour
     GameObject INM;//InstansiateÇ≈ê∂ê¨ÇµÇΩNM
     public GameObject IBM;//InstansiateÇ≈ê∂ê¨ÇµÇΩBM
     GameObject IE;//InstansiateÇ≈ê∂ê¨ÇµÇΩIE
-    public int count;//BossMonitorÇÃî‘çÜ
     public GameObject hpGauge;
     //public bool hpSet;
     public GameObject weak;
@@ -24,6 +23,7 @@ public class MonitorAppearance : MonoBehaviour
     [SerializeField] HPGauge hpgauge;
     MIDDLE_BOSS middleboss;
     NewWeakPoint newweakpoint;
+    [SerializeField] GameInformation gameinformation2;
     void Awake()
     {
         BMA = new GameObject[4];
@@ -31,9 +31,8 @@ public class MonitorAppearance : MonoBehaviour
         BMA[1] = BM2;
         BMA[2] = BM3;
         BMA[3] = FB;
-        count = 0;
 
-        if (count == 0)
+        if (gameinformation2.progress == 0)
         {
             INM = Instantiate(NM, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0, 90, 0));
             INM.GetComponent<BoxCollider>().enabled = false;
@@ -49,7 +48,7 @@ public class MonitorAppearance : MonoBehaviour
             StartCoroutine(CO(8.0f));
             MBCall = false;
         }
-        if (count == 1)
+        if (gameinformation2.progress == 1)
         {
             INM = Instantiate(NM, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0, 90, 0));
             INM.GetComponent<BoxCollider>().enabled = false;
@@ -66,7 +65,7 @@ public class MonitorAppearance : MonoBehaviour
             MBCall = false;
         }
 
-        if (count == 2)
+        if (gameinformation2.progress == 2)
         {
             INM = Instantiate(NM, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.Euler(0, 90, 0));
             INM.GetComponent<BoxCollider>().enabled = false;
@@ -83,11 +82,11 @@ public class MonitorAppearance : MonoBehaviour
             MBCall = false;
         }
 
-        if (count == 3)
+        if (gameinformation2.progress == 3)
         {
             weak.SetActive(true);
             newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
-            IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+            IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
             IBM.GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(FBA(3.0f));
         }
@@ -124,7 +123,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+        IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 0.86f, 0);
@@ -150,7 +149,6 @@ public class MonitorAppearance : MonoBehaviour
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
-        count += 1;
     }
 
 
@@ -186,7 +184,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+        IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 1f, 0);
@@ -212,7 +210,6 @@ public class MonitorAppearance : MonoBehaviour
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
-        count += 1;
     }
 
     IEnumerator F_3(float wait)//Float(ÉÇÉjÉ^Å[Ç™ïÇÇ´è„Ç™ÇÈ)
@@ -247,7 +244,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        IBM = Instantiate(BMA[count], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+        IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 1.23f, 0);
@@ -273,7 +270,6 @@ public class MonitorAppearance : MonoBehaviour
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
-        count += 1;
     }
     IEnumerator FBA(float wait)
     {
