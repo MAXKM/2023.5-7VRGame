@@ -4,12 +4,11 @@ using UnityEngine;
 using Oculus;
 
 public class HandDetection : MonoBehaviour
-{
-    MeshRenderer meshRenderer;
-
+{ 
     //GameManagerのunableSkillで攻撃可能か、スキル発動可能かを判別
     [SerializeField] GameManager gameManager;
 
+    [SerializeField] SkillEffectManager skillEffectManager;
 
     //ｎ秒強化状態化を判定
     public bool strengthenMode;
@@ -20,21 +19,22 @@ public class HandDetection : MonoBehaviour
     //手の座標
     Vector3 rightHandPos,leftHandPos;
 
-    //ロケット発動のトリガーポイント
-    const float ROCKET_ACTIVATION_POINT = 0.3f;
-
-    //ロケット発動状態を判定
-    public bool rocketMode;
-
     //左右の手の移動距離
     public float distanceRight,distanceLeft;
 
     //前フレームの座標(距離計算の際に使用)
     private Vector3 previousPosRight, previousPosLeft;
 
+    //ロケット発動の座標(左手用)
+    const float ROCKET_LAUNCH_POINT = 0.35f;
+
+    //左手がロケット発動条件を満たしているか
+    private bool leftHandKey;
+
+    [SerializeField] Collider rocketLaunchCollider;
+
     private void Start()
     {
-        rocketMode = false;
         strengthenMode = false;
         ResetDistance();
         previousPosRight = rightHandTf.localPosition;
@@ -47,14 +47,12 @@ public class HandDetection : MonoBehaviour
         rightHandPos = rightHandTf.localPosition;
         leftHandPos = leftHandTf.localPosition;
 
-        //両手の高さがロケットのトリガーポイントを超えたらロケット発動
-        if(rightHandPos.y > ROCKET_ACTIVATION_POINT && leftHandPos.y > ROCKET_ACTIVATION_POINT && gameManager.usableSkill)
-        {
-            rocketMode = true;
-        }
-
         distanceRight = DistanceCalculationRight(distanceRight);
         distanceLeft = DistanceCaluculationLeft(distanceLeft);
+
+        //左手の場合のロケット発動条件
+        if(leftHandPos.y > ROCKET_LAUNCH_POINT) leftHandKey = true;
+        else leftHandKey = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +61,15 @@ public class HandDetection : MonoBehaviour
         {
             //n秒強化状態に入る
             strengthenMode = true;
+        }
+
+        if (other.gameObject.CompareTag("RocketLaunchPoint") && leftHandKey)
+        {
+            //ロケット発動
+            skillEffectManager.RocketLaunch();
+
+            //Colliderを無効化
+            rocketLaunchCollider.enabled = false;
         }
     }
 

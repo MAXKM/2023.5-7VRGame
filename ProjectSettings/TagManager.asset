@@ -17,6 +17,7 @@ TagManager:
   - MB
   - GM
   - BT
+  - RocketLaunchPoint
   layers:
   - Default
   - TransparentFX

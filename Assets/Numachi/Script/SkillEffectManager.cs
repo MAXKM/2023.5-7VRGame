@@ -12,6 +12,7 @@ public class SkillEffectManager : MonoBehaviour
     [SerializeField] SkillManager skillManager;
 
     [SerializeField] ParticleSystem rocketParticle;
+
     //左右両方のMeshRenderer
     [SerializeField] MeshRenderer meshRendererR,meshRendererL;
 
@@ -30,8 +31,6 @@ public class SkillEffectManager : MonoBehaviour
     //レベル別ロケット残数
     private int rocketNum;
 
-    //Update関数内で残数を1だけ減らすためのフラグ変数
-    private bool isDecrease = false;
 
     private void Start()
     {
@@ -75,15 +74,6 @@ public class SkillEffectManager : MonoBehaviour
                 DisplayTimeText(handDetection.strengthenMode);
             }
         }
-
-        if (handDetection.rocketMode)
-        {
-            RocketLaunch();
-        }
-        else
-        {
-            isDecrease = false;
-        }
     }
 
     //テキストの表示/非表示
@@ -113,25 +103,17 @@ public class SkillEffectManager : MonoBehaviour
     public void RocketLaunch()
     {
         //残数が0だったら発動しない
-        if(rocketNum <= 0)
-        {
-            return;
-        }
+        if (rocketNum <= 0) return;
+
+        //発動中だったら停止させる
+        if(rocketParticle.isPlaying) rocketParticle.Stop();
 
         //ロケット発動処理
         rocketParticle.Play();
-        rocketText.gameObject.SetActive(true);
-        rocketText.text = "Rocket!!";
 
         //残数を減らす
-        if (!isDecrease)
-        {
-            isDecrease = true;
-            rocketNum--;
-        }
-
-        //ロケット状態を停止（テスト）
-        //StartCoroutine(RocketTest());
+        rocketNum--;
+        Debug.Log("残り" + rocketNum);
     }
 
     //テスト用
@@ -139,7 +121,6 @@ public class SkillEffectManager : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         rocketText.gameObject.SetActive(false);
-        handDetection.rocketMode = false;
     }
 
     //ロケット残数を計算
