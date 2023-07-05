@@ -26,6 +26,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     private bool Detectionable;
     HandDetection handdetection;
     private float damage;
+    int i;
     void Start()
     {
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
@@ -92,7 +93,9 @@ public class MIDDLE_BOSS : MonoBehaviour
             //situation = Situation.clear;
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
-            Destroy(newweakpoint.weakpoint);
+            for(i = 0; i < gameinformation.weakPointNumLevel; i++){
+                Destroy(newweakpoint.weakpoint[i]);
+            }
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
