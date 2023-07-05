@@ -63,7 +63,7 @@ public class HandDetection : MonoBehaviour
             strengthenMode = true;
         }
 
-        if (other.gameObject.CompareTag("RocketLaunchPoint") && leftHandKey)
+        if (other.gameObject.CompareTag("RocketLaunchPoint") && leftHandKey && gameManager.usableSkill)
         {
             //ƒƒPƒbƒg”­“®
             skillEffectManager.RocketLaunch();
