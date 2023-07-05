@@ -13,11 +13,8 @@ public class SkillEffectManager : MonoBehaviour
 
     [SerializeField] ParticleSystem rocketParticle;
 
-    //左右両方のMeshRenderer
-    [SerializeField] MeshRenderer meshRendererR,meshRendererL;
-
-    //n秒強化状態時のマテリアル
-    [SerializeField] Material strengthenColor,normalColor;
+    //n秒強化時のパーティクル
+    ParticleSystem rightFire, leftFire;
 
     //n秒強化時の秒数
     [SerializeField] TextMeshProUGUI timeText,rocketText;
@@ -34,9 +31,10 @@ public class SkillEffectManager : MonoBehaviour
 
     private void Start()
     {
-        //初期状態はテキストを非表示
+        //初期状態はテキスト、パーティクルを非表示
         timeText.gameObject.SetActive(false);
-        rocketText.gameObject.SetActive(false);
+        rightFire.gameObject.SetActive(false);
+        leftFire.gameObject.SetActive(false);
 
         //レベル別制限時間を取得
         limitSeconds = skillManager.PowerTimeLimit(gameInformation.powerUpTimeLevel);
@@ -86,17 +84,17 @@ public class SkillEffectManager : MonoBehaviour
     //強化状態の処理
     private void StartStrengthenMode()
     {
-        //両手を赤に変更
-        meshRendererL.material = strengthenColor;
-        meshRendererR.material = strengthenColor;
+        rightFire.gameObject.SetActive(true);
+        rightFire.Play();
+        leftFire.gameObject.SetActive(true);
+        leftFire.Play();
     }
 
     //強化状態終了の処理
     private void FinishStregnthenMode()
     {
-        //両手を白に変更
-        meshRendererL.material = normalColor;
-        meshRendererR.material = normalColor;
+        rightFire.Stop();
+        leftFire.Stop();
     }
 
     //ロケット発動
@@ -114,13 +112,6 @@ public class SkillEffectManager : MonoBehaviour
         //残数を減らす
         rocketNum--;
         Debug.Log("残り" + rocketNum);
-    }
-
-    //テスト用
-    IEnumerator RocketTest()
-    {
-        yield return new WaitForSeconds(3f);
-        rocketText.gameObject.SetActive(false);
     }
 
     //ロケット残数を計算

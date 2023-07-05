@@ -98,6 +98,9 @@ public class GameManager : MonoBehaviour
                 handDetection.enabled = true;
                 usableSkill = true;
 
+                //Bossモニターの生成
+                monitorAppearance.gameObject.SetActive(true);
+
                 break;
 
             //クリア時の処理
