@@ -57,19 +57,19 @@ public class MIDDLE_BOSS : MonoBehaviour
 
         switch (gameinformation.progress)
         {
-            case 0:
+            case 1:
                 MiddleBossHp = 300;
                 break;
 
-            case 1:
+            case 2:
                 MiddleBossHp = 550;
                 break;
 
-            case 2:
+            case 3:
                 MiddleBossHp = 1200;
                 break;
 
-            case 3:
+            case 4:
                 MiddleBossHp = 4000;
                 break;
         }
@@ -96,11 +96,21 @@ public class MIDDLE_BOSS : MonoBehaviour
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
-        if (bossBattleTime < 5 && display == true)
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 1)
         {
             bosstime.SetBomb();
             display = false;
+        }
 
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 2)
+        {
+            bosstime.SetBomb2();
+            display = false;
+        }
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 4)
+        {
+            bosstime.FinalSetBomb();
+            display = false;
         }
         if (bossBattleTime <= 0 )
         {
