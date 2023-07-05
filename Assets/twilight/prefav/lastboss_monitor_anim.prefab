@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6310380638484939588}
   - component: {fileID: 2134433566881045332}
   - component: {fileID: 3430917185221949438}
+  - component: {fileID: -4637491737695638118}
   m_Layer: 0
   m_Name: lastboss_monitor_anim
-  m_TagString: Untagged
+  m_TagString: MB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,6 +123,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-4637491737695638118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251545313149216263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398ef5405d1f0e54da1c68af58407470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MiddleBossHp: 0
+  Detection: 0
 --- !u!1 &3091885870037743214
 GameObject:
   m_ObjectHideFlags: 0
