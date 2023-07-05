@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SkillButtonManager : MonoBehaviour
 {
     [SerializeField] GameInformation gameInformation;
-    //[SerializeField] PlayerManager playerManager;
+    [SerializeField] PlayerManager playerManagerL;      //左グローブのPlayerManagerスクリプト
+    [SerializeField] PlayerManager playerManagerR;      //右グローブのPlayerManagerスクリプト
     private Image mImage;
     public Sprite[] Ssprite;
     public int ButtonNumber;
@@ -61,7 +62,8 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.powerUpLevel = PlayerPrefs.GetInt(SkillName[4], 1);
             mImage.sprite = Ssprite[gameInformation.powerUpLevel - 1];
-            //playerManager.SScale(gameInformation.powerUpLevel);
+            playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
+            playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
 
         }
 
@@ -229,7 +231,8 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[4], gameInformation.powerUpLevel);
-                //playerManager.SScale(gameInformation.powerUpLevel);
+                playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
+                playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
                 break;
             case "PowerupTime":
                 if (gameInformation.powerUpTimeLevel == 1 && gameInformation.havingTotalCoin >= 90)

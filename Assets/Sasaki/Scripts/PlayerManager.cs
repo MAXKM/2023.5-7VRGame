@@ -21,18 +21,19 @@ public class PlayerManager : MonoBehaviour
         switch (GloveLevel)
         {
             case 1:
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
                 break;
             case 2:
-                transform.localScale = new Vector3(2, 1, 1);
+                transform.localScale = new Vector3(0.21f, 0.21f, 0.21f);
                 break;
             case 3:
-                transform.localScale = new Vector3(2, 1, 1);
+                transform.localScale = new Vector3(0.22f, 0.22f, 0.22f);
                 break;
             case 4:
-                transform.localScale = new Vector3(2, 1, 1);
+                transform.localScale = new Vector3(0.23f, 0.23f, 0.23f);
                 break;
             case 5:
+                transform.localScale = new Vector3(0.23f, 0.23f, 0.23f);    //‰¼
                 break;
 
         }
