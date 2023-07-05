@@ -57,19 +57,19 @@ public class MIDDLE_BOSS : MonoBehaviour
 
         switch (gameinformation.progress)
         {
-            case 1:
+            case 0:
                 MiddleBossHp = 300;
                 break;
 
-            case 2:
+            case 1:
                 MiddleBossHp = 550;
                 break;
 
-            case 3:
+            case 2:
                 MiddleBossHp = 1200;
                 break;
 
-            case 4:
+            case 3:
                 MiddleBossHp = 4000;
                 break;
         }
