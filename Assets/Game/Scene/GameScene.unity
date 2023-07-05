@@ -405,7 +405,7 @@ PrefabInstance:
     - target: {fileID: 3093407111743808180, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: skillEffectManager
       value: 
-      objectReference: {fileID: 1674106713}
+      objectReference: {fileID: 0}
     - target: {fileID: 3093407111743808180, guid: d1b030c2140698a4ab003555b987128b, type: 3}
       propertyPath: rocketLaunchCollider
       value: 
@@ -504,17 +504,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1b030c2140698a4ab003555b987128b, type: 3}
---- !u!114 &60309090 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3093407111743808180, guid: d1b030c2140698a4ab003555b987128b, type: 3}
-  m_PrefabInstance: {fileID: 60309089}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb8c072efab29b48a1dbd584682cdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &60309091 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3093407111940099308, guid: d1b030c2140698a4ab003555b987128b, type: 3}
@@ -650,7 +639,7 @@ MonoBehaviour:
   gameinformation: {fileID: 497027395}
   damagepopuptextmanager: {fileID: 2117034769}
   Damage: 0
-  handDetection: {fileID: 60309090}
+  handDetection: {fileID: 0}
   newweakpoint: {fileID: 943311630}
 --- !u!4 &69709139
 Transform:
@@ -684,7 +673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4059818690453606463, guid: e952354cbaef4364990c7e0ce9236ca3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4059818690453606463, guid: e952354cbaef4364990c7e0ce9236ca3, type: 3}
       propertyPath: m_LocalScale.x
@@ -780,7 +769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1820234611}
-  skillEffectManager: {fileID: 1674106713}
+  skillEffectManager: {fileID: 84728330}
   strengthenMode: 0
   rightHandTf: {fileID: 60309091}
   leftHandTf: {fileID: 60309093}
@@ -1276,7 +1265,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 771065331402705624, guid: 82c3093d1b3680f4e85292c8e9336233, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 771065331402705624, guid: 82c3093d1b3680f4e85292c8e9336233, type: 3}
       propertyPath: m_LocalScale.x
@@ -2624,7 +2613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894255715452189623, guid: 8a6f023af818b6f46ab63775b6e742ea, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2894255715452189623, guid: 8a6f023af818b6f46ab63775b6e742ea, type: 3}
       propertyPath: m_LocalScale.x
@@ -5417,7 +5406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8539120583816349941, guid: 4f53f4a2c43f51b4c9a7ded638f3ec17, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8539120583816349941, guid: 4f53f4a2c43f51b4c9a7ded638f3ec17, type: 3}
       propertyPath: m_LocalScale.x
@@ -5751,17 +5740,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21171eac1bd2ab1499db2bb2ea9c7742, type: 3}
---- !u!114 &1674106713 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3093407111743808181, guid: d1b030c2140698a4ab003555b987128b, type: 3}
-  m_PrefabInstance: {fileID: 60309089}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c2f8d8ac3a8dc24b97d101a70c8052b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1706060336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5824,27 +5802,6 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7598633591952401831, guid: fc80f402c58177b4a8b42118246a8d65, type: 3}
   m_PrefabInstance: {fileID: 1706060336}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1713860181 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3093407111442162739, guid: d1b030c2140698a4ab003555b987128b, type: 3}
-  m_PrefabInstance: {fileID: 60309089}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1713860186
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713860181}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1722868267
 GameObject:
   m_ObjectHideFlags: 0
@@ -6377,7 +6334,7 @@ MonoBehaviour:
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}
   gameInformation: {fileID: 497027395}
-  handDetection: {fileID: 60309090}
+  handDetection: {fileID: 84728327}
   state: 0
   usableSkill: 0
 --- !u!4 &1820234612
