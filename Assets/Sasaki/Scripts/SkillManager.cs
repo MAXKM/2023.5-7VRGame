@@ -23,6 +23,7 @@ public class SkillManager : MonoBehaviour
 
     [SerializeField] HandDetection handDetection;
     [SerializeField] NewWeakPoint newweakpoint;
+    [SerializeField] GameObject stopper;
     // Start is called before the first frame update
     void Start()
     {
@@ -119,6 +120,8 @@ public class SkillManager : MonoBehaviour
     public void RDamege()
     {
         Damage = RLevel;
+        vv = stopper.transform.position;
+        damagepopuptextmanager.Active(vv, Damage);
     }
 
     private float PunchPower(int level)
