@@ -13,7 +13,27 @@ public class BossTime : MonoBehaviour
 
     public void SetBomb()
     {
-        bomb = Instantiate(Bomb, new Vector3(0.05f, 0.345f, 0.0f), Quaternion.Euler(0, 90, 0));
+        bomb = Instantiate(Bomb, new Vector3(0.05f, 0.4f, 0.0f), Quaternion.Euler(0, 90, 0));
+        StartCoroutine(C1(1.0f));
+        StartCoroutine(C2(2.0f));
+        StartCoroutine(C3(3.0f));
+        StartCoroutine(C4(4.0f));
+        StartCoroutine(C5(4.75f));
+    }
+
+    public void SetBomb2()
+    {
+        bomb = Instantiate(Bomb, new Vector3(0.1f, 0.57f, 0.0f), Quaternion.Euler(0, 90, 0));
+        StartCoroutine(C1(1.0f));
+        StartCoroutine(C2(2.0f));
+        StartCoroutine(C3(3.0f));
+        StartCoroutine(C4(4.0f));
+        StartCoroutine(C5(4.75f));
+    }
+
+    public void SetBomb3()
+    {
+        bomb = Instantiate(Bomb, new Vector3(0.05f, 0.46f, 0.0f), Quaternion.Euler(0, 90, 0));
         StartCoroutine(C1(1.0f));
         StartCoroutine(C2(2.0f));
         StartCoroutine(C3(3.0f));
@@ -62,25 +82,6 @@ public class BossTime : MonoBehaviour
         yield return new WaitForSeconds(wait);
         ex = Instantiate(Ex, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         Destroy(bomb);
-    }
-    public void SetBomb2()
-    {
-        bomb = Instantiate(Bomb, new Vector3(0.05f, 0.6f, 0.0f), Quaternion.Euler(0, 90, 0));
-        StartCoroutine(C1(1.0f));
-        StartCoroutine(C2(2.0f));
-        StartCoroutine(C3(3.0f));
-        StartCoroutine(C4(4.0f));
-        StartCoroutine(C5(4.75f));
-    }
-
-    public void SetBomb3()
-    {
-        bomb = Instantiate(Bomb, new Vector3(0.05f, 0.455f, 0.0f), Quaternion.Euler(0, 90, 0));
-        StartCoroutine(C1(1.0f));
-        StartCoroutine(C2(2.0f));
-        StartCoroutine(C3(3.0f));
-        StartCoroutine(C4(4.0f));
-        StartCoroutine(C5(4.75f));
     }
 
     public void FinalSetBomb()
