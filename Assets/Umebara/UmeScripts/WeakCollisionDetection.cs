@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class WeakCollisionDetection : MonoBehaviour
 {
     // Start is called before the first frame update
     NewWeakPoint newweakpoint;
-    [SerializeField] MonitorAppearance monitorappearance;
+    public bool HandOver;
     void Start()
     {
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
@@ -18,7 +19,7 @@ public class WeakCollisionDetection : MonoBehaviour
         {
             newweakpoint.weak = true;
             Changed();
-            newweakpoint.weak = false;
+            StartCoroutine(CF(0.1f));
         }
     }
     public void Changed()
@@ -30,5 +31,9 @@ public class WeakCollisionDetection : MonoBehaviour
         myTransform.position = pos;
     }
 
-
+    IEnumerator CF(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        newweakpoint.weak = false;
+    }
 }
