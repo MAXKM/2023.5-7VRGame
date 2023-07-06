@@ -13,6 +13,10 @@ public class SkillEffectManager : MonoBehaviour
 
     [SerializeField] ParticleSystem rocketParticle,rightFire,leftFire;
 
+    private MIDDLE_BOSS bossManager;
+    [SerializeField] MonitorAppearance monitorAppearance;
+    [SerializeField] HPGauge hpGauge;
+
     //n秒強化時の秒数
     [SerializeField] TextMeshProUGUI timeText;
 
@@ -67,6 +71,12 @@ public class SkillEffectManager : MonoBehaviour
                 //テキストを非表示
                 DisplayTimeText(handDetection.strengthenMode);
             }
+        }
+
+        if (monitorAppearance.gameObject.activeSelf && monitorAppearance.BossAppear)
+        {
+            bossManager = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+            monitorAppearance.BossAppear = false;
         }
     }
 
@@ -145,6 +155,7 @@ public class SkillEffectManager : MonoBehaviour
     {
         yield return rocketWait;
         skillManager.RDamege();
-
+        bossManager.MiddleBossHp -= skillManager.RLevel;
+        hpGauge.GaugeReduction(skillManager.RLevel);
     }
 }

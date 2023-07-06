@@ -281,6 +281,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36946364}
   m_CullTransparentMesh: 1
+--- !u!1 &57471868 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 119254079771716159, guid: 0b95fe1afd5e84549a94ba03e2245f4d, type: 3}
+  m_PrefabInstance: {fileID: 119254080337477686}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &59895606
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,10 +643,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameinformation: {fileID: 497027395}
   damagepopuptextmanager: {fileID: 2117034769}
+  RLevel: 0
   Damage: 0
   handDetection: {fileID: 84728327}
   newweakpoint: {fileID: 943311630}
-  stopper: {fileID: 0}
+  stopper: {fileID: 57471868}
 --- !u!4 &69709139
 Transform:
   m_ObjectHideFlags: 0
@@ -828,6 +834,8 @@ MonoBehaviour:
   rocketParticle: {fileID: 4081469209114701170}
   rightFire: {fileID: 1893080666}
   leftFire: {fileID: 872306178}
+  monitorAppearance: {fileID: 104250820}
+  hpGauge: {fileID: 2008121851}
   timeText: {fileID: 225553964}
 --- !u!23 &84728333 stripped
 MeshRenderer:
@@ -880,6 +888,7 @@ MonoBehaviour:
   MBCall: 0
   hpgauge: {fileID: 2008121851}
   gameinformation2: {fileID: 497027395}
+  BossAppear: 0
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -6355,7 +6364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalMonitorManager: {fileID: 999742976}
-  skillEffectManager: {fileID: 0}
+  skillEffectManager: {fileID: 84728330}
   monitorAppearance: {fileID: 104250820}
   clearManager: {fileID: 1320406907}
   gameOverManager: {fileID: 1297022420}

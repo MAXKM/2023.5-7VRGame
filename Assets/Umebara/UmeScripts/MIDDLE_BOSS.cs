@@ -87,7 +87,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         {
             bossBattleTime -= Time.deltaTime;
         }
-        if (MiddleBossHp < 0 && bossBattleTime > 0)
+        if (MiddleBossHp <= 0 && bossBattleTime > 0)
         {
             gamemanager.SetState(GameManager.STATE.CLEAR);
             //situation = Situation.clear;
