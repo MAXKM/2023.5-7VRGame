@@ -12,7 +12,7 @@ public class SkillManager : MonoBehaviour
     //public HandDetection handdetection;
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
     float PowerdLimit=0;
-    float RLevel=0;
+    public float RLevel=0;
     Vector3 vv;
     public float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
