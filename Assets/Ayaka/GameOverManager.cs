@@ -39,13 +39,13 @@ public class GameOverManager : MonoBehaviour
         CoinText.text = "GameOver\n" + "Coin:" + coin;
     }
 
-    public void ButtonDisplay()
+    IEnumerator ButtonDisplay()
     {
-        timerCount += Time.deltaTime;
-        if (timerCount >= 3.0f)
-        {
-            button.SetActive(true);
-        }
+        //3•b”‚¦‚é
+        yield return new WaitForSeconds(3.0f);
+
+        //3•b—§‚Á‚½Œã‚Ìˆ—
+        button.SetActive(true);
     }
 
     //ƒ{ƒ^ƒ“‚ğ•\¦‚³‚¹‚éŠÖ”
