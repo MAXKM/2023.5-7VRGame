@@ -69,6 +69,10 @@ public class SkillManager : MonoBehaviour
 
     public void DDamage(Vector3 vv, float Distance,bool isAttack = true)  //道中のダメージ計算
     {
+        a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
+        PowerdLimit = PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
+
+
         if (isAttack)
         {
             Distance = Mathf.Min(Distance,10) * 50;
