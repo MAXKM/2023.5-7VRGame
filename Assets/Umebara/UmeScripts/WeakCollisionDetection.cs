@@ -25,7 +25,6 @@ public class WeakCollisionDetection : MonoBehaviour
         if (other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand") && newweakpoint.weak == false)
         {
             newweakpoint.weak = true;
-            Changed();
             Vector3 contactPoint = other.ClosestPoint(transform.position);
             if (other.gameObject.tag == "LeftHand")
             {
@@ -60,6 +59,7 @@ public class WeakCollisionDetection : MonoBehaviour
             middleboss.MiddleBossHp -= skillmanager.Damage;
             hpgauge.GaugeReduction(skillmanager.Damage);
             Changed();
+            Debug.Log(skillmanager.Damage);
         }
     }
     public void Changed()
