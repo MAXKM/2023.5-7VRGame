@@ -29,7 +29,7 @@ public class NewWeakPoint : MonoBehaviour
         //weak = false;
         for (int i = 0; i < WeakPoint; i++)
         {
-            float y = Random.Range(0.19f, 0.9f);
+            float y = Random.Range(0.19f, 0.6f);
             float z = Random.Range(-0.71f, 0.68f);
             Vector3 pos = new Vector3(0.1f, y, z);
             weakpoint[i] = Instantiate(prefabWeak, pos, Quaternion.Euler(0, 0, -90));

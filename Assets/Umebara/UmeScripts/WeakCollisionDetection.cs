@@ -65,7 +65,7 @@ public class WeakCollisionDetection : MonoBehaviour
     public void Changed()
     {
         Transform myTransform = this.transform;
-        float y = Random.Range(0.19f, 0.9f);
+        float y = Random.Range(0.19f, 0.6f);
         float z = Random.Range(-0.71f, 0.68f);
         Vector3 pos = new Vector3(0.1f, y, z);
         myTransform.position = pos;
