@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.Save();
 
                 //タイトルへシーン遷移
-                StartCoroutine(ToTitle());
+                StartCoroutine(clearManager.SceneChange());
 
                 break;
 
@@ -144,19 +144,10 @@ public class GameManager : MonoBehaviour
 
                 //ゲームオーバーのUIを表示
                 gameOverManager.Coin_Text(currentCoin);
-                gameOverManager.ButtonDisplay();
+                StartCoroutine(gameOverManager.ButtonDisplay());
 
                 break;
         }
-    }
-
-    //5秒待ってからタイトルへ戻る
-    IEnumerator ToTitle()
-    {
-        yield return waitToTitle;
-        //clearManager.SceneChange();
-        //↓仮
-        SceneManager.LoadScene("GameScene");
     }
 
     //void Update()

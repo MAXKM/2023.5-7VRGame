@@ -39,7 +39,7 @@ public class GameOverManager : MonoBehaviour
         CoinText.text = "GameOver\n" + "Coin:" + coin;
     }
 
-    IEnumerator ButtonDisplay()
+    public IEnumerator ButtonDisplay()
     {
         //3ïbêîÇ¶ÇÈ
         yield return new WaitForSeconds(3.0f);
