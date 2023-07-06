@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private int _numberOfPlays = 0, _progress = 0;
 
     [SerializeField] NormalMonitorManager normalMonitorManager;
-
+    [SerializeField] SkillEffectManager skillEffectManager;
     [SerializeField] MonitorAppearance monitorAppearance;
 
     [SerializeField] GameClearManagaer clearManager;
@@ -80,6 +80,9 @@ public class GameManager : MonoBehaviour
                 //道中で稼いだコインを更新
                 currentCoin = normalMonitorManager._currentCoin;
 
+                //n秒強化、ロケットパンチのレベルをロード
+                skillEffectManager.SkillLevelLoad();
+
                 //HandDetectionを有効化
                 handDetection.enabled = true;
 
@@ -97,6 +100,9 @@ public class GameManager : MonoBehaviour
                 //HandDetectionを有効化
                 handDetection.enabled = true;
                 usableSkill = true;
+
+                //n秒強化、ロケットパンチのレベルをロード
+                skillEffectManager.SkillLevelLoad();
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
