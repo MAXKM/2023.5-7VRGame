@@ -73,6 +73,7 @@ public class SkillManager : MonoBehaviour
         a = PunchPower(gameinformation.powerUpLevel);   //ƒpƒ“ƒ`ˆÐ—ÍŠ„‚è“–‚Ä
         PowerdLimit = PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n•b‹­‰»‚ÌŠ„‚è“–‚Ä
         b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //Žã“_”{—¦Š„‚è“–‚Ä
+        RLevel = Rocket(gameinformation.rocketMagnificationLevel);
 
 
         if (isAttack)
@@ -120,6 +121,7 @@ public class SkillManager : MonoBehaviour
     public void RDamege()
     {
         Damage = RLevel;
+        Debug.Log(Damage);
         vv = stopper.transform.position;
         damagepopuptextmanager.Active(vv, Damage);
     }
@@ -217,6 +219,6 @@ public class SkillManager : MonoBehaviour
                 RLevel = 700;
                 break;
         }
-        return b;
+        return RLevel;
     }
 }

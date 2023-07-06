@@ -28,6 +28,8 @@ public class SkillEffectManager : MonoBehaviour
     //既にn秒強化スキルを使ったかを判定
     private bool alreadyUsed = false;
 
+    private WaitForSeconds rocketWait = new WaitForSeconds(1);
+
 
     private void Start()
     {
@@ -43,6 +45,8 @@ public class SkillEffectManager : MonoBehaviour
         //ロケットの残数を計算
         rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
         Debug.Log("個数" + rocketNum);
+
+
     }
     private void Update()
     {
@@ -102,6 +106,7 @@ public class SkillEffectManager : MonoBehaviour
 
         //ロケット発動処理
         rocketParticle.Play();
+        StartCoroutine(RocketDamageDelay());
 
         //残数を減らす
         rocketNum--;
@@ -133,5 +138,13 @@ public class SkillEffectManager : MonoBehaviour
 
         //ロケットの残数を計算
         rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
+    }
+
+    //ロケットパンチのダメージを遅れて与えさせる処理
+    IEnumerator RocketDamageDelay()
+    {
+        yield return rocketWait;
+        skillManager.RDamege();
+
     }
 }
