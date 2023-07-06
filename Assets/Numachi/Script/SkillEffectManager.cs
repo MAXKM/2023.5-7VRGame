@@ -124,4 +124,14 @@ public class SkillEffectManager : MonoBehaviour
         }
         return rocketNum;
     }
+
+    //使用するスキルレベルのロード
+    public void SkillLevelLoad()
+    {
+        //レベル別制限時間を取得
+        limitSeconds = skillManager.PowerTimeLimit(gameInformation.powerUpTimeLevel);
+
+        //ロケットの残数を計算
+        rocketNum = RocketNumCaluclation(gameInformation.rocketNumLevel);
+    }
 }
