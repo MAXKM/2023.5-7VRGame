@@ -27,7 +27,7 @@ public class SkillManager : MonoBehaviour
     void Start()
     {
         a = PunchPower(gameinformation.powerUpLevel);   //ƒpƒ“ƒ`ˆÐ—ÍŠ„‚è“–‚Ä
-        //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //Žã“_”{—¦Š„‚è“–‚Ä
+        b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //Žã“_”{—¦Š„‚è“–‚Ä
         PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n•b‹­‰»‚ÌŠ„‚è“–‚Ä
         RLevel = Rocket(gameinformation.rocketMagnificationLevel);
 
@@ -71,6 +71,7 @@ public class SkillManager : MonoBehaviour
     {
         a = PunchPower(gameinformation.powerUpLevel);   //ƒpƒ“ƒ`ˆÐ—ÍŠ„‚è“–‚Ä
         PowerdLimit = PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n•b‹­‰»‚ÌŠ„‚è“–‚Ä
+        b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //Žã“_”{—¦Š„‚è“–‚Ä
 
 
         if (isAttack)
