@@ -24,6 +24,7 @@ public class MonitorAppearance : MonoBehaviour
     MIDDLE_BOSS middleboss;
     NewWeakPoint newweakpoint;
     [SerializeField] GameInformation gameinformation2;
+    public bool BossAppear;
     void Awake()
     {
         BMA = new GameObject[4];
@@ -31,6 +32,7 @@ public class MonitorAppearance : MonoBehaviour
         BMA[1] = BM2;
         BMA[2] = BM3;
         BMA[3] = FB;
+        BossAppear = false;
 
         if (gameinformation2.progress == 0)
         {
@@ -127,6 +129,7 @@ public class MonitorAppearance : MonoBehaviour
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 0.86f, 0);
+        BossAppear = true;
     }
 
     IEnumerator SC3(float wait)//Scale‚ðChange‚R
@@ -188,6 +191,7 @@ public class MonitorAppearance : MonoBehaviour
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 1f, 0);
+        BossAppear = true;
     }
 
     IEnumerator SC3_2(float wait)//Scale‚ðChange‚R
@@ -248,6 +252,7 @@ public class MonitorAppearance : MonoBehaviour
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
         this.transform.position = new Vector3(0, 1.23f, 0);
+        BossAppear = true;
     }
 
     IEnumerator SC3_3(float wait)//Scale‚ðChange‚R
@@ -279,6 +284,7 @@ public class MonitorAppearance : MonoBehaviour
         middleboss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
         newweakpoint.WA();
         hpgauge.Set(middleboss.MiddleBossHp);
+        BossAppear = true;
         MBCall = true;
     }
 }
