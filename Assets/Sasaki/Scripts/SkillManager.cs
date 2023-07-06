@@ -12,6 +12,7 @@ public class SkillManager : MonoBehaviour
     //public HandDetection handdetection;
     float a = 0, b = 0, c = 1.5f; //a=パンチ威力 b=弱点倍率 c=攻撃バフ倍率
     float PowerdLimit=0;
+    float RLevel=0;
     Vector3 vv;
     public float Damage;       //ダメージ量
     float Distance; //距離 (HandDetectionから受け取る)
@@ -28,6 +29,7 @@ public class SkillManager : MonoBehaviour
         a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
         //b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
         PowerdLimit =PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
+        RLevel = Rocket(gameinformation.rocketMagnificationLevel);
 
         //弱点などの切り替え
         //DDecision = true;
@@ -109,6 +111,11 @@ public class SkillManager : MonoBehaviour
         damagepopuptextmanager.Active(vv, Damage);
     }
 
+    public void RDamege()
+    {
+        Damage = RLevel;
+    }
+
     private float PunchPower(int level)
     {
         //パンチ威力のレベルで威力を変える
@@ -179,5 +186,29 @@ public class SkillManager : MonoBehaviour
                 break;
         }
         return PowerdLimit;
+    }
+
+    private float Rocket(int level)
+    {
+        //
+        switch (level)
+        {
+            case 1:
+                RLevel = 300;
+                break;
+            case 2:
+                RLevel = 400;
+                break;
+            case 3:
+                RLevel = 500;
+                break;
+            case 4:
+                RLevel = 600;
+                break;
+            case 5:
+                RLevel = 700;
+                break;
+        }
+        return b;
     }
 }
