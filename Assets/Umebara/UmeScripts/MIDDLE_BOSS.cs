@@ -99,22 +99,28 @@ public class MIDDLE_BOSS : MonoBehaviour
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }
-        if (bossBattleTime < 5 && display == true && gameinformation.progress == 1)
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 0)
         {
             bosstime.SetBomb();
             display = false;
         }
 
-        if (bossBattleTime < 5 && display == true && gameinformation.progress == 2)
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 1)
         {
             bosstime.SetBomb2();
             display = false;
         }
-        if (bossBattleTime < 5 && display == true && gameinformation.progress == 4)
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 2)
+        {
+            bosstime.SetBomb3();
+            display = false;
+        }
+        if (bossBattleTime < 5 && display == true && gameinformation.progress == 3)
         {
             bosstime.FinalSetBomb();
             display = false;
         }
+
         if (bossBattleTime <= 0 )
         {
             gamemanager.SetState(GameManager.STATE.GAME_OVER);
