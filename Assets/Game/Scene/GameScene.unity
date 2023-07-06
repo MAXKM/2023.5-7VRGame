@@ -639,7 +639,7 @@ MonoBehaviour:
   gameinformation: {fileID: 497027395}
   damagepopuptextmanager: {fileID: 2117034769}
   Damage: 0
-  handDetection: {fileID: 0}
+  handDetection: {fileID: 84728327}
   newweakpoint: {fileID: 943311630}
 --- !u!4 &69709139
 Transform:
@@ -4309,7 +4309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1266347205
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4787,7 +4787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1339354355
 RectTransform:
   m_ObjectHideFlags: 0

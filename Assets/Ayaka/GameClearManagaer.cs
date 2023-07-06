@@ -35,7 +35,7 @@ public class GameClearManagaer : MonoBehaviour
         CoinText.text = "Conguraturation!!\n" + "Coin:" + coin;
     }
 
-    IEnumerator SceneChange()
+    public IEnumerator SceneChange()
     {
         //3ïbêîÇ¶ÇÈ
         yield return new WaitForSeconds(3.0f);
