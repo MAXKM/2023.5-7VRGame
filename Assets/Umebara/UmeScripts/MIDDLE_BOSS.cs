@@ -40,7 +40,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         switch (gameinformation.bossBattleTimeLevel)
         {
             case 1:
-                bossBattleTime = 5.0f;
+                bossBattleTime = 2000.0f;
                 break;
             case 2:
                 bossBattleTime = 7.5f;

@@ -8,9 +8,16 @@ public class WeakCollisionDetection : MonoBehaviour
     // Start is called before the first frame update
     NewWeakPoint newweakpoint;
     public bool HandOver;
+    SkillManager skillmanager;
+    HandDetection handdetection;
+    HPGauge hpgauge;
+    MIDDLE_BOSS middleboss;
     void Start()
     {
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
+        skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
+        middleboss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
+        hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,7 +26,40 @@ public class WeakCollisionDetection : MonoBehaviour
         {
             newweakpoint.weak = true;
             Changed();
-            StartCoroutine(CF(0.1f));
+            Vector3 contactPoint = other.ClosestPoint(transform.position);
+            if (other.gameObject.tag == "LeftHand")
+            {
+                if (handdetection == null)
+                {
+                    GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
+                    handdetection = obj.GetComponent<HandDetection>();
+                }
+                if (handdetection.distanceLeft < 0.5f)
+                {
+                    handdetection.ResetDistance();
+                    skillmanager.BDamage(contactPoint, handdetection.distanceLeft);
+                    return;
+                }
+                skillmanager.BDamage(contactPoint, handdetection.distanceLeft);
+            }
+            else if (other.gameObject.tag == "RightHand")
+            {
+                if (handdetection == null)
+                {
+                    handdetection = other.gameObject.GetComponent<HandDetection>();
+                }
+                if (handdetection.distanceRight < 0.5f)
+                {
+                    handdetection.ResetDistance();
+                    skillmanager.BDamage(contactPoint, handdetection.distanceRight);
+                    return;
+                }
+                skillmanager.BDamage(contactPoint, handdetection.distanceRight);
+            }
+            handdetection.ResetDistance();
+            middleboss.MiddleBossHp -= skillmanager.Damage;
+            hpgauge.GaugeReduction(skillmanager.Damage);
+            Changed();
         }
     }
     public void Changed()
@@ -29,11 +69,6 @@ public class WeakCollisionDetection : MonoBehaviour
         float z = Random.Range(-0.71f, 0.68f);
         Vector3 pos = new Vector3(0.1f, y, z);
         myTransform.position = pos;
-    }
-
-    IEnumerator CF(float wait)
-    {
-        yield return new WaitForSeconds(wait);
         newweakpoint.weak = false;
     }
 }
