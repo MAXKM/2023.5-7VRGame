@@ -795,6 +795,7 @@ MonoBehaviour:
   BM1: {fileID: 4350068476079225937, guid: f366f9909ca04f54daabef7e6deff7cd, type: 3}
   BM2: {fileID: 466600277744699254, guid: 0573f96a24460704185f581106242cc6, type: 3}
   BM3: {fileID: 5156963162023497541, guid: 133459b4566d8444fb07e6735e36ad13, type: 3}
+  FB: {fileID: 0}
   E: {fileID: 6525991278737377225, guid: f2f2c709f02c54e498cf110f424bccf6, type: 3}
   IBM: {fileID: 0}
   count: 0
@@ -3181,6 +3182,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 2544350392697165475, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: Gmesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: 01f9d2fe26d49974bac8cd7113dc6d85, type: 3}
+    - target: {fileID: 2544350392697165475, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: Gcolor
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: 01f9d2fe26d49974bac8cd7113dc6d85, type: 3}
     - target: {fileID: 3093407111940014566, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -3241,6 +3250,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6751590228672365717, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: Gmesh
+      value: 
+      objectReference: {fileID: -2432090755550338912, guid: d05598ed73b0bd84a8b3c13f12e69d18, type: 3}
+    - target: {fileID: 6751590228672365717, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
+      propertyPath: Gcolor
+      value: 
+      objectReference: {fileID: -8469494145858465668, guid: d05598ed73b0bd84a8b3c13f12e69d18, type: 3}
     - target: {fileID: 8933365968536186714, guid: 3fc5391d4ca1c4048ac713455b2b575d, type: 3}
       propertyPath: m_TagString
       value: LeftHand
@@ -5143,12 +5160,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1820234611}
+  skillEffectManager: {fileID: 0}
   strengthenMode: 0
   rightHandTf: {fileID: 257673566}
   leftHandTf: {fileID: 226811032}
-  rocketMode: 0
   distanceRight: 0
   distanceLeft: 0
+  rocketLaunchCollider: {fileID: 0}
 --- !u!1 &1697951300
 GameObject:
   m_ObjectHideFlags: 0
