@@ -8,14 +8,13 @@ public class PlayerManager : MonoBehaviour
 
     [SerializeField] Mesh Gmesh;
     //ŽG‹›‚ÌMeshRenderer
-    private MeshRenderer meshRenderer;
+    [SerializeField] private MeshRenderer meshRenderer;
 
     //ŽG‹›‚ÌMeshfilter
-    private MeshFilter meshFilter;
+    [SerializeField] private MeshFilter meshFilter;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -42,8 +41,6 @@ public class PlayerManager : MonoBehaviour
                 break;
             case 5:
                 transform.localScale = new Vector3(0.23f, 0.23f, 0.23f);    //‰¼
-                meshRenderer = GetComponent<MeshRenderer>();
-                meshFilter = GetComponent<MeshFilter>();
                 meshRenderer.material = Gcolor;
                 meshFilter.mesh = Gmesh;
                 break;
