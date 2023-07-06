@@ -9,6 +9,7 @@ public class HandDetection : MonoBehaviour
     [SerializeField] GameManager gameManager;
 
     [SerializeField] SkillEffectManager skillEffectManager;
+    [SerializeField] GameInformation gameInformation;
 
     //‚•b‹­‰»ó‘Ô‰»‚ğ”»’è
     public bool strengthenMode;
@@ -59,8 +60,15 @@ public class HandDetection : MonoBehaviour
     {
         if(other.gameObject.tag == "LeftHand" && gameManager.usableSkill)
         {
+            if (gameInformation.powerUpTimeLevel < 2)
+            {
+                return;
+            }
+
             //n•b‹­‰»ó‘Ô‚É“ü‚é
             strengthenMode = true;
+            //‰Š‚Ì‰‰o
+            skillEffectManager.StartStrengthenMode();
         }
 
         if (other.gameObject.CompareTag("RocketLaunchPoint") && leftHandKey && gameManager.usableSkill)

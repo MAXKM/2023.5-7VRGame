@@ -25,6 +25,9 @@ public class SkillEffectManager : MonoBehaviour
     //レベル別ロケット残数
     private int rocketNum;
 
+    //既にn秒強化スキルを使ったかを判定
+    private bool alreadyUsed = false;
+
 
     private void Start()
     {
@@ -44,17 +47,9 @@ public class SkillEffectManager : MonoBehaviour
     private void Update()
     {
         if (handDetection.strengthenMode)
-        {
-            if(gameInformation.powerUpTimeLevel < 2)
-            {
-                return;
-            }
-
+        { 
             //時間計測開始
             reminingSeconds += Time.deltaTime;
-
-            //強化状態開始
-            StartStrengthenMode();
 
             //テキストを表示
             DisplayTimeText(handDetection.strengthenMode);
@@ -79,7 +74,7 @@ public class SkillEffectManager : MonoBehaviour
     }
 
     //強化状態の処理
-    private void StartStrengthenMode()
+    public void StartStrengthenMode()
     {
         rightFire.gameObject.SetActive(true);
         rightFire.Play();
@@ -92,6 +87,8 @@ public class SkillEffectManager : MonoBehaviour
     {
         rightFire.Stop();
         leftFire.Stop();
+        //もう使えなくする
+        alreadyUsed = true;
     }
 
     //ロケット発動
