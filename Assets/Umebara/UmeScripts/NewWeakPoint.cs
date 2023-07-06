@@ -38,6 +38,14 @@ public class NewWeakPoint : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (weak == true)
+        {
+            Debug.Log("sa");
+        }
+    }
+
     public void WA()
     {
         for (int i = 0; i < WeakPoint; i++)
