@@ -29,29 +29,29 @@ public class AllResetScript : MonoBehaviour
 
     private void Reset()
     {
-        gameInformation.coinUpLevel = PlayerPrefs.GetInt(DataName[0], 1);
+        PlayerPrefs.SetInt(DataName[0], 1);
 
-        gameInformation.goldEnemyProbabilityLevel = PlayerPrefs.GetInt(DataName[1], 1);
+        PlayerPrefs.SetInt(DataName[1], 1);
 
-        gameInformation.bossBattleTimeLevel = PlayerPrefs.GetInt(DataName[2], 1);
+        PlayerPrefs.SetInt(DataName[2], 1);
 
-        gameInformation.rocketMagnificationLevel = PlayerPrefs.GetInt(DataName[3], 1);
+        PlayerPrefs.SetInt(DataName[3], 1);
 
-        gameInformation.powerUpLevel = PlayerPrefs.GetInt(DataName[4], 1);
+        PlayerPrefs.SetInt(DataName[4], 1);
 
-        gameInformation.powerUpTimeLevel = PlayerPrefs.GetInt(DataName[5], 1);
+        PlayerPrefs.SetInt(DataName[5], 1);
 
-        gameInformation.rocketNumLevel = PlayerPrefs.GetInt(DataName[6], 1);
+        PlayerPrefs.SetInt(DataName[6], 1);
 
-        gameInformation.weakPointNumLevel = PlayerPrefs.GetInt(DataName[7], 1);
+        PlayerPrefs.SetInt(DataName[7], 1);
 
-        gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(DataName[8], 1);
+        PlayerPrefs.SetInt(DataName[8], 1);
 
-        gameInformation.numberOfPlays = PlayerPrefs.GetInt(DataName[9], 0);
+        PlayerPrefs.SetInt(DataName[9], 0);
 
-        gameInformation.progress = PlayerPrefs.GetInt(DataName[10], 0);
+        PlayerPrefs.SetInt(DataName[10], 0);
 
-        gameInformation.havingTotalCoin = PlayerPrefs.GetInt(DataName[11], 0);
+        PlayerPrefs.SetInt(DataName[11], 0);
 
         
     }
