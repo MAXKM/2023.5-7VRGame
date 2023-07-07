@@ -12,48 +12,43 @@ public class AllResetScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        length = DataName.Length;
+        //length = DataName.Length;
     }
 
     // Update is called once per frame
 
     public void DataDelete()
     {
-        for (int i = 0; i < length; i++ )
-        {
-            PlayerPrefs.DeleteKey(DataName[i]);
-        }
+        PlayerPrefs.DeleteKey("coinUpLevel");
+        PlayerPrefs.DeleteKey("goldEnemyProbabilityLevel");
+        PlayerPrefs.DeleteKey("bossBattleTimeLevel");
+        PlayerPrefs.DeleteKey("rocketMagnificationLevel");
+        PlayerPrefs.DeleteKey("powerUpLevel");
+        PlayerPrefs.DeleteKey("powerUpTimeLevel");
+        PlayerPrefs.DeleteKey("rocketNumLevel");
+        PlayerPrefs.DeleteKey("weakPointNumLevel");
+        PlayerPrefs.DeleteKey("NUMBER_OF_PLAYS");
+        PlayerPrefs.DeleteKey("PROGRESS");
+        PlayerPrefs.DeleteKey("TOTAL_COIN");
+
         Reset();
         SceneManager.LoadScene("GameScene");
     }
 
     private void Reset()
     {
-        PlayerPrefs.SetInt(DataName[0], 1);
+        PlayerPrefs.SetInt("coinUpLevel",1);
+        PlayerPrefs.SetInt("goldEnemyProbabilityLevel", 1);
+        PlayerPrefs.SetInt("bossBattleTimeLevel", 1);
+        PlayerPrefs.SetInt("rocketMagnificationLevel", 1);
+        PlayerPrefs.SetInt("powerUpLevel", 1);
+        PlayerPrefs.SetInt("powerUpTimeLevel", 1);
+        PlayerPrefs.SetInt("rocketNumLevel", 1);
+        PlayerPrefs.SetInt("weakPointNumLevel", 1);
+        PlayerPrefs.SetInt("NUMBER_OF_PLAYS", 0);
+        PlayerPrefs.SetInt("PROGRESS", 0);
+        PlayerPrefs.SetInt("TOTAL_COIN", 0);
 
-        PlayerPrefs.SetInt(DataName[1], 1);
-
-        PlayerPrefs.SetInt(DataName[2], 1);
-
-        PlayerPrefs.SetInt(DataName[3], 1);
-
-        PlayerPrefs.SetInt(DataName[4], 1);
-
-        PlayerPrefs.SetInt(DataName[5], 1);
-
-        PlayerPrefs.SetInt(DataName[6], 1);
-
-        PlayerPrefs.SetInt(DataName[7], 1);
-
-        PlayerPrefs.SetInt(DataName[8], 1);
-
-        PlayerPrefs.SetInt(DataName[9], 0);
-
-        PlayerPrefs.SetInt(DataName[10], 0);
-
-        PlayerPrefs.SetInt(DataName[11], 0);
-
-        
     }
 }
 
