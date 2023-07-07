@@ -28,9 +28,18 @@ public class MIDDLE_BOSS : MonoBehaviour
     private float damage;
     int i;
     GameObject bomb;
+    GameObject oyaparticle;
+    GameObject particle;
+    //GameObject particle;
+
     void Start()
     {
         bomb = GameObject.FindGameObjectWithTag("BT");
+        oyaparticle = GameObject.FindGameObjectWithTag("BDP");
+        particle= oyaparticle.transform.Find("monitor_destroy").gameObject;
+        particle.SetActive(false);
+        //particle= GameObject.FindGameObjectWithTag("BDP");
+        particle.SetActive(false);
         bomb.SetActive(true);
 
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
@@ -103,6 +112,7 @@ public class MIDDLE_BOSS : MonoBehaviour
             bomb.SetActive(false);
             bosstime.DeathBomb();
             this.gameObject.SetActive(false);
+            particle.SetActive(true);
             //Destroy(this.gameObject);
         }
         if (bossBattleTime < 5 && display == true && gameinformation.progress == 0)
