@@ -25,6 +25,8 @@ public class MonitorAppearance : MonoBehaviour
     NewWeakPoint newweakpoint;
     [SerializeField] GameInformation gameinformation2;
     public bool BossAppear;
+    public GameObject AP;
+    GameObject NAP;
     void Awake()
     {
         BMA = new GameObject[4];
@@ -125,6 +127,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
+        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -187,6 +190,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
+        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -248,6 +252,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
+        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
