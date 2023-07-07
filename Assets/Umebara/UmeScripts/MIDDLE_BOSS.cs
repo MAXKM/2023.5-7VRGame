@@ -27,8 +27,12 @@ public class MIDDLE_BOSS : MonoBehaviour
     HandDetection handdetection;
     private float damage;
     int i;
+    GameObject bomb;
     void Start()
     {
+        bomb = GameObject.FindGameObjectWithTag("BT");
+        bomb.SetActive(true);
+
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
         gameinformation = GameObject.FindGameObjectWithTag("GI").GetComponent<GameInformation>();
@@ -96,24 +100,7 @@ public class MIDDLE_BOSS : MonoBehaviour
             for(i = 0; i < gameinformation.weakPointNumLevel; i++){
                 Destroy(newweakpoint.weakpoint[i]);
             }
-            switch (gameinformation.progress)
-            {
-                case 0:
-                    
-                    break;
-
-                case 1:
-                    
-                    break;
-
-                case 2:
-                    
-                    break;
-
-                case 3:
-                    
-                    break;
-            }
+            bomb.SetActive(false);
             bosstime.DeathBomb();
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
