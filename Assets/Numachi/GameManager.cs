@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameOverManager gameOverManager;
     [SerializeField] GameInformation gameInformation;
     [SerializeField] HandDetection handDetection;
+    [SerializeField] Animator animator;
 
     WaitForSeconds waitToTitle;
 
@@ -64,6 +65,12 @@ public class GameManager : MonoBehaviour
         {
             //titleの処理
             case STATE.TITLE:
+                if (_progress == 0)
+                {
+                    //初めてプレイしたときだけタイトルアニメーションを再生
+                    animator.SetBool("Is_first", true);
+                }
+                else animator.enabled = false;
 
                 break;
 
@@ -145,7 +152,7 @@ public class GameManager : MonoBehaviour
 
                 //周回数をカウント
                 _numberOfPlays++;
-                PlayerPrefs.SetInt("NUMBER_OF_PLAYS",  _numberOfPlays);
+                PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
                 PlayerPrefs.Save();
 
                 //ゲームオーバーのUIを表示
@@ -155,119 +162,4 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
-    //void Update()
-    //{
-    //    //switch分で状態遷移を管理
-    //    switch (state)
-    //    {
-    //        //titleの処理
-    //        case STATE.TITLE:
-
-    //            //ゲーム開始の合図が出されたら道中へ移行
-    //            if (gameStart)
-    //            {
-    //                state = STATE.ON_THE_WAY;
-    //            }
-
-    //            break;
-
-    //        //道中の処理
-    //        case STATE.ON_THE_WAY:
-
-    //            //NormalMonitorManagerによるモニターの生成開始
-    //            normalMonitorManager.gameObject.SetActive(true);
-
-    //            //19体目を倒したらボス戦へ移行
-    //            if(normalMonitorManager.monitorCount == 19)
-    //            {
-    //                StartCoroutine(ToBossBattle());
-    //            }
-
-    //            break;
-
-    //        //中ボスの処理
-    //        case STATE.MIDDLE_BOSS:
-
-
-    //            //Bossモニターの生成
-    //            monitorAppearance.gameObject.SetActive(true);
-
-    //            //中ボス管理のスクリプトを呼び出せるかを判定
-    //            if (monitorAppearance.MBCall)
-    //            {
-    //                //空だったら呼び出す
-    //                if (middleBoss == null)
-    //                {
-    //                    middleBoss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
-    //                }
-    //            }
-    //            else
-    //            {
-    //                //呼び出せる状態になるまでreturnし続ける
-    //                return;
-    //            }
-
-    //            usableSkill = true;
-
-    //            //ボスを倒したかを判定
-    //            if (middleBoss.defeated == 1)
-    //            {
-
-    //                state = STATE.CLEAR;
-    //            }
-
-    //            else if(middleBoss.defeated == 2)
-    //                state = STATE.GAME_OVER;
-
-    //            break;
-
-    //        //大ボスの処理
-    //        case STATE.LAST_BOSS:
-
-    //            usableSkill = true;
-
-    //            break;
-
-    //        //クリア時の処理
-    //        case STATE.CLEAR:
-
-    //            //クリアのテキストを表示
-    //            clearManager.Coin_Text(currentCoin);
-
-    //            //獲得コインを所持コインへ
-    //            PlayerPrefs.SetInt("TOTAL_COIN",currentCoin);
-
-    //            //進行度を進める
-    //            _progress++;
-    //            PlayerPrefs.SetInt("PROGRESS",_progress);
-
-    //            //周回数をカウント
-    //            _numberOfPlays++;
-    //            PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
-    //            PlayerPrefs.Save();
-
-    //            //タイトルへシーン遷移
-    //            clearManager.SceneChange();
-
-    //            break;
-
-    //        //ゲームオーバー時の処理
-    //        case STATE.GAME_OVER:
-
-    //            //獲得コインを所持コインへ
-    //            PlayerPrefs.SetInt("TOTAL_COIN", currentCoin);
-
-    //            //周回数をカウント
-    //            _numberOfPlays++;
-    //            PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
-    //            PlayerPrefs.Save();
-
-    //            //ゲームオーバーのUIを表示
-    //            gameOverManager.Coin_Text(currentCoin);
-    //            gameOverManager.ButtonDisplay();
-
-    //            break;
-    //    }
-    //}
 }
