@@ -12,18 +12,21 @@ public class WeakCollisionDetection : MonoBehaviour
     HandDetection handdetection;
     HPGauge hpgauge;
     MIDDLE_BOSS middleboss;
+    MonitorAppearance monitorappearance;
     void Start()
     {
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
         middleboss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
         hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
+        monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand") && newweakpoint.weak == false)
         {
+            monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
             newweakpoint.weak = true;
             Vector3 contactPoint = other.ClosestPoint(transform.position);
             if (other.gameObject.tag == "LeftHand")
@@ -59,7 +62,9 @@ public class WeakCollisionDetection : MonoBehaviour
             middleboss.MiddleBossHp -= skillmanager.Damage;
             hpgauge.GaugeReduction(skillmanager.Damage);
             Changed();
-            Debug.Log(skillmanager.Damage);
+            StartCoroutine(BCO(0.15f));
+            BCO(1);
+            //Debug.Log(skillmanager.Damage);
         }
     }
     public void Changed()
@@ -70,5 +75,11 @@ public class WeakCollisionDetection : MonoBehaviour
         Vector3 pos = new Vector3(0.1f, y, z);
         myTransform.position = pos;
         newweakpoint.weak = false;
+    }
+
+    IEnumerator BCO(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        monitorappearance.IBM.GetComponent<BoxCollider>().enabled = true;
     }
 }

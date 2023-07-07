@@ -96,6 +96,25 @@ public class MIDDLE_BOSS : MonoBehaviour
             for(i = 0; i < gameinformation.weakPointNumLevel; i++){
                 Destroy(newweakpoint.weakpoint[i]);
             }
+            switch (gameinformation.progress)
+            {
+                case 0:
+                    
+                    break;
+
+                case 1:
+                    
+                    break;
+
+                case 2:
+                    
+                    break;
+
+                case 3:
+                    
+                    break;
+            }
+            bosstime.DeathBomb();
             this.gameObject.SetActive(false);
             //Destroy(this.gameObject);
         }

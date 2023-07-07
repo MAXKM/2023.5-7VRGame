@@ -136,4 +136,9 @@ public class BossTime : MonoBehaviour
         ex = Instantiate(Ex, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         Destroy(bomb);
     }
+
+    public void DeathBomb()
+    {
+        Destroy(bomb);
+    }
 }
