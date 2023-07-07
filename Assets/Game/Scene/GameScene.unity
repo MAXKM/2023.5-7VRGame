@@ -6659,7 +6659,7 @@ MonoBehaviour:
   gameOverManager: {fileID: 1297022420}
   gameInformation: {fileID: 497027395}
   handDetection: {fileID: 84728327}
-  animator: {fileID: 0}
+  animator: {fileID: 326503157}
   state: 0
   usableSkill: 0
 --- !u!4 &1820234612
