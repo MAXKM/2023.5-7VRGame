@@ -18,6 +18,7 @@ TagManager:
   - GM
   - BT
   - RocketLaunchPoint
+  - BDP
   layers:
   - Default
   - TransparentFX
