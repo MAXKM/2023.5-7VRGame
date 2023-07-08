@@ -11,11 +11,12 @@ public class SkillButtonManager : MonoBehaviour
     [SerializeField] PlayerManager playerManagerL;      //左グローブのPlayerManagerスクリプト
     [SerializeField] PlayerManager playerManagerR;      //右グローブのPlayerManagerスクリプト
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI text2;
     private Image mImage;
     public Sprite[] Ssprite;
     public int ButtonNumber;
     private string[] SkillName = { "Coinup", "GoldEnemy", "BossTime", "RocketM", "Powerup", "PowerupTime", "RocketNum", "WeakNum", "WeakPointM" };
-    //private string[] NowCoin = { "Coin", "Please 350 Coin", "Please 1200 Coin", "Please 300 Coin", "Please 2000 Coin", "Please 400 Coin", "Please 800 Coin" };
+    private string[] PleaseCoin = { "90", "350", "1200", "1200", "300", "2000", "400", "800", "0"};
     private int i;
     public bool ResetButton;
     private AudioSource pinpon;
@@ -29,7 +30,7 @@ public class SkillButtonManager : MonoBehaviour
             PlayerPrefs.DeleteKey(SkillName[ButtonNumber]);
         }
         Road();
-
+        text.text= "Coin:" + gameInformation.havingTotalCoin;
     }
 
     // Update is called once per frame
@@ -44,18 +45,33 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.coinUpLevel = PlayerPrefs.GetInt(SkillName[0], 1);
             mImage.sprite = Ssprite[gameInformation.coinUpLevel - 1];
+            text2.text = PleaseCoin[gameInformation.coinUpLevel-1];
+            if (gameInformation.coinUpLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 1)
         {
             gameInformation.goldEnemyProbabilityLevel = PlayerPrefs.GetInt(SkillName[1], 1);
             mImage.sprite = Ssprite[gameInformation.goldEnemyProbabilityLevel - 1];
+            text2.text =PleaseCoin[gameInformation.goldEnemyProbabilityLevel - 1];
+            if (gameInformation.goldEnemyProbabilityLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 2)
         {
             gameInformation.bossBattleTimeLevel = PlayerPrefs.GetInt(SkillName[2], 1);
             mImage.sprite = Ssprite[gameInformation.bossBattleTimeLevel - 1];
+            text2.text = PleaseCoin[gameInformation.bossBattleTimeLevel - 1];
+            if (gameInformation.bossBattleTimeLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 3)
@@ -63,6 +79,11 @@ public class SkillButtonManager : MonoBehaviour
             gameInformation.rocketMagnificationLevel = PlayerPrefs.GetInt(SkillName[3], 1);
             mImage.sprite = Ssprite[gameInformation.rocketMagnificationLevel - 1];
             skillManager.RSLevel(4);
+            text2.text = PleaseCoin[gameInformation.rocketMagnificationLevel - 1];
+            if (gameInformation.rocketMagnificationLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 4)
@@ -72,6 +93,11 @@ public class SkillButtonManager : MonoBehaviour
             playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
             playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
             skillManager.RSLevel(1);
+            text2.text = PleaseCoin[gameInformation.powerUpLevel - 1];
+            if (gameInformation.powerUpLevel == 5)
+            {
+                text2.text = "MAX";
+            }
 
         }
 
@@ -80,24 +106,44 @@ public class SkillButtonManager : MonoBehaviour
             gameInformation.powerUpTimeLevel = PlayerPrefs.GetInt(SkillName[5], 1);
             mImage.sprite = Ssprite[gameInformation.powerUpTimeLevel - 1];
             skillManager.RSLevel(2);
+            text2.text = PleaseCoin[gameInformation.powerUpTimeLevel - 1];
+            if (gameInformation.powerUpTimeLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 6)
         {
             gameInformation.rocketNumLevel = PlayerPrefs.GetInt(SkillName[6], 1);
             mImage.sprite = Ssprite[gameInformation.rocketNumLevel - 1];
+            text2.text = PleaseCoin[gameInformation.rocketNumLevel + 5];
+            if (gameInformation.rocketNumLevel == 3)
+            {
+                text2.text = "MAX";
+            }
         }
 
         if (ButtonNumber == 7)
         {
             gameInformation.weakPointNumLevel = PlayerPrefs.GetInt(SkillName[7], 1);
             mImage.sprite = Ssprite[gameInformation.weakPointNumLevel - 1];
+            text2.text = PleaseCoin[gameInformation.weakPointNumLevel + 3];
+            if (gameInformation.weakPointNumLevel == 3)
+            {
+                text2.text = "MAX";
+            }
         }
         if (ButtonNumber == 8)
         {
             gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(SkillName[8], 1);
             mImage.sprite = Ssprite[gameInformation.weakPointMagnificationLevel - 1];
             skillManager.RSLevel(3);
+            text2.text = PleaseCoin[gameInformation.weakPointMagnificationLevel - 1];
+            if (gameInformation.weakPointMagnificationLevel == 5)
+            {
+                text2.text = "MAX";
+            }
         }
 
     }
@@ -134,6 +180,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[0], gameInformation.coinUpLevel);
+
+                text2.text =  PleaseCoin[gameInformation.coinUpLevel - 1];
+                if (gameInformation.coinUpLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "GoldEnemy":
                 if (gameInformation.goldEnemyProbabilityLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -161,6 +213,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[1], gameInformation.goldEnemyProbabilityLevel);
+
+                text2.text = PleaseCoin[gameInformation.goldEnemyProbabilityLevel - 1];
+                if (gameInformation.goldEnemyProbabilityLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "BossTime":
                 if (gameInformation.bossBattleTimeLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -188,6 +246,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[2], gameInformation.bossBattleTimeLevel);
+
+                text2.text = PleaseCoin[gameInformation.bossBattleTimeLevel - 1];
+                if (gameInformation.bossBattleTimeLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "RocketM":
                 if (gameInformation.rocketMagnificationLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -215,6 +279,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[3], gameInformation.rocketMagnificationLevel);
+
+                text2.text = PleaseCoin[gameInformation.rocketMagnificationLevel - 1];
+                if (gameInformation.rocketMagnificationLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 skillManager.RSLevel(4);
                 break;
             case "Powerup":
@@ -245,6 +315,12 @@ public class SkillButtonManager : MonoBehaviour
                 PlayerPrefs.SetInt(SkillName[4], gameInformation.powerUpLevel);
                 playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
                 playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
+
+                text2.text = PleaseCoin[gameInformation.powerUpLevel - 1];
+                if (gameInformation.powerUpLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 skillManager.RSLevel(1);
                 break;
             case "PowerupTime":
@@ -274,6 +350,12 @@ public class SkillButtonManager : MonoBehaviour
                 }
                 PlayerPrefs.SetInt(SkillName[5], gameInformation.powerUpTimeLevel);
                 skillManager.RSLevel(2);
+
+                text2.text = PleaseCoin[gameInformation.powerUpTimeLevel - 1];
+                if (gameInformation.powerUpTimeLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "RocketNum":
                 if (gameInformation.rocketNumLevel == 1 && gameInformation.havingTotalCoin >= 400)
@@ -289,6 +371,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[2];
                 }
                 PlayerPrefs.SetInt(SkillName[6], gameInformation.rocketNumLevel);
+
+                text2.text =PleaseCoin[gameInformation.rocketNumLevel + 5];
+                if (gameInformation.rocketNumLevel == 3)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "WeakNum":
                 if (gameInformation.weakPointNumLevel == 1 && gameInformation.havingTotalCoin >= 300)
@@ -304,6 +392,12 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[2];
                 }
                 PlayerPrefs.SetInt(SkillName[7], gameInformation.weakPointNumLevel);
+
+                text2.text = PleaseCoin[gameInformation.weakPointNumLevel + 3];
+                if (gameInformation.weakPointNumLevel == 3)
+                {
+                    text2.text = "MAX";
+                }
                 break;
             case "WeakPointM":
                 if (gameInformation.weakPointMagnificationLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -332,6 +426,12 @@ public class SkillButtonManager : MonoBehaviour
                 }
                 PlayerPrefs.SetInt(SkillName[8], gameInformation.weakPointMagnificationLevel);
                 skillManager.RSLevel(3);
+
+                text2.text = PleaseCoin[gameInformation.weakPointMagnificationLevel - 1];
+                if (gameInformation.weakPointMagnificationLevel == 5)
+                {
+                    text2.text = "MAX";
+                }
                 break;
         }
         PlayerPrefs.Save();

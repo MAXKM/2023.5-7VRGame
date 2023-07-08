@@ -182,6 +182,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: e5e189799eb7f7d43a6a8a2173c9b6fe, type: 3}
   - {fileID: 21300000, guid: 084ccbd3ac37786419318a5f35477143, type: 3}
@@ -1311,6 +1312,8 @@ MonoBehaviour:
   leftFire: {fileID: 872306178}
   monitorAppearance: {fileID: 104250820}
   hpGauge: {fileID: 2008121851}
+  powerUpSE: {fileID: 0}
+  rocketSE: {fileID: 0}
   timeText: {fileID: 225553964}
 --- !u!23 &84728333 stripped
 MeshRenderer:
@@ -1542,6 +1545,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 1533336031}
   playerManagerR: {fileID: 84728329}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 2158d2931fac63d4989d14d3725c77a7, type: 3}
   - {fileID: 21300000, guid: 2ade9eb9794d39c4a900ec7d54b32197, type: 3}
@@ -3546,6 +3550,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: e07830ec862ec2643a1bfa64ca79bb3f, type: 3}
   - {fileID: 21300000, guid: 4031005dc8e1139498046676b4f9813c, type: 3}
@@ -4715,6 +4720,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: dd2f79c5e355a254c80b701d09aa8953, type: 3}
   - {fileID: 21300000, guid: 7afe12807d799b14799332d3327e63a4, type: 3}
@@ -5306,6 +5312,8 @@ MonoBehaviour:
   _currentCoin: 0
   gameInformation: {fileID: 497027395}
   gameManager: {fileID: 1820234611}
+  clip: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!4 &999742977
 Transform:
   m_ObjectHideFlags: 0
@@ -6302,6 +6310,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 081ce50bc56929d4a93111a46b38ba6c, type: 3}
   - {fileID: 21300000, guid: 57cc9c484af37f24ab48e851431a93d1, type: 3}
@@ -6643,7 +6652,7 @@ RectTransform:
   m_GameObject: {fileID: 1336607385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1411715079}
@@ -6674,7 +6683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 900
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6701,8 +6710,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 1
+  m_fontSizeBase: 1
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6867,6 +6876,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 1336607387}
   Ssprite:
   - {fileID: 21300000, guid: 2a85e0fe9a6be6b409fe2a5b61f8734a, type: 3}
   - {fileID: 21300000, guid: 6e1fbc6cdab8a4b4db9006c29174b12e, type: 3}
@@ -7676,6 +7686,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 3113bb6cd71a53f408cc66ff2711de76, type: 3}
   - {fileID: 21300000, guid: 59de2707c3f3caf45a70e6ee26de2646, type: 3}
@@ -8144,6 +8155,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 9e792887d0adb5e4fb7039f2c1de32e0, type: 3}
   - {fileID: 21300000, guid: dcb74176e5f86774693df7ac5043cfb3, type: 3}
@@ -8896,6 +8908,7 @@ MonoBehaviour:
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   text: {fileID: 1111748844}
+  text2: {fileID: 0}
   Ssprite:
   - {fileID: 21300000, guid: 64a7f9f3a55c8b041b5398c78fc78ad1, type: 3}
   - {fileID: 21300000, guid: 3010f9de322495545a799ac04a334dcb, type: 3}
