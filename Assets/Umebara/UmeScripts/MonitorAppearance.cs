@@ -31,10 +31,11 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject BreakeBoss;
     GameObject IBreakeBoss;
     public AudioClip hoko;
-    public AudioClip kona;
     AudioSource audioSource;
     [SerializeField] private AudioSource a3;//AudioSource型の変数a3を宣言 使用するAudioSourceコンポーネントをアタッチ必要
     [SerializeField] private AudioClip b1;//AudioClip型の変数b1を宣言 使用するAudioClipをアタッチ必要
+    public AudioClip BT;
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -103,6 +104,7 @@ public class MonitorAppearance : MonoBehaviour
             weak.SetActive(true);
             newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
             IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+            audioSource.PlayOneShot(BT);
             IBM.GetComponent<BoxCollider>().enabled = false;
             StartCoroutine(FBA(3.0f));
         }

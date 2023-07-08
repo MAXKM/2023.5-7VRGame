@@ -86,7 +86,7 @@ public class MIDDLE_BOSS : MonoBehaviour
                 break;
 
             case 3:
-                MiddleBossHp = 40;//4000
+                MiddleBossHp = 4000;
                 break;
         }
         Debug.Log("hp:" +MiddleBossHp);

@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -1271,9 +1272,9 @@ MonoBehaviour:
   gamemanager: {fileID: 1820234611}
   BreakeBoss: {fileID: 4283182269564626842, guid: 73187f633603b1c41a78499aee82c5c8, type: 3}
   hoko: {fileID: 8300000, guid: e2b96efd773e52f4380af11356410808, type: 3}
-  kona: {fileID: 8300000, guid: 60a42b7f438c7a248affd066437569f9, type: 3}
   a3: {fileID: 104250823}
   b1: {fileID: 8300000, guid: 60a42b7f438c7a248affd066437569f9, type: 3}
+  BT: {fileID: 8300000, guid: d06e775e3404eaf449b6d60069af9655, type: 3}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -1535,6 +1536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 1533336031}
   playerManagerR: {fileID: 84728329}
   Ssprite:
@@ -3537,6 +3539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -4607,6 +4610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -5960,6 +5964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -6523,6 +6528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -7233,6 +7239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -7602,6 +7609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
@@ -8255,6 +8263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameInformation: {fileID: 497027395}
+  skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
   Ssprite:
