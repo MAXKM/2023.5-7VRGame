@@ -26,6 +26,7 @@ public class TextManager : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         text.enabled = true;
+        Debug.Log(Number);
         switch (Number)
         {
             case 0:
