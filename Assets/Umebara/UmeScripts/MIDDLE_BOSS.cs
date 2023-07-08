@@ -27,6 +27,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     public int bosscoin;
     public AudioClip BossBlake;
     public AudioClip FinalBossBlake;
+    public AudioClip at;
     AudioSource audioSource;
     bool defeated;
     GameObject child;
@@ -173,6 +174,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         Detectionable = true;
         if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
+            audioSource.PlayOneShot(at);
             Vector3 contactPoint = other.ClosestPoint(transform.position);
             if (other.gameObject.tag == "LeftHand")
             {
