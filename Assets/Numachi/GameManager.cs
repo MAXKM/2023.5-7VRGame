@@ -43,11 +43,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] ParticleSystem lightParticle;
     [SerializeField] GameObject princess;
 
+    [SerializeField] AudioClip[] BGM;
+
     [SerializeField] public STATE state;
 
     private MIDDLE_BOSS bossManager;
 
     private Transform princessTf;
+
+    private AudioSource audioSource;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
 
@@ -57,6 +61,7 @@ public class GameManager : MonoBehaviour
         usableSkill = false;
         currentCoin = 0;
         princessTf = princess.transform;
+        audioSource = GetComponent<AudioSource>();
 
         //進捗度、周回数をロード
         _progress = gameInformation.progress;
@@ -110,6 +115,11 @@ public class GameManager : MonoBehaviour
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
 
+                //BGMを再生 
+                if (audioSource.isPlaying) audioSource.Stop();
+                audioSource.clip = BGM[2];
+                audioSource.Play();
+
                 break;
 
             //大ボスの処理
@@ -122,6 +132,11 @@ public class GameManager : MonoBehaviour
 
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
+
+                //BGMを再生
+                if(audioSource.isPlaying) audioSource.Stop();
+                audioSource.clip = BGM[1];
+                audioSource.Play();
 
                 break;
 
@@ -205,5 +220,11 @@ public class GameManager : MonoBehaviour
                 DOVirtual.DelayedCall(1, () => clearManager.LastClearText());
             });
             
+    }
+
+    public void TitleBGMPlay()
+    {
+        audioSource.clip = BGM[0];
+        audioSource.Play();
     }
 }
