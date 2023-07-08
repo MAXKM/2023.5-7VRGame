@@ -16,6 +16,7 @@ public class SkillEffectManager : MonoBehaviour
     private MIDDLE_BOSS bossManager;
     [SerializeField] MonitorAppearance monitorAppearance;
     [SerializeField] HPGauge hpGauge;
+    [SerializeField] AudioClip powerUpSE, rocketSE;
 
     //n秒強化時の秒数
     [SerializeField] TextMeshProUGUI timeText;
@@ -34,9 +35,13 @@ public class SkillEffectManager : MonoBehaviour
 
     private WaitForSeconds rocketWait = new WaitForSeconds(1);
 
+    private AudioSource audioSource;
+
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         //初期状態はテキスト、パーティクルを非表示
         timeText.gameObject.SetActive(false);
         rightFire.gameObject.SetActive(false);
@@ -94,6 +99,7 @@ public class SkillEffectManager : MonoBehaviour
         rightFire.Play();
         leftFire.gameObject.SetActive(true);
         leftFire.Play();
+        audioSource.PlayOneShot(powerUpSE);
     }
 
     //強化状態終了の処理
@@ -117,6 +123,7 @@ public class SkillEffectManager : MonoBehaviour
         //ロケット発動処理
         rocketParticle.Play();
         StartCoroutine(RocketDamageDelay());
+        audioSource.PlayOneShot(rocketSE);
 
         //残数を減らす
         rocketNum--;
