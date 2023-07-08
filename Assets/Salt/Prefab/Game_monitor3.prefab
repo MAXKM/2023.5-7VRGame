@@ -149,6 +149,7 @@ MonoBehaviour:
   BossBlake: {fileID: 8300000, guid: 71329ccb5a3b7e645b95cfc46a1d2a0b, type: 3}
   FinalBossBlake: {fileID: 8300000, guid: e0826838e9842704cb9487354eafff88, type: 3}
   at: {fileID: 8300000, guid: 92c813864344a9b418d1992b9e624ec2, type: 3}
+  BE: {fileID: 8300000, guid: 0f0cd902588816b4b867aa7b3dee7806, type: 3}
 --- !u!82 &7392837594998249668
 AudioSource:
   m_ObjectHideFlags: 0

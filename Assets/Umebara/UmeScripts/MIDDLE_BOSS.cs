@@ -28,6 +28,7 @@ public class MIDDLE_BOSS : MonoBehaviour
     public AudioClip BossBlake;
     public AudioClip FinalBossBlake;
     public AudioClip at;
+    public AudioClip BE;
     AudioSource audioSource;
     bool defeated;
     GameObject child;
@@ -160,12 +161,13 @@ public class MIDDLE_BOSS : MonoBehaviour
             display = false;
         }
 
-        if (bossBattleTime <= 0 )
+        if (bossBattleTime <= 0 && defeated == false)
         {
+            defeated = true;
             gamemanager.SetState(GameManager.STATE.GAME_OVER);
             monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
-            this.enabled = false;
-
+            audioSource.PlayOneShot(BE);
+            StartCoroutine(TSSAF(3.0f));
         }
     }
 
@@ -229,9 +231,15 @@ public class MIDDLE_BOSS : MonoBehaviour
         return bosscoin;
     }
 
-    IEnumerator SAF(float wait)//Scale‚ðChange‚R
+    IEnumerator SAF(float wait)
     {
         yield return new WaitForSeconds(wait);
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator TSSAF(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        this.enabled = false;
     }
 }
