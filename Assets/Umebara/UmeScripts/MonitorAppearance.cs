@@ -31,7 +31,10 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject BreakeBoss;
     GameObject IBreakeBoss;
     public AudioClip hoko;
+    public AudioClip kona;
     AudioSource audioSource;
+    [SerializeField] private AudioSource a3;//AudioSource型の変数a3を宣言 使用するAudioSourceコンポーネントをアタッチ必要
+    [SerializeField] private AudioClip b1;//AudioClip型の変数b1を宣言 使用するAudioClipをアタッチ必要
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -122,6 +125,8 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 1.0f);
+        a3.PlayOneShot(b1);
+        //audioSource.PlayOneShot(kona);
     }
 
     IEnumerator SC2(float wait)//ScaleをChange２
@@ -185,6 +190,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 1.0f);
+        a3.PlayOneShot(b1);
     }
 
     IEnumerator SC2_2(float wait)//ScaleをChange２
@@ -239,7 +245,6 @@ public class MonitorAppearance : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         IE = Instantiate(E, new Vector3(0.0f, 3.5f, 0.0f), Quaternion.Euler(90, 0, 0));
-
     }
 
     IEnumerator SC_3(float wait)//ScaleをChange
@@ -247,6 +252,7 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         this.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         this.transform.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 1.0f);
+        a3.PlayOneShot(b1);
     }
 
     IEnumerator SC2_3(float wait)//ScaleをChange２
