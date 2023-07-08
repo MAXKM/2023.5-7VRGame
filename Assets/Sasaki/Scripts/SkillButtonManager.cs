@@ -18,10 +18,12 @@ public class SkillButtonManager : MonoBehaviour
     //private string[] NowCoin = { "Coin", "Please 350 Coin", "Please 1200 Coin", "Please 300 Coin", "Please 2000 Coin", "Please 400 Coin", "Please 800 Coin" };
     private int i;
     public bool ResetButton;
+    private AudioSource pinpon;
     // Start is called before the first frame update
     void Start()
     {
         mImage = GetComponent<Image>();
+        pinpon = GetComponent<AudioSource>();
         if (ResetButton == true)
         {
             PlayerPrefs.DeleteKey(SkillName[ButtonNumber]);
@@ -102,6 +104,7 @@ public class SkillButtonManager : MonoBehaviour
 
     public void OnClick(string button)
     {
+        pinpon.PlayOneShot(pinpon.clip);
         switch (button)
         {
             case "Coinup":
