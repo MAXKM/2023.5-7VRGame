@@ -890,6 +890,7 @@ MonoBehaviour:
   gameinformation2: {fileID: 497027395}
   BossAppear: 0
   AP: {fileID: 4483458054255969420, guid: adce9d35b9e42104da48e9e34ca6f7ee, type: 3}
+  gamemanager: {fileID: 1820234611}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -1333,6 +1334,8 @@ Transform:
   - {fileID: 1405121497}
   - {fileID: 2083155963}
   - {fileID: 1340040726}
+  - {fileID: 604563049}
+  - {fileID: 2002415848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2513,14 +2516,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604563048}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1332599221}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 326503158}
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &655777186
 GameObject:
@@ -6666,7 +6669,7 @@ MonoBehaviour:
   gameInformation: {fileID: 497027395}
   handDetection: {fileID: 84728327}
   animator: {fileID: 326503157}
-  movie: {fileID: 2020239364}
+  movie: {fileID: 0}
   state: 0
   usableSkill: 0
 --- !u!4 &1820234612
@@ -7728,13 +7731,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002415846}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -15.901481, y: 5.776282, z: -5.6678324}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 326503158}
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2008121850
 GameObject:
