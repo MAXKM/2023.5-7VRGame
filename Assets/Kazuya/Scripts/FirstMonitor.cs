@@ -13,6 +13,8 @@ public class FirstMonitor : MonoBehaviour
     MeshRenderer meshRenderer;
     [SerializeField] TextMeshProUGUI counttext;
     [SerializeField] GameStartAnimation gamestartanimation;
+    [SerializeField] Animator animator;
+    Collider collider;
     // Start is called before the first frame update
 
     private void Start()
@@ -22,6 +24,7 @@ public class FirstMonitor : MonoBehaviour
             GameObject obj = GameObject.FindGameObjectWithTag("RightHand");
             handdetection = obj.GetComponent<HandDetection>();
         }
+        collider = GetComponent<Collider>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -56,7 +59,8 @@ public class FirstMonitor : MonoBehaviour
         gamestartanimation.HideArrow();
         Destroy.Play();
         StartCoroutine(HideCoroutine());
-
+        animator.enabled = false;
+        collider.enabled = false;
     }
     WaitForSeconds hideWait = new WaitForSeconds(0.7f);
 
