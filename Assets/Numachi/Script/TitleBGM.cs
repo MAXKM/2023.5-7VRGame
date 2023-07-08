@@ -6,9 +6,8 @@ public class TitleBGM : MonoBehaviour
 {
     [SerializeField] GameManager gameManager;
 
-    private void OnEnable()
+    public void PlayBGM()
     {
-        //ƒ^ƒCƒgƒ‹BGM‚ğÄ¶
-        //gameManager.TitleBGMPlay();
+        gameManager.TitleBGMPlay();
     }
 }
