@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
                 {
                     animator.enabled = false;
                     movie.SetActive(false);
+                    TitleBGMPlay();
+
                 }
 
                 break;
@@ -98,6 +100,11 @@ public class GameManager : MonoBehaviour
 
                 //NormalMonitorManagerによるモニターの生成開始
                 normalMonitorManager.gameObject.SetActive(true);
+
+                //BGMを再生 
+                if (audioSource.isPlaying) audioSource.Stop();
+                audioSource.clip = BGM[1];
+                audioSource.Play();
 
                 break;
 
@@ -135,7 +142,7 @@ public class GameManager : MonoBehaviour
 
                 //BGMを再生
                 if(audioSource.isPlaying) audioSource.Stop();
-                audioSource.clip = BGM[1];
+                audioSource.clip = BGM[2];
                 audioSource.Play();
 
                 break;
