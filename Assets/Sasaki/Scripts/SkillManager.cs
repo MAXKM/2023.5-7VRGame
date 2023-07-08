@@ -68,12 +68,31 @@ public class SkillManager : MonoBehaviour
     //    }
     //}
 
+    public void RSLevel(int s)
+    {
+        switch (s)
+        {
+            case 1:
+                a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
+                break;
+            case 2:
+                PowerdLimit = PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
+                break;
+            case 3:
+                b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
+                break;
+            case 4:
+                RLevel = Rocket(gameinformation.rocketMagnificationLevel);
+                break;
+        }
+
+    }
     public void DDamage(Vector3 vv, float Distance,bool isAttack = true)  //道中のダメージ計算
     {
-        a = PunchPower(gameinformation.powerUpLevel);   //パンチ威力割り当て
-        PowerdLimit = PowerTimeLimit(gameinformation.powerUpTimeLevel);  //n秒強化の割り当て
-        b = WeakPointMultiplier(gameinformation.weakPointMagnificationLevel);   //弱点倍率割り当て
-        RLevel = Rocket(gameinformation.rocketMagnificationLevel);
+        
+       
+        
+        
 
 
         if (isAttack)
