@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     { 
+        normalMonitorManager.gameObject.SetActive(false);
         usableSkill = false;
         currentCoin = 0;
         princessTf = princess.transform;
