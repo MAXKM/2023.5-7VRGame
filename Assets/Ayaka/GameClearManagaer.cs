@@ -10,7 +10,10 @@ public class GameClearManagaer : MonoBehaviour
     public GameInformation information; //コインの枚数
     public GameObject Coin = null;      //テキストオブジェクト
 
+    [SerializeField] GameObject[] clearText;
     [SerializeField] ParticleSystem particle;
+
+    [SerializeField] TextMeshProUGUI CoinText;
 
     public void ParticlePlay()
     {
@@ -20,25 +23,28 @@ public class GameClearManagaer : MonoBehaviour
     public void Coin_Text(int coin)
     {
         Coin.SetActive(true);
+        clearText[0].SetActive(true);
 
         //コインの値獲得する
         GameObject CoinCount = GameObject.Find("GameInformation");
         information = CoinCount.GetComponent<GameInformation>();
 
-        Debug.Log(information.havingTotalCoin);
-
-        //オブジェクトからTextコンポーネントを取得
-        TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
+        //Debug.Log(information.havingTotalCoin);
 
         //テキストの表示を入れ替える
-        //CoinText.text = "獲得コイン数：" + coin;
-        CoinText.text = "Conguraturation!!\n" + "Coin:" + coin;
+        CoinText.text =  coin + "コインゲット!";
+        //CoinText.text = "Conguraturation!!\n" + "Coin:" + coin;
     }
 
-    public IEnumerator SceneChange()
+    public void LastClearText()
+    {
+        clearText[1].SetActive(true);
+    }
+
+    public IEnumerator SceneChange(int time)
     {
         //3秒数える
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(time);
 
         //3秒立った後の処理
         SceneManager.LoadScene("GameScene");

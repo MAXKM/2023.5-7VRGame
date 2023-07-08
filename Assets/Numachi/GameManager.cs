@@ -151,6 +151,8 @@ public class GameManager : MonoBehaviour
                     //ラスボス(4体目のボス)を倒したら特殊演出
                     lightParticle.Play();
                     LastAnimation();
+                    StartCoroutine(clearManager.SceneChange(10));
+                    return;
                 }
                 else
                 {
@@ -163,7 +165,7 @@ public class GameManager : MonoBehaviour
                 clearManager.Coin_Text(currentCoin);
 
                 //タイトルへシーン遷移
-                //StartCoroutine(clearManager.SceneChange());
+                StartCoroutine(clearManager.SceneChange(3));
 
                 break;
 
@@ -197,7 +199,11 @@ public class GameManager : MonoBehaviour
         princess.SetActive(true);
         Vector3 lastPos = new Vector3(0, 0, 0.05f);
         princessTf.localPosition = firstPos;
-        princessTf.DOLocalMove(lastPos, 3);
+        princessTf.DOLocalMove(lastPos, 3)
+            .OnComplete(() =>
+            {
+                DOVirtual.DelayedCall(1, () => clearManager.LastClearText());
+            });
             
     }
 }
