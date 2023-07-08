@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 36946368}
   - component: {fileID: 36946367}
   - component: {fileID: 36946366}
-  - component: {fileID: 36946370}
   m_Layer: 5
   m_Name: PowerUpTimeButton
   m_TagString: Untagged
@@ -181,6 +180,7 @@ MonoBehaviour:
   skillManager: {fileID: 69709138}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: e5e189799eb7f7d43a6a8a2173c9b6fe, type: 3}
   - {fileID: 21300000, guid: 084ccbd3ac37786419318a5f35477143, type: 3}
@@ -283,21 +283,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36946364}
   m_CullTransparentMesh: 1
---- !u!114 &36946370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36946364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 5
 --- !u!1 &57471868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 119254079771716159, guid: 0b95fe1afd5e84549a94ba03e2245f4d, type: 3}
@@ -1287,6 +1272,9 @@ MonoBehaviour:
   gamemanager: {fileID: 1820234611}
   BreakeBoss: {fileID: 4283182269564626842, guid: 73187f633603b1c41a78499aee82c5c8, type: 3}
   hoko: {fileID: 8300000, guid: e2b96efd773e52f4380af11356410808, type: 3}
+  a3: {fileID: 0}
+  b1: {fileID: 0}
+  BT: {fileID: 0}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -1411,7 +1399,6 @@ GameObject:
   - component: {fileID: 169602834}
   - component: {fileID: 169602833}
   - component: {fileID: 169602832}
-  - component: {fileID: 169602836}
   m_Layer: 5
   m_Name: PowerUpButton
   m_TagString: Untagged
@@ -1456,6 +1443,7 @@ MonoBehaviour:
   skillManager: {fileID: 69709138}
   playerManagerL: {fileID: 1533336031}
   playerManagerR: {fileID: 84728329}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 2158d2931fac63d4989d14d3725c77a7, type: 3}
   - {fileID: 21300000, guid: 2ade9eb9794d39c4a900ec7d54b32197, type: 3}
@@ -1558,21 +1546,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169602830}
   m_CullTransparentMesh: 1
---- !u!114 &169602836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169602830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 4
 --- !u!1001 &210782595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2604,6 +2577,9 @@ MonoBehaviour:
   gamestartanimation: {fileID: 493718770}
   animator: {fileID: 326503157}
   hitsounds: {fileID: 8300000, guid: 92c813864344a9b418d1992b9e624ec2, type: 3}
+  breaksounds: {fileID: 0}
+  audiosource1: {fileID: 0}
+  audiosource2: {fileID: 0}
 --- !u!65 &419664999
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3330,7 +3306,6 @@ GameObject:
   - component: {fileID: 655777190}
   - component: {fileID: 655777189}
   - component: {fileID: 655777188}
-  - component: {fileID: 655777192}
   m_Layer: 5
   m_Name: RockeNumUpButton
   m_TagString: Untagged
@@ -3375,6 +3350,7 @@ MonoBehaviour:
   skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: e07830ec862ec2643a1bfa64ca79bb3f, type: 3}
   - {fileID: 21300000, guid: 4031005dc8e1139498046676b4f9813c, type: 3}
@@ -3475,21 +3451,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655777186}
   m_CullTransparentMesh: 1
---- !u!114 &655777192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655777186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 6
 --- !u!1 &678991951
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +4378,6 @@ GameObject:
   - component: {fileID: 841488575}
   - component: {fileID: 841488574}
   - component: {fileID: 841488573}
-  - component: {fileID: 841488577}
   m_Layer: 5
   m_Name: RocketPowerUpButton
   m_TagString: Untagged
@@ -4462,6 +4422,7 @@ MonoBehaviour:
   skillManager: {fileID: 69709138}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: dd2f79c5e355a254c80b701d09aa8953, type: 3}
   - {fileID: 21300000, guid: 7afe12807d799b14799332d3327e63a4, type: 3}
@@ -4564,21 +4525,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841488571}
   m_CullTransparentMesh: 1
---- !u!114 &841488577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841488571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 3
 --- !u!198 &872306178 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6219641496701879288, guid: d979abc16d9738146855170424f0aa03, type: 3}
@@ -5922,7 +5868,6 @@ GameObject:
   - component: {fileID: 1290252070}
   - component: {fileID: 1290252069}
   - component: {fileID: 1290252068}
-  - component: {fileID: 1290252072}
   m_Layer: 5
   m_Name: WeakpointPowerUpButton
   m_TagString: Untagged
@@ -5967,6 +5912,7 @@ MonoBehaviour:
   skillManager: {fileID: 69709138}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 081ce50bc56929d4a93111a46b38ba6c, type: 3}
   - {fileID: 21300000, guid: 57cc9c484af37f24ab48e851431a93d1, type: 3}
@@ -6069,21 +6015,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290252066}
   m_CullTransparentMesh: 1
---- !u!114 &1290252072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1290252066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 8
 --- !u!1 &1297022419
 GameObject:
   m_ObjectHideFlags: 0
@@ -6405,7 +6336,6 @@ GameObject:
   - component: {fileID: 1411715082}
   - component: {fileID: 1411715081}
   - component: {fileID: 1411715080}
-  - component: {fileID: 1411715084}
   m_Layer: 5
   m_Name: WeakpointNumUpButton
   m_TagString: Untagged
@@ -6450,6 +6380,7 @@ MonoBehaviour:
   skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 2a85e0fe9a6be6b409fe2a5b61f8734a, type: 3}
   - {fileID: 21300000, guid: 6e1fbc6cdab8a4b4db9006c29174b12e, type: 3}
@@ -6550,21 +6481,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411715078}
   m_CullTransparentMesh: 1
---- !u!114 &1411715084
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411715078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 7
 --- !u!1001 &1412504185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7132,7 +7048,6 @@ GameObject:
   - component: {fileID: 1639110604}
   - component: {fileID: 1639110603}
   - component: {fileID: 1639110602}
-  - component: {fileID: 1639110606}
   m_Layer: 5
   m_Name: BossBattleTimeUpButton
   m_TagString: Untagged
@@ -7177,6 +7092,7 @@ MonoBehaviour:
   skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 3113bb6cd71a53f408cc66ff2711de76, type: 3}
   - {fileID: 21300000, guid: 59de2707c3f3caf45a70e6ee26de2646, type: 3}
@@ -7279,21 +7195,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639110600}
   m_CullTransparentMesh: 1
---- !u!114 &1639110606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639110600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 2
 --- !u!1001 &1650773178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7518,7 +7419,6 @@ GameObject:
   - component: {fileID: 1790257811}
   - component: {fileID: 1790257810}
   - component: {fileID: 1790257809}
-  - component: {fileID: 1790257813}
   m_Layer: 5
   m_Name: GoldEnemyUpButton
   m_TagString: Untagged
@@ -7563,6 +7463,7 @@ MonoBehaviour:
   skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 9e792887d0adb5e4fb7039f2c1de32e0, type: 3}
   - {fileID: 21300000, guid: dcb74176e5f86774693df7ac5043cfb3, type: 3}
@@ -7665,21 +7566,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790257807}
   m_CullTransparentMesh: 1
---- !u!114 &1790257813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1790257807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 1
 --- !u!1 &1793719722
 GameObject:
   m_ObjectHideFlags: 0
@@ -8188,7 +8074,6 @@ GameObject:
   - component: {fileID: 1838583570}
   - component: {fileID: 1838583569}
   - component: {fileID: 1838583568}
-  - component: {fileID: 1838583572}
   m_Layer: 5
   m_Name: CoinUpButton
   m_TagString: Untagged
@@ -8233,6 +8118,7 @@ MonoBehaviour:
   skillManager: {fileID: 0}
   playerManagerL: {fileID: 0}
   playerManagerR: {fileID: 0}
+  text: {fileID: 1111748844}
   Ssprite:
   - {fileID: 21300000, guid: 64a7f9f3a55c8b041b5398c78fc78ad1, type: 3}
   - {fileID: 21300000, guid: 3010f9de322495545a799ac04a334dcb, type: 3}
@@ -8335,21 +8221,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838583566}
   m_CullTransparentMesh: 1
---- !u!114 &1838583572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1838583566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f071368780269014d869a8daf02e07d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1111748844}
-  Gameinformation: {fileID: 497027395}
-  Number: 0
 --- !u!1 &1879083668
 GameObject:
   m_ObjectHideFlags: 0

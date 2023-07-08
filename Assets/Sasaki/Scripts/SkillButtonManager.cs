@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SkillButtonManager : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class SkillButtonManager : MonoBehaviour
     [SerializeField] SkillManager skillManager;
     [SerializeField] PlayerManager playerManagerL;      //左グローブのPlayerManagerスクリプト
     [SerializeField] PlayerManager playerManagerR;      //右グローブのPlayerManagerスクリプト
+    [SerializeField] TextMeshProUGUI text;
     private Image mImage;
     public Sprite[] Ssprite;
     public int ButtonNumber;
     private string[] SkillName = { "Coinup", "GoldEnemy", "BossTime", "RocketM", "Powerup", "PowerupTime", "RocketNum", "WeakNum", "WeakPointM" };
+    //private string[] NowCoin = { "Coin", "Please 350 Coin", "Please 1200 Coin", "Please 300 Coin", "Please 2000 Coin", "Please 400 Coin", "Please 800 Coin" };
     private int i;
     public bool ResetButton;
     // Start is called before the first frame update
@@ -329,5 +332,6 @@ public class SkillButtonManager : MonoBehaviour
                 break;
         }
         PlayerPrefs.Save();
+        text.text = "Coin:"+gameInformation.havingTotalCoin;
     }
 }
