@@ -36,8 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameInformation gameInformation;
     [SerializeField] HandDetection handDetection;
     [SerializeField] Animator animator;
-
-    WaitForSeconds waitToTitle;
+    [SerializeField] GameObject movie;
 
     [SerializeField] public STATE state;
 
@@ -45,17 +44,17 @@ public class GameManager : MonoBehaviour
 
 
     private void Start()
-    {
+    { 
         //usableSkill = false;
-        waitToTitle = new WaitForSeconds(5);
         currentCoin = 0;
-        SetState(STATE.TITLE);
 
         //進捗度、周回数をロード
         _progress = gameInformation.progress;
         _numberOfPlays = gameInformation.numberOfPlays;
 
         Debug.Log("所持コイン:" + gameInformation.havingTotalCoin + " 進行度:" + gameInformation.progress + " 周回数:" + gameInformation.numberOfPlays);
+
+        SetState(STATE.TITLE);
     }
 
     public void SetState(STATE _state)
@@ -68,9 +67,14 @@ public class GameManager : MonoBehaviour
                 if (_progress == 0)
                 {
                     //初めてプレイしたときだけタイトルアニメーションを再生
-                    animator.SetBool("Is_first", true);
+                    animator.enabled = true;
+                    movie.SetActive(true);
                 }
-                else animator.enabled = false;
+                else
+                {
+                    animator.enabled = false;
+                    movie.SetActive(false);
+                }
 
                 break;
 
