@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MIDDLE_BOSS : MonoBehaviour
 {
-    // Start is called before the first frame update
     MonitorAppearance monitorappearance;
     SkillManager skillmanager;
     GameInformation gameinformation;
@@ -15,13 +14,6 @@ public class MIDDLE_BOSS : MonoBehaviour
     public float MiddleBossHp;
     private float bossBattleTime;
     bool display;
-    /*
-    public enum Situation
-    {
-        still_alive, clear,game_over
-    }
-    public Situation situation;
-    */
     public bool Detection;
     private bool Detectionable;
     HandDetection handdetection;
@@ -30,15 +22,13 @@ public class MIDDLE_BOSS : MonoBehaviour
     GameObject bomb;
     GameObject oyaparticle;
     GameObject particle;
-    //GameObject particle;
-
+    public int bosscoin;
     void Start()
     {
         bomb = GameObject.FindGameObjectWithTag("BT");
         oyaparticle = GameObject.FindGameObjectWithTag("BDP");
         particle= oyaparticle.transform.Find("monitor_destroy").gameObject;
         particle.SetActive(false);
-        //particle= GameObject.FindGameObjectWithTag("BDP");
         particle.SetActive(false);
         bomb.SetActive(true);
 
@@ -91,9 +81,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         Detection = false;
         Detectionable = false;
         display = true;
-        //situation = Situation.still_alive;
     }
-    // Update is called once per frame
     void Update()
     {
         if(monitorappearance.IBM.GetComponent<BoxCollider>().enabled == true)
@@ -103,7 +91,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         if (MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress <= 2)
         {
             gamemanager.SetState(GameManager.STATE.CLEAR);
-            //situation = Situation.clear;
+            bosscoin = CoinGet(bosscoin);//ボスのコイン取得
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
             for(i = 0; i < gameinformation.weakPointNumLevel; i++){
@@ -113,12 +101,10 @@ public class MIDDLE_BOSS : MonoBehaviour
             bosstime.DeathBomb();
             this.gameObject.SetActive(false);
             particle.SetActive(true);
-            //Destroy(this.gameObject);
         }
         if(MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress == 3)
         {
             gamemanager.SetState(GameManager.STATE.CLEAR);
-            //situation = Situation.clear;
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
             for (i = 0; i < gameinformation.weakPointNumLevel; i++)
@@ -158,7 +144,6 @@ public class MIDDLE_BOSS : MonoBehaviour
             gamemanager.SetState(GameManager.STATE.GAME_OVER);
             monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
             this.enabled = false;
-            //situation = Situation.game_over;
 
         }
     }
@@ -169,8 +154,6 @@ public class MIDDLE_BOSS : MonoBehaviour
         if ((other.gameObject.tag == "LeftHand" || other.gameObject.tag == "RightHand") && Detectionable == true)
         {
             Vector3 contactPoint = other.ClosestPoint(transform.position);
-            //Debug.Log(contactPoint);
-            //SkillManagerに接触通知を送る、距離の値を送る
             if (other.gameObject.tag == "LeftHand")
             {
                 if (handdetection == null)
@@ -205,5 +188,22 @@ public class MIDDLE_BOSS : MonoBehaviour
             hpgauge.GaugeReduction(skillmanager.Damage);
             Detection = true;
         }
+    }
+
+    public int CoinGet(int bosscoin)
+    {
+        if (gameinformation.progress == 0)
+        {
+            bosscoin = 100;
+        }
+        else if (gameinformation.progress == 1)
+        {
+            bosscoin = 500;
+        }
+        else if (gameinformation.progress == 2)
+        {
+            bosscoin = 1000;
+        }
+        return bosscoin;
     }
 }
