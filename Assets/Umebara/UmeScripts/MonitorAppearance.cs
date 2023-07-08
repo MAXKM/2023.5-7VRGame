@@ -28,6 +28,8 @@ public class MonitorAppearance : MonoBehaviour
     public GameObject AP;
     GameObject NAP;
     [SerializeField] GameManager gamemanager;
+    public GameObject BreakeBoss;
+    GameObject IBreakeBoss;
     void Awake()
     {
         BMA = new GameObject[4];
@@ -296,5 +298,11 @@ public class MonitorAppearance : MonoBehaviour
         BossAppear = true;
         gamemanager.usableSkill = true;
         MBCall = true;
+    }
+
+    public void BBA()
+    {
+        IBreakeBoss = Instantiate(BreakeBoss, new Vector3(0.0f, 0.332f, 0.0f), Quaternion.Euler(0, 90, 0));
+        IBreakeBoss.transform.localScale = Vector3.one * 1.5f;
     }
 }

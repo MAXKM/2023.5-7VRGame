@@ -84,7 +84,7 @@ public class MIDDLE_BOSS : MonoBehaviour
                 break;
 
             case 3:
-                MiddleBossHp = 4000;
+                MiddleBossHp = 40;//4000
                 break;
         }
         Debug.Log("hp:" +MiddleBossHp);
@@ -100,7 +100,7 @@ public class MIDDLE_BOSS : MonoBehaviour
         {
             bossBattleTime -= Time.deltaTime;
         }
-        if (MiddleBossHp <= 0 && bossBattleTime > 0)
+        if (MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress <= 2)
         {
             gamemanager.SetState(GameManager.STATE.CLEAR);
             //situation = Situation.clear;
@@ -114,6 +114,22 @@ public class MIDDLE_BOSS : MonoBehaviour
             this.gameObject.SetActive(false);
             particle.SetActive(true);
             //Destroy(this.gameObject);
+        }
+        if(MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress == 3)
+        {
+            gamemanager.SetState(GameManager.STATE.CLEAR);
+            //situation = Situation.clear;
+            monitorappearance.hpGauge.SetActive(false);
+            monitorappearance.weak.SetActive(false);
+            for (i = 0; i < gameinformation.weakPointNumLevel; i++)
+            {
+                Destroy(newweakpoint.weakpoint[i]);
+            }
+            bomb.SetActive(false);
+            bosstime.DeathBomb();
+            this.gameObject.SetActive(false);
+            particle.SetActive(true);
+            monitorappearance.BBA();
         }
         if (bossBattleTime < 5 && display == true && gameinformation.progress == 0)
         {
