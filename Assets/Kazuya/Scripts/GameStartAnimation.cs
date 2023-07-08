@@ -10,10 +10,11 @@ public class GameStartAnimation : MonoBehaviour
     [SerializeField] CanvasGroup SkillPanel;
     [SerializeField] GameObject Leftarrow;
     [SerializeField] GameObject Rightarrow;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+      
     }
 
     public void Fadetext()
