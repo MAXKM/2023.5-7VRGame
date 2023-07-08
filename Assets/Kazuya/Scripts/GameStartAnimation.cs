@@ -10,6 +10,8 @@ public class GameStartAnimation : MonoBehaviour
     [SerializeField] CanvasGroup SkillPanel;
     [SerializeField] GameObject Leftarrow;
     [SerializeField] GameObject Rightarrow;
+    [SerializeField] GameObject title;
+    [SerializeField] GameObject resetbotton;
 
     // Start is called before the first frame update
     void Start()
@@ -26,5 +28,7 @@ public class GameStartAnimation : MonoBehaviour
     {
         Leftarrow.gameObject.SetActive(false);
         Rightarrow.gameObject.SetActive(false);
+        title.gameObject.SetActive(false);
+        resetbotton.gameObject.SetActive(false);
     }
 }

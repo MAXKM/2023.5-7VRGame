@@ -2728,6 +2728,8 @@ MonoBehaviour:
   SkillPanel: {fileID: 1886445382}
   Leftarrow: {fileID: 1308319433}
   Rightarrow: {fileID: 811185895}
+  title: {fileID: 1249679940}
+  resetbotton: {fileID: 717038856}
 --- !u!4 &493718771
 Transform:
   m_ObjectHideFlags: 0
@@ -2876,7 +2878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2487305097903508686, guid: b4ce53cc4a743af4d9d9095b2f30d499, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3012765637022766708, guid: b4ce53cc4a743af4d9d9095b2f30d499, type: 3}
       propertyPath: m_RootOrder
@@ -3520,6 +3522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e77da7513b32446b4c9c02316fc31d, type: 3}
+--- !u!1 &717038856 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5764824454849648493, guid: a508c0d3eac49f049b5ff1bccce04c1c, type: 3}
+  m_PrefabInstance: {fileID: 1893513175}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &720142909
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5386,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 21171eac1bd2ab1499db2bb2ea9c7742, type: 3}
   m_PrefabInstance: {fileID: 1650773178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1249679940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2487305097903508686, guid: b4ce53cc4a743af4d9d9095b2f30d499, type: 3}
+  m_PrefabInstance: {fileID: 542030698}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1260043742
 PrefabInstance:
