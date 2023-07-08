@@ -6,33 +6,26 @@ using UnityEngine.SceneManagement;
 public class AllResetScript : MonoBehaviour
 {
     [SerializeField] GameInformation gameInformation;
-    private string[] DataName = { "coinUpLevel", "goldEnemyProbabilityLevel", "bossBattleTimeLevel", "rocketMagnificationLevel", "powerUpLevel", "powerUpTimeLevel", 
-                                    "rocketNumLevel", "weakPointNumLevel", "weakPointMagnificationLevel" , "numberOfPlays", "progress", "havingTotalCoin" };
+    private string[] DataName = { "Coinup", "GoldEnemy", "BossTime", "RocketM", "Powerup", "PowerupTime", "RocketNum", "WeakNum", "WeakPointM" ,
+                                    "NUMBER_OF_PLAYS", "PROGRESS", "TOTAL_COIN" };
     int length = 0;
     // Start is called before the first frame update
     void Start()
     {
-        //length = DataName.Length;
+        length = DataName.Length;
     }
 
     // Update is called once per frame
 
     public void DataDelete()
     {
-        PlayerPrefs.DeleteKey("coinUpLevel");
-        PlayerPrefs.DeleteKey("goldEnemyProbabilityLevel");
-        PlayerPrefs.DeleteKey("bossBattleTimeLevel");
-        PlayerPrefs.DeleteKey("rocketMagnificationLevel");
-        PlayerPrefs.DeleteKey("powerUpLevel");
-        PlayerPrefs.DeleteKey("powerUpTimeLevel");
-        PlayerPrefs.DeleteKey("rocketNumLevel");
-        PlayerPrefs.DeleteKey("weakPointNumLevel");
-        PlayerPrefs.DeleteKey("weakPointMagnificationLevel");
-        PlayerPrefs.DeleteKey("NUMBER_OF_PLAYS");
-        PlayerPrefs.DeleteKey("PROGRESS");
-        PlayerPrefs.DeleteKey("TOTAL_COIN");
-
-        Reset();
+     
+        for(int i = 0; i < length; i++) 
+        {
+            PlayerPrefs.DeleteKey(DataName[i]);
+        }
+        PlayerPrefs.Save();
+      
         SceneManager.LoadScene("GameScene");
     }
 
