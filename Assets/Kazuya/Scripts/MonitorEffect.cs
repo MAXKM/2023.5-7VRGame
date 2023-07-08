@@ -16,7 +16,9 @@ public class MonitorEffect : MonoBehaviour
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] BoxCollider collider;
     [SerializeField] AudioClip hitsounds;
-    AudioSource audiosource;
+    [SerializeField] AudioClip breaksounds;
+    [SerializeField] AudioSource audiosource;
+    [SerializeField] AudioSource audiosource2;
 
     //
     // Start is called before the first frame update
@@ -25,8 +27,6 @@ public class MonitorEffect : MonoBehaviour
         Invoke("MonitorMoving", 0);
         //GameObject obj = GameObject.Find("HandDetection");
         //monitordetection = obj.GetComponent<MonitorDetection>();
-        audiosource = GetComponent<AudioSource>();
-        //
     }
 
     //*’Ç‰Á*
@@ -63,6 +63,7 @@ public class MonitorEffect : MonoBehaviour
     public void MonitorDestoryParticl()
     {
         audiosource.PlayOneShot(hitsounds);
+        audiosource2.PlayOneShot(breaksounds);
         Destroy.Play();
     }
 
