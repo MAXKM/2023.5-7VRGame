@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public STATE state;
 
+    private MIDDLE_BOSS bossManager;
+
     private Transform princessTf;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
@@ -112,7 +114,6 @@ public class GameManager : MonoBehaviour
 
             //大ボスの処理
             case STATE.LAST_BOSS:
-
                 //HandDetectionを有効化
                 handDetection.enabled = true;
 
@@ -126,8 +127,13 @@ public class GameManager : MonoBehaviour
 
             //クリア時の処理
             case STATE.CLEAR:
+                bossManager = GameObject.FindWithTag("MB").GetComponent<MIDDLE_BOSS>();
 
                 usableSkill = false;
+
+                //獲得コインの更新
+                currentCoin += bossManager.CoinGet(_progress);
+                Debug.Log("獲得コイン" + currentCoin);
 
                 //HandDetectionの無効化
                 handDetection.enabled = false;
