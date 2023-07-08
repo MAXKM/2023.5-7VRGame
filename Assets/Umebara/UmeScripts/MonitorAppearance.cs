@@ -27,6 +27,7 @@ public class MonitorAppearance : MonoBehaviour
     public bool BossAppear;
     public GameObject AP;
     GameObject NAP;
+    [SerializeField] GameManager gamemanager;
     void Awake()
     {
         BMA = new GameObject[4];
@@ -152,6 +153,7 @@ public class MonitorAppearance : MonoBehaviour
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         newweakpoint.WA();
         hpgauge.Set(middleboss.MiddleBossHp);
+        gamemanager.usableSkill = true;
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
@@ -215,6 +217,7 @@ public class MonitorAppearance : MonoBehaviour
         newweakpoint= GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         newweakpoint.WA();
         hpgauge.Set(middleboss.MiddleBossHp);
+        gamemanager.usableSkill = true;
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
@@ -277,6 +280,7 @@ public class MonitorAppearance : MonoBehaviour
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
         newweakpoint.WA();
         hpgauge.Set(middleboss.MiddleBossHp);
+        gamemanager.usableSkill = true;
         //weak.SetActive(true);
         //hpSet = true;
         MBCall = true;
