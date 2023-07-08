@@ -1269,6 +1269,7 @@ MonoBehaviour:
   AP: {fileID: 4483458054255969420, guid: adce9d35b9e42104da48e9e34ca6f7ee, type: 3}
   gamemanager: {fileID: 1820234611}
   BreakeBoss: {fileID: 4283182269564626842, guid: 73187f633603b1c41a78499aee82c5c8, type: 3}
+  hoko: {fileID: 8300000, guid: e2b96efd773e52f4380af11356410808, type: 3}
 --- !u!4 &104250821
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,7 +1297,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -30,8 +30,11 @@ public class MonitorAppearance : MonoBehaviour
     [SerializeField] GameManager gamemanager;
     public GameObject BreakeBoss;
     GameObject IBreakeBoss;
+    public AudioClip hoko;
+    AudioSource audioSource;
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         BMA = new GameObject[4];
         BMA[0] = BM1;
         BMA[1] = BM2;
@@ -50,6 +53,7 @@ public class MonitorAppearance : MonoBehaviour
             StartCoroutine(ES(2.25f));
             StartCoroutine(SC(3.25f));
             StartCoroutine(SC2(4.5f));
+            StartCoroutine(HK(6.4f));
             StartCoroutine(BA(6.5f));
             StartCoroutine(SC3(6.5f));
             StartCoroutine(CO(8.0f));
@@ -66,6 +70,7 @@ public class MonitorAppearance : MonoBehaviour
             StartCoroutine(ES_2(2.25f));
             StartCoroutine(SC_2(3.25f));
             StartCoroutine(SC2_2(4.5f));
+            StartCoroutine(HK(6.4f));
             StartCoroutine(BA_2(6.5f));
             StartCoroutine(SC3_2(6.5f));
             StartCoroutine(CO_2(8.0f));
@@ -83,6 +88,7 @@ public class MonitorAppearance : MonoBehaviour
             StartCoroutine(ES_3(2.25f));
             StartCoroutine(SC_3(3.25f));
             StartCoroutine(SC2_3(4.5f));
+            StartCoroutine(HK(6.4f));
             StartCoroutine(BA_3(6.5f));
             StartCoroutine(SC3_3(6.5f));
             StartCoroutine(CO_3(8.0f));
@@ -130,7 +136,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -194,7 +199,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -257,7 +261,6 @@ public class MonitorAppearance : MonoBehaviour
         yield return new WaitForSeconds(wait);
         Destroy(INM);
         weak.SetActive(true);
-        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
         IBM = Instantiate(BMA[gameinformation2.progress], new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
         IBM.GetComponent<BoxCollider>().enabled = false;
         IBM.transform.parent = this.transform;
@@ -298,6 +301,13 @@ public class MonitorAppearance : MonoBehaviour
         BossAppear = true;
         gamemanager.usableSkill = true;
         MBCall = true;
+    }
+
+    IEnumerator HK(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        NAP = Instantiate(AP, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 0, 0));
+        audioSource.PlayOneShot(hoko);
     }
 
     public void BBA()
