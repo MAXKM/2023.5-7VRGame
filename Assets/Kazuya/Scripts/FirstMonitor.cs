@@ -15,7 +15,9 @@ public class FirstMonitor : MonoBehaviour
     [SerializeField] GameStartAnimation gamestartanimation;
     [SerializeField] Animator animator;
     [SerializeField] AudioClip hitsounds;
-    AudioSource audiosource;
+    [SerializeField] AudioClip breaksounds;
+    [SerializeField] AudioSource audiosource1;
+    [SerializeField] AudioSource audiosource2;
     Collider collider;
     // Start is called before the first frame update
 
@@ -27,7 +29,6 @@ public class FirstMonitor : MonoBehaviour
             handdetection = obj.GetComponent<HandDetection>();
         }
         collider = GetComponent<Collider>();
-        audiosource = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -57,7 +58,8 @@ public class FirstMonitor : MonoBehaviour
             skillmanager.DDamage(contactPoint, handdetection.distanceRight);
         }
         meshRenderer.enabled = false;
-        audiosource.PlayOneShot(hitsounds);
+        audiosource1.PlayOneShot(hitsounds);
+        audiosource2.PlayOneShot(breaksounds);
         counttext.gameObject.SetActive(false);
         gamestartanimation.Fadetext();
         gamestartanimation.HideArrow();
