@@ -43,10 +43,12 @@ public class NormalMonitorManager : MonoBehaviour
 
     [SerializeField] private GameInformation gameInformation;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioSource audioSource;
 
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();  
         _currentCoin = 0;
     }
 
@@ -188,6 +190,9 @@ public class NormalMonitorManager : MonoBehaviour
 
         //オブジェクトを表示
         newObj.SetActive(true);
+
+        //SEを再生
+        audioSource.PlayOneShot(clip);
     }
 
     private void CoinCalculation(GameObject monitor)

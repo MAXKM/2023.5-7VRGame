@@ -39,6 +39,7 @@ public class FirstMonitor : MonoBehaviour
         Vector3 contactPoint = other.ClosestPoint(transform.position);
         //gameManager.gameStart = true;
         gameManager.SetState(GameManager.STATE.ON_THE_WAY);
+
         //normalMonitorManager.monitorCount++;
         if (meshRenderer == null)
         {
