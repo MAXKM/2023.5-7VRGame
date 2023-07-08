@@ -15,6 +15,8 @@ public class GameOverManager : MonoBehaviour
     public float timerCount;
     public GameObject gameOverPanel;
 
+    [SerializeField] TextMeshProUGUI CoinText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +34,11 @@ public class GameOverManager : MonoBehaviour
         //Debug.Log(information.havingTotalCoin);
 
         //オブジェクトからTextコンポーネントを取得
-        TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
+        //TextMeshProUGUI CoinText = Coin.GetComponent<TextMeshProUGUI>();
 
         //テキストの表示を入れ替える
         //CoinText.text = "獲得コイン数：" + coin;
-        CoinText.text = "GameOver\n" + "Coin:" + coin;
+        CoinText.text = coin + "コインゲット！";
     }
 
     public IEnumerator ButtonDisplay()
@@ -49,7 +51,7 @@ public class GameOverManager : MonoBehaviour
     }
 
     //ボタンを表示させる関数
-    public void OnClickStartButton()
+    public void OnClickRetryButton()
     {
         //ボタン押されたらシーン遷移
         SceneManager.LoadScene("GameScene");
