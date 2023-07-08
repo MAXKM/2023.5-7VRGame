@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
@@ -39,8 +41,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject movie;
 
     [SerializeField] ParticleSystem lightParticle;
+    [SerializeField] GameObject princess;
 
     [SerializeField] public STATE state;
+
+    private MIDDLE_BOSS bossManager;
+
+    private Transform princessTf;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
 
@@ -49,6 +56,7 @@ public class GameManager : MonoBehaviour
     { 
         usableSkill = false;
         currentCoin = 0;
+        princessTf = princess.transform;
 
         //進捗度、周回数をロード
         _progress = gameInformation.progress;
@@ -106,7 +114,6 @@ public class GameManager : MonoBehaviour
 
             //大ボスの処理
             case STATE.LAST_BOSS:
-
                 //HandDetectionを有効化
                 handDetection.enabled = true;
 
@@ -120,8 +127,13 @@ public class GameManager : MonoBehaviour
 
             //クリア時の処理
             case STATE.CLEAR:
+                bossManager = GameObject.FindWithTag("MB").GetComponent<MIDDLE_BOSS>();
 
                 usableSkill = false;
+
+                //獲得コインの更新
+                currentCoin += bossManager.CoinGet(_progress);
+                Debug.Log("獲得コイン" + currentCoin);
 
                 //HandDetectionの無効化
                 handDetection.enabled = false;
@@ -129,26 +141,29 @@ public class GameManager : MonoBehaviour
                 //獲得コインを所持コインへ
                 PlayerPrefs.SetInt("TOTAL_COIN", gameInformation.havingTotalCoin + currentCoin);
 
-                //進行度を進める
-                _progress++;
-                PlayerPrefs.SetInt("PROGRESS", _progress);
-
                 //周回数をカウント
                 _numberOfPlays++;
                 PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
                 PlayerPrefs.Save();
 
-                //ラスボス(4体目のボス)を倒したら特殊演出
-                if(_progress == 4)
+                if(_progress == 3)
                 {
+                    //ラスボス(4体目のボス)を倒したら特殊演出
                     lightParticle.Play();
+                    LastAnimation();
+                }
+                else
+                {
+                    //進行度を進める
+                    _progress++;
+                    PlayerPrefs.SetInt("PROGRESS", _progress);
                 }
 
                 //クリアのテキストを表示
                 clearManager.Coin_Text(currentCoin);
 
                 //タイトルへシーン遷移
-                StartCoroutine(clearManager.SceneChange());
+                //StartCoroutine(clearManager.SceneChange());
 
                 break;
 
@@ -173,5 +188,16 @@ public class GameManager : MonoBehaviour
 
                 break;
         }
+    }
+
+    //最後のプリンセスのアニメーション
+    private void LastAnimation()
+    {
+        Vector3 firstPos = new Vector3(0, 0, 4);
+        princess.SetActive(true);
+        Vector3 lastPos = new Vector3(0, 0, 0.05f);
+        princessTf.localPosition = firstPos;
+        princessTf.DOLocalMove(lastPos, 3);
+            
     }
 }

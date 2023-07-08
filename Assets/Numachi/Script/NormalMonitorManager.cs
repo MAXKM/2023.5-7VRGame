@@ -127,6 +127,15 @@ public class NormalMonitorManager : MonoBehaviour
 
         //倒したタイミングでコイン加算
         CoinCalculation(obj);
+
+        if (monitorCount > 19 - 1)
+        {
+            //ボスへ状態遷移
+            if (gameInformation.progress == 3)
+                gameManager.SetState(GameManager.STATE.LAST_BOSS);
+            else
+                gameManager.SetState(GameManager.STATE.MIDDLE_BOSS);
+        }
     }
 
     //オブジェクトを新しく表示
@@ -138,11 +147,6 @@ public class NormalMonitorManager : MonoBehaviour
         //19体倒すと出現しなくなる
         if(monitorCount > 19 - 1)
         {
-            //ボスへ状態遷移
-            if(gameInformation.progress == 3)
-                gameManager.SetState(GameManager.STATE.LAST_BOSS);
-            else
-                gameManager.SetState(GameManager.STATE.MIDDLE_BOSS);
             return;
         }
         //オブジェクトプールから次に表示するオブジェクトを取得
@@ -197,7 +201,7 @@ public class NormalMonitorManager : MonoBehaviour
             //ゴールド敵は獲得量2倍
             _currentCoin += CoinMagnificationCalculation(gameInformation.coinUpLevel) * 2;
         }
-        Debug.Log(CoinMagnificationCalculation(gameInformation.coinUpLevel));
+        Debug.Log("現在のコイン" + _currentCoin);
     }
 
     //ゴールド敵の確率を計算
