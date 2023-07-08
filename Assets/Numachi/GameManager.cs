@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] GameObject movie;
 
+    [SerializeField] ParticleSystem lightParticle;
+
     [SerializeField] public STATE state;
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     { 
-        //usableSkill = false;
+        usableSkill = false;
         currentCoin = 0;
 
         //進捗度、周回数をロード
@@ -100,9 +102,6 @@ public class GameManager : MonoBehaviour
                 //Bossモニターの生成
                 monitorAppearance.gameObject.SetActive(true);
 
-                //スキル使用可能
-                usableSkill = true;
-
                 break;
 
             //大ボスの処理
@@ -110,7 +109,6 @@ public class GameManager : MonoBehaviour
 
                 //HandDetectionを有効化
                 handDetection.enabled = true;
-                usableSkill = true;
 
                 //n秒強化、ロケットパンチのレベルをロード
                 skillEffectManager.SkillLevelLoad();
@@ -123,11 +121,10 @@ public class GameManager : MonoBehaviour
             //クリア時の処理
             case STATE.CLEAR:
 
+                usableSkill = false;
+
                 //HandDetectionの無効化
                 handDetection.enabled = false;
-
-                //クリアのテキストを表示
-                clearManager.Coin_Text(currentCoin);
 
                 //獲得コインを所持コインへ
                 PlayerPrefs.SetInt("TOTAL_COIN", gameInformation.havingTotalCoin + currentCoin);
@@ -141,6 +138,15 @@ public class GameManager : MonoBehaviour
                 PlayerPrefs.SetInt("NUMBER_OF_PLAYS", _numberOfPlays);
                 PlayerPrefs.Save();
 
+                //ラスボス(4体目のボス)を倒したら特殊演出
+                if(_progress == 4)
+                {
+                    lightParticle.Play();
+                }
+
+                //クリアのテキストを表示
+                clearManager.Coin_Text(currentCoin);
+
                 //タイトルへシーン遷移
                 StartCoroutine(clearManager.SceneChange());
 
@@ -148,6 +154,8 @@ public class GameManager : MonoBehaviour
 
             //ゲームオーバー時の処理
             case STATE.GAME_OVER:
+                usableSkill = false;
+
                 //HandDetectionの無効化
                 handDetection.enabled = false;
 
