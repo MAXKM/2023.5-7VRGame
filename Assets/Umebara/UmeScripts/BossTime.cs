@@ -10,7 +10,13 @@ public class BossTime : MonoBehaviour
     public GameObject Ex;
     GameObject bomb;
     GameObject ex;
+    public AudioClip ccount;
+    AudioSource audioSource;
 
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     public void SetBomb()
     {
         bomb = Instantiate(Bomb, new Vector3(0.05f, 0.4f, 0.0f), Quaternion.Euler(0, 90, 0));
@@ -19,6 +25,7 @@ public class BossTime : MonoBehaviour
         StartCoroutine(C3(3.0f));
         StartCoroutine(C4(4.0f));
         StartCoroutine(C5(4.75f));
+        audioSource.PlayOneShot(ccount);
     }
 
     public void SetBomb2()
@@ -29,6 +36,7 @@ public class BossTime : MonoBehaviour
         StartCoroutine(C3(3.0f));
         StartCoroutine(C4(4.0f));
         StartCoroutine(C5(4.75f));
+        audioSource.PlayOneShot(ccount);
     }
 
     public void SetBomb3()
@@ -39,6 +47,7 @@ public class BossTime : MonoBehaviour
         StartCoroutine(C3(3.0f));
         StartCoroutine(C4(4.0f));
         StartCoroutine(C5(4.75f));
+        audioSource.PlayOneShot(ccount);
     }
 
     IEnumerator C1(float wait)
@@ -81,6 +90,7 @@ public class BossTime : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         ex = Instantiate(Ex, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+        audioSource.Stop();
         Destroy(bomb);
     }
 
@@ -92,6 +102,7 @@ public class BossTime : MonoBehaviour
         StartCoroutine(FC3(3.0f));
         StartCoroutine(FC4(4.0f));
         StartCoroutine(FC5(4.75f));
+        audioSource.PlayOneShot(ccount);
     }
 
     IEnumerator FC1(float wait)
@@ -134,6 +145,7 @@ public class BossTime : MonoBehaviour
     {
         yield return new WaitForSeconds(wait);
         ex = Instantiate(Ex, new Vector3(0.0f, 0.5f, 0.0f), Quaternion.Euler(0, 90, 0));
+        audioSource.Stop();
         Destroy(bomb);
     }
 
