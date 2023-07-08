@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] public STATE state;
 
+    [SerializeField] LineRenderer lineRenderer;
+
     private MIDDLE_BOSS bossManager;
 
     private Transform princessTf;
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
         {
             //titleの処理
             case STATE.TITLE:
+                lineRenderer.enabled = true;
                 if (_progress == 0)
                 {
                     //初めてプレイしたときだけタイトルアニメーションを再生
@@ -98,6 +101,7 @@ public class GameManager : MonoBehaviour
 
             //道中の処理
             case STATE.ON_THE_WAY:
+                lineRenderer.enabled = false;
 
                 //NormalMonitorManagerによるモニターの生成開始
                 normalMonitorManager.gameObject.SetActive(true);
@@ -195,6 +199,7 @@ public class GameManager : MonoBehaviour
             //ゲームオーバー時の処理
             case STATE.GAME_OVER:
                 usableSkill = false;
+                lineRenderer.enabled = true;
 
                 //HandDetectionの無効化
                 handDetection.enabled = false;
