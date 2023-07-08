@@ -6316,7 +6316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 120006741097097638, guid: a9d2de84afb308a4796cc671d3432b4d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9d2de84afb308a4796cc671d3432b4d, type: 3}
@@ -9203,6 +9203,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d536fc1db5012e9449217d8642ada0d3, type: 3}
   - {fileID: 8300000, guid: 49259cfa640b36842897fd2498b50d65, type: 3}
   state: 0
+  lineRenderer: {fileID: 2048288494}
   usableSkill: 0
 --- !u!4 &1820234612
 Transform:
@@ -10931,6 +10932,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!120 &2048288494 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 120006741097097638, guid: a9d2de84afb308a4796cc671d3432b4d, type: 3}
+  m_PrefabInstance: {fileID: 1260043742}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2063634296
 GameObject:
   m_ObjectHideFlags: 0
