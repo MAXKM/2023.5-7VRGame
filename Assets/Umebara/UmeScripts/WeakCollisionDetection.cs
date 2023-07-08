@@ -13,6 +13,8 @@ public class WeakCollisionDetection : MonoBehaviour
     HPGauge hpgauge;
     MIDDLE_BOSS middleboss;
     MonitorAppearance monitorappearance;
+    public AudioClip cat;
+    AudioSource audioSource;
     void Start()
     {
         newweakpoint = GameObject.FindGameObjectWithTag("Weak").GetComponent<NewWeakPoint>();
@@ -20,12 +22,14 @@ public class WeakCollisionDetection : MonoBehaviour
         middleboss = GameObject.FindGameObjectWithTag("MB").GetComponent<MIDDLE_BOSS>();
         hpgauge = GameObject.FindGameObjectWithTag("HG").GetComponent<HPGauge>();
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LeftHand") || other.gameObject.CompareTag("RightHand") && newweakpoint.weak == false)
         {
+            audioSource.PlayOneShot(cat);
             monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
             newweakpoint.weak = true;
             Vector3 contactPoint = other.ClosestPoint(transform.position);
