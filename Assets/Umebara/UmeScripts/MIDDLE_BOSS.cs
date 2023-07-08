@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MIDDLE_BOSS : MonoBehaviour
@@ -23,14 +25,22 @@ public class MIDDLE_BOSS : MonoBehaviour
     GameObject oyaparticle;
     GameObject particle;
     public int bosscoin;
+    public AudioClip BossBlake;
+    public AudioClip FinalBossBlake;
+    AudioSource audioSource;
+    bool defeated;
+    GameObject child;
     void Start()
     {
+        child = this.transform.GetChild(0).gameObject;
+        audioSource = GetComponent<AudioSource>();
         bomb = GameObject.FindGameObjectWithTag("BT");
         oyaparticle = GameObject.FindGameObjectWithTag("BDP");
         particle= oyaparticle.transform.Find("monitor_destroy").gameObject;
         particle.SetActive(false);
         particle.SetActive(false);
         bomb.SetActive(true);
+        defeated = false;
 
         monitorappearance = GameObject.FindGameObjectWithTag("MAM").GetComponent<MonitorAppearance>();
         skillmanager = GameObject.FindGameObjectWithTag("GameController").GetComponent<SkillManager>();
@@ -88,8 +98,9 @@ public class MIDDLE_BOSS : MonoBehaviour
         {
             bossBattleTime -= Time.deltaTime;
         }
-        if (MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress <= 2)
+        if (MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress <= 2 && defeated == false)
         {
+            defeated = true;
             gamemanager.SetState(GameManager.STATE.CLEAR);
             bosscoin = CoinGet(bosscoin);//ボスのコイン取得
             monitorappearance.hpGauge.SetActive(false);
@@ -99,11 +110,16 @@ public class MIDDLE_BOSS : MonoBehaviour
             }
             bomb.SetActive(false);
             bosstime.DeathBomb();
-            this.gameObject.SetActive(false);
+            audioSource.PlayOneShot(BossBlake);
+            child.GetComponent<MeshRenderer>().enabled = false;
+            monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
+            //this.gameObject.SetActive(false);
+            StartCoroutine(SAF(1.0f));
             particle.SetActive(true);
         }
-        if(MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress == 3)
+        if(MiddleBossHp <= 0 && bossBattleTime > 0 && gameinformation.progress == 3 && defeated == false)
         {
+            defeated = true;
             gamemanager.SetState(GameManager.STATE.CLEAR);
             monitorappearance.hpGauge.SetActive(false);
             monitorappearance.weak.SetActive(false);
@@ -113,7 +129,11 @@ public class MIDDLE_BOSS : MonoBehaviour
             }
             bomb.SetActive(false);
             bosstime.DeathBomb();
-            this.gameObject.SetActive(false);
+            audioSource.PlayOneShot(FinalBossBlake);
+            monitorappearance.IBM.GetComponent<SkinnedMeshRenderer>().enabled = false;
+            monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine(SAF(3.0f));
+            //this.gameObject.SetActive(false);
             particle.SetActive(true);
             monitorappearance.BBA();
         }
@@ -205,5 +225,11 @@ public class MIDDLE_BOSS : MonoBehaviour
             bosscoin = 1000;
         }
         return bosscoin;
+    }
+
+    IEnumerator SAF(float wait)//ScaleをChange３
+    {
+        yield return new WaitForSeconds(wait);
+        this.gameObject.SetActive(false);
     }
 }
