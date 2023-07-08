@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SkillButtonManager : MonoBehaviour
 {
     [SerializeField] GameInformation gameInformation;
+    [SerializeField] SkillManager skillManager;
     [SerializeField] PlayerManager playerManagerL;      //左グローブのPlayerManagerスクリプト
     [SerializeField] PlayerManager playerManagerR;      //右グローブのPlayerManagerスクリプト
     private Image mImage;
@@ -56,6 +57,7 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.rocketMagnificationLevel = PlayerPrefs.GetInt(SkillName[3], 1);
             mImage.sprite = Ssprite[gameInformation.rocketMagnificationLevel - 1];
+            skillManager.RSLevel(4);
         }
 
         if (ButtonNumber == 4)
@@ -64,6 +66,7 @@ public class SkillButtonManager : MonoBehaviour
             mImage.sprite = Ssprite[gameInformation.powerUpLevel - 1];
             playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
             playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
+            skillManager.RSLevel(1);
 
         }
 
@@ -71,6 +74,7 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.powerUpTimeLevel = PlayerPrefs.GetInt(SkillName[5], 1);
             mImage.sprite = Ssprite[gameInformation.powerUpTimeLevel - 1];
+            skillManager.RSLevel(2);
         }
 
         if (ButtonNumber == 6)
@@ -88,6 +92,7 @@ public class SkillButtonManager : MonoBehaviour
         {
             gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(SkillName[8], 1);
             mImage.sprite = Ssprite[gameInformation.weakPointMagnificationLevel - 1];
+            skillManager.RSLevel(3);
         }
 
     }
@@ -204,6 +209,7 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[3], gameInformation.rocketMagnificationLevel);
+                skillManager.RSLevel(4);
                 break;
             case "Powerup":
                 if (gameInformation.powerUpLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -233,6 +239,7 @@ public class SkillButtonManager : MonoBehaviour
                 PlayerPrefs.SetInt(SkillName[4], gameInformation.powerUpLevel);
                 playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
                 playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
+                skillManager.RSLevel(1);
                 break;
             case "PowerupTime":
                 if (gameInformation.powerUpTimeLevel == 1 && gameInformation.havingTotalCoin >= 90)
@@ -260,6 +267,7 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[5], gameInformation.powerUpTimeLevel);
+                skillManager.RSLevel(2);
                 break;
             case "RocketNum":
                 if (gameInformation.rocketNumLevel == 1 && gameInformation.havingTotalCoin >= 400)
@@ -317,6 +325,7 @@ public class SkillButtonManager : MonoBehaviour
                     mImage.sprite = Ssprite[4];
                 }
                 PlayerPrefs.SetInt(SkillName[8], gameInformation.weakPointMagnificationLevel);
+                skillManager.RSLevel(3);
                 break;
         }
         PlayerPrefs.Save();
