@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
         GAME_OVER　//ゲームオーバー
     }
 
-    //ゲームの開始を合図するbool変数
-    //public bool gameStart;
+    //PlayerPrefsのキー
+    private string[] key = { "Coinup", "GoldEnemy", "BossTime", "RocketM", "Powerup", "PowerupTime", "RocketNum", "WeakNum", "WeakPointM" ,"NUMBER_OF_PLAYS", "PROGRESS", "TOTAL_COIN" };
 
     //ゲーム中に所持したコイン
     private int currentCoin;
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
             //titleの処理
             case STATE.TITLE:
                 lineRenderer.enabled = true;
-                if (_progress == 0)
+                if (_numberOfPlays == 0)
                 {
                     //初めてプレイしたときだけタイトルアニメーションを再生
                     animator.enabled = true;
@@ -178,6 +178,11 @@ public class GameManager : MonoBehaviour
                     //ラスボス(4体目のボス)を倒したら特殊演出
                     lightParticle.Play();
                     LastAnimation();
+
+                    //クリアしたら初めからになる
+                    foreach(string _key in key) 
+                        PlayerPrefs.DeleteKey( _key );
+                    PlayerPrefs.Save();
                     StartCoroutine(clearManager.SceneChange(10));
                     return;
                 }
