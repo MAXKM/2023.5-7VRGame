@@ -136,6 +136,9 @@ public class GameManager : MonoBehaviour
 
             //大ボスの処理
             case STATE.LAST_BOSS:
+                //道中で稼いだコインを更新
+                currentCoin = normalMonitorManager._currentCoin;
+
                 //HandDetectionを有効化
                 handDetection.enabled = true;
 

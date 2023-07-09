@@ -206,7 +206,6 @@ public class NormalMonitorManager : MonoBehaviour
             //ゴールド敵は獲得量2倍
             _currentCoin += CoinMagnificationCalculation(gameInformation.coinUpLevel) * 2;
         }
-        Debug.Log("現在のコイン" + _currentCoin);
     }
 
     //ゴールド敵の確率を計算
