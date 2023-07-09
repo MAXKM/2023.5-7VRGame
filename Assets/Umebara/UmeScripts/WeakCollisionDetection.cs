@@ -67,7 +67,6 @@ public class WeakCollisionDetection : MonoBehaviour
             hpgauge.GaugeReduction(skillmanager.Damage);
             Changed();
             StartCoroutine(BCO(0.15f));
-            //Debug.Log(skillmanager.Damage);
         }
     }
     public void Changed()
