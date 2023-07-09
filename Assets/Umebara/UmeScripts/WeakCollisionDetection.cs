@@ -31,6 +31,7 @@ public class WeakCollisionDetection : MonoBehaviour
         {
             audioSource.PlayOneShot(cat);
             monitorappearance.IBM.GetComponent<BoxCollider>().enabled = false;
+            StartCoroutine(BCO(0.20f));
             newweakpoint.weak = true;
             Vector3 contactPoint = other.ClosestPoint(transform.position);
             if (other.gameObject.tag == "LeftHand")
@@ -66,7 +67,6 @@ public class WeakCollisionDetection : MonoBehaviour
             middleboss.MiddleBossHp -= skillmanager.Damage;
             hpgauge.GaugeReduction(skillmanager.Damage);
             Changed();
-            StartCoroutine(BCO(0.15f));
         }
     }
     public void Changed()
