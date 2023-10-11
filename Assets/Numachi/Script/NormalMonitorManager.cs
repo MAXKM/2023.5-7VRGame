@@ -1,4 +1,5 @@
 using Newtonsoft.Json.Linq;
+using OVR.OpenVR;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -132,6 +133,14 @@ public class NormalMonitorManager : MonoBehaviour
 
         if (monitorCount > 19 - 1)
         {
+            // 学園祭用モード
+            // 中ボスがなしでラスボスへ遷移
+            if (gameManager.FestivalMode)
+            {
+                gameManager.SetState(GameManager.STATE.LAST_BOSS);
+                return;
+            }
+
             //ボスへ状態遷移
             if (gameInformation.progress == 3)
                 gameManager.SetState(GameManager.STATE.LAST_BOSS);

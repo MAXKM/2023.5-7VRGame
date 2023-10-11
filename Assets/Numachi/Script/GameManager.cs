@@ -57,6 +57,10 @@ public class GameManager : MonoBehaviour
 
     public bool usableSkill; //レーザー、n秒強化が使えるかの判定 <= ボス戦のみ使用可能
 
+    // 学園祭用モードチェンジ
+    [SerializeField] private bool festivalMode;
+    public bool FestivalMode { get => festivalMode; }
+
 
     private void Start()
     { 
@@ -136,6 +140,8 @@ public class GameManager : MonoBehaviour
 
             //大ボスの処理
             case STATE.LAST_BOSS:
+                if (festivalMode) gameInformation.progress = 3;
+
                 //道中で稼いだコインを更新
                 currentCoin = normalMonitorManager._currentCoin;
 
