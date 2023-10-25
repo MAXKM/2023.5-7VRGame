@@ -34,16 +34,16 @@ public class SkillButtonManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
 
-    }
+    //}
 
     private void Road()
     {
         if (ButtonNumber == 0)
         {
-            gameInformation.coinUpLevel = PlayerPrefs.GetInt(SkillName[0], 1);
+            gameInformation.coinUpLevel = PlayerPrefs.GetInt(SkillName[0], 5);  //変更1→5にすることでセーブデータがない時、レベル５
             mImage.sprite = Ssprite[gameInformation.coinUpLevel - 1];
             text2.text = PleaseCoin[gameInformation.coinUpLevel-1];
             if (gameInformation.coinUpLevel == 5)
@@ -54,7 +54,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 1)
         {
-            gameInformation.goldEnemyProbabilityLevel = PlayerPrefs.GetInt(SkillName[1], 1);
+            gameInformation.goldEnemyProbabilityLevel = PlayerPrefs.GetInt(SkillName[1], 5);
             mImage.sprite = Ssprite[gameInformation.goldEnemyProbabilityLevel - 1];
             text2.text =PleaseCoin[gameInformation.goldEnemyProbabilityLevel - 1];
             if (gameInformation.goldEnemyProbabilityLevel == 5)
@@ -65,7 +65,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 2)
         {
-            gameInformation.bossBattleTimeLevel = PlayerPrefs.GetInt(SkillName[2], 1);
+            gameInformation.bossBattleTimeLevel = PlayerPrefs.GetInt(SkillName[2], 5);
             mImage.sprite = Ssprite[gameInformation.bossBattleTimeLevel - 1];
             text2.text = PleaseCoin[gameInformation.bossBattleTimeLevel - 1];
             if (gameInformation.bossBattleTimeLevel == 5)
@@ -76,7 +76,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 3)
         {
-            gameInformation.rocketMagnificationLevel = PlayerPrefs.GetInt(SkillName[3], 1);
+            gameInformation.rocketMagnificationLevel = PlayerPrefs.GetInt(SkillName[3], 5);
             mImage.sprite = Ssprite[gameInformation.rocketMagnificationLevel - 1];
             skillManager.RSLevel(4);
             text2.text = PleaseCoin[gameInformation.rocketMagnificationLevel - 1];
@@ -88,7 +88,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 4)
         {
-            gameInformation.powerUpLevel = PlayerPrefs.GetInt(SkillName[4], 1);
+            gameInformation.powerUpLevel = PlayerPrefs.GetInt(SkillName[4], 5);
             mImage.sprite = Ssprite[gameInformation.powerUpLevel - 1];
             playerManagerL.SScale(gameInformation.powerUpLevel);        //左グローブのサイズ変更の関数を呼び出す
             playerManagerR.SScale(gameInformation.powerUpLevel);        //右グローブのサイズ変更の関数を呼び出す
@@ -103,7 +103,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 5)
         {
-            gameInformation.powerUpTimeLevel = PlayerPrefs.GetInt(SkillName[5], 1);
+            gameInformation.powerUpTimeLevel = PlayerPrefs.GetInt(SkillName[5], 5);
             mImage.sprite = Ssprite[gameInformation.powerUpTimeLevel - 1];
             skillManager.RSLevel(2);
             text2.text = PleaseCoin[gameInformation.powerUpTimeLevel - 1];
@@ -115,7 +115,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 6)
         {
-            gameInformation.rocketNumLevel = PlayerPrefs.GetInt(SkillName[6], 1);
+            gameInformation.rocketNumLevel = PlayerPrefs.GetInt(SkillName[6], 3);
             mImage.sprite = Ssprite[gameInformation.rocketNumLevel - 1];
             text2.text = PleaseCoin[gameInformation.rocketNumLevel + 5];
             if (gameInformation.rocketNumLevel == 3)
@@ -126,7 +126,7 @@ public class SkillButtonManager : MonoBehaviour
 
         if (ButtonNumber == 7)
         {
-            gameInformation.weakPointNumLevel = PlayerPrefs.GetInt(SkillName[7], 1);
+            gameInformation.weakPointNumLevel = PlayerPrefs.GetInt(SkillName[7], 3);
             mImage.sprite = Ssprite[gameInformation.weakPointNumLevel - 1];
             text2.text = PleaseCoin[gameInformation.weakPointNumLevel + 3];
             if (gameInformation.weakPointNumLevel == 3)
@@ -136,7 +136,7 @@ public class SkillButtonManager : MonoBehaviour
         }
         if (ButtonNumber == 8)
         {
-            gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(SkillName[8], 1);
+            gameInformation.weakPointMagnificationLevel = PlayerPrefs.GetInt(SkillName[8], 5);
             mImage.sprite = Ssprite[gameInformation.weakPointMagnificationLevel - 1];
             skillManager.RSLevel(3);
             text2.text = PleaseCoin[gameInformation.weakPointMagnificationLevel - 1];
